@@ -1,1 +1,7 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=9772462&assignment_repo_type=AssignmentRepo)
+# Penn Housing Review
+
+## Intro
+Penn Housing Review helps users, particularly Penn students, to wisely choose the best housing at Penn suitable for them and provides subjective reviews and info from past residents, regarding room status, price comparisons, amenities, activities within residential building, leasing information etc.
+
+
+
