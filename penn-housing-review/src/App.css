@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+body {
+  background: rgba(243, 249, 237, 0.5);
+  font-family: "Lato";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #4A4A4A;
+  padding: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.header-button {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  /* identical to box height */
+
+  display: inline-block;
+  align-items: center;
+  text-decoration-line: underline;
+  cursor: pointer;
+  margin-right: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo-title {
+  display: flex;
+  align-items: center; /* center items vertically */
+}
+
+.logo-title img {
+  width: 120px; /* set width of logo image */ 
+}
+
+.main-title {
+  font-size: 64px; /* set font size for title */
+  font-weight: bold; /* set font weight for title */
+  text-align: center;
+  color:#4a4a4a
+}
+
+.main-body {
+  justify-content: center; /* center items horizontally */
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.search {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 1.5em;
+  border-radius: 30px;
+  width: 80%;
+  max-width: 500px;
+  border: 1px solid #868686;
+  color: #4a4a4a;
+}
+
+.search:focus {
+  outline:none;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  z-index: 1;
+  width: 100%
+}
+
+.search-results li {
+  padding: 8px;
+}
+
+.search-box input:focus + .search-results {
+  display: block;
 }
