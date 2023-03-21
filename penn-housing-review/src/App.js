@@ -1,15 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import MainHeader from './components/Header.js'
-import LogoName from './components/LogoName.js'
+import MainHeader from './components/MainHeader.js'
+import MainBody from './components/MainSearch.js'
+import Header from './components/FBHeader.js'
 
 function App() {
   return (
-    <div>
+    /*<div>
       <MainHeader />
-      <LogoName />
+      <MainBody />
+    </div>*/
+    <div>
+      <Header />
     </div>
-    
   )
 }
 
