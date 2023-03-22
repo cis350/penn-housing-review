@@ -1,8 +1,16 @@
+/**
+* @jest-environment jsdom
+*/
+
+import React from 'react';
+import '@testing-library/jest-dom/extend-expect';
+// import testing library functions
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import userEvent from '@testing-library/user-event';
+import App from '../App';
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+  const { getByText } = render(<App />);
+  const linkElement = getByText(/Chestnut/);
   expect(linkElement).toBeInTheDocument();
 });
