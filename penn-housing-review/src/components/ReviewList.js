@@ -22,7 +22,7 @@ function ReviewEntry( {id, username, ratings, likes, desc} ) { // add an ID fiel
         <Mui.Rating className='review-star' defaultValue={ratings[2]} precision={0.1} readOnly />
       </div>
       <p>{desc}</p>
-      <LikeButton likes={likes} id={id} />
+      <LikeButton id={id} username={username} ratings={ratings} likes={likes} desc={desc} />
     </div>
   )
 }

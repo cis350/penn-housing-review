@@ -1,1 +1,1 @@
-export const rootURL = 'http://localhost:3001/review';
+export const rootURL = 'http://localhost:3000';

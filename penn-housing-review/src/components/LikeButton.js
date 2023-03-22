@@ -4,11 +4,11 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ToggleButton from '@mui/material/ToggleButton';
 import { updateLike } from '../api/reviewapi';
 
-export default function LikeButton( {likes, id} ) {
+export default function LikeButton( {id, username, ratings, likes, desc} ) {
     const [selected, setSelected] = React.useState(false);
     let handleChange = () => {
       setSelected(!selected);
-      updateLike(likes, id);
+      updateLike(1, id, username, ratings, likes + !selected, desc);
     }
     return (
         <ToggleButton className='like' value="check" selected={selected} onChange={handleChange}>
