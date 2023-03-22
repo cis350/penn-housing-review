@@ -18,7 +18,7 @@ function MainHeader({username}) {
     return (
         <header className="header">
             <div className = "button-right">
-                <Profile username = "username"/>
+                <Profile username = {localStorage.getItem("username")}/>
             </div>
             <div className = "button-left">
                 <ForYou />

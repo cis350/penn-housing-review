@@ -141,6 +141,7 @@ function Search() {
         {results.map((name) => (
             <li>{name}</li>
         ))}
+        <li> + add a house</li>
       </ul>
     </div>
   );
