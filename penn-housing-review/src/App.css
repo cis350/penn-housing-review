@@ -1,6 +1,6 @@
 .container {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   height: 100vh;
   width: 100vw;
   background-color: #F5F5F5;
@@ -10,6 +10,10 @@
 .MuiButton-outlinedPrimary {
   color:rgb(117, 137, 122) !important;
   border-color:rgba(117, 137, 122, 0.7) !important;
+}
+
+.MuiSvgIcon-root {
+  color: rgba(117, 137, 122, 0.7) !important;
 }
 
 .MuiButton-containedPrimary {
@@ -28,7 +32,6 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 25px;
   background: rgba(117, 137, 122, 0.7);
@@ -90,28 +93,36 @@
   font-size: 20px;
 }
 
+.filterPage {
+  display: flex;
+  flex:  1 1 auto;
+  width: 100%;
+}
+
 .filterCond {
   display: flex;
   flex-direction: column;
-  /* flex percentage */
-  justify-content: space-between;
-  padding: 25px;
+  padding-left: 100px;
+  padding-top: 30px;
+  padding-right: 30px;
+  width: 200px;
 }
 
-.filterPage {
-  display: flex;
-}
 
 .filterResult {
-  padding: 25px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 100px;
+  width: 700px;
 }
-/* .description-view {
-  flex: 1;
+
+.postButtom {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-right: 20px;
-  width: 10%;
-  position: relative;
-  right: 2%;
-} */
+  font-size: 15px;
+}
+
+.postEle {
+  display: flex;
+  justify-content: space-between;
+}

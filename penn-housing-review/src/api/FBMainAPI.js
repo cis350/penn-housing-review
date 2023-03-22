@@ -50,3 +50,28 @@ export const getFilteredPostByHousingType = async (housingType) => {
     }
 }
 
+export const updateLike = async(likes, pid) => {
+    try {
+        const response = await axios.put(`${rootURL}/posts/${pid}`, {
+            likes: likes
+        });
+        console.log("update likes", response.data);
+        return response.data;
+    } catch (err) {
+        console.error("error", err.message);
+    }
+}
+
+// export const incrementLikes = async (pid) => {
+//     try {
+//         const url = `${rootURL}/posts?pid=${pid}`;
+//         const post = await axios.get(url);
+//         const newLikesCount = post.data.likes + 1;
+//         const updatedPost = await axios.put(url, { ...post.data, likes: newLikesCount });
+//         console.log("updated like", updatedPost.data);
+//         return updatedPost.data.likes;
+//     } catch (err) {
+//         console.error(`Error updating likes count for post ${postId}: ${err.message}`);
+//     }
+//   };
+

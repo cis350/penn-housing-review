@@ -1,7 +1,9 @@
 import { useState } from "react";
 import usePagination from '../utils/usePagination';
 import { Box, List, Pagination } from "@mui/material";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import LikeButtom from './FBLikeButtom';
+import CommentButtom from './FBCommentButtom';
+import NotifyButtom from './FBNotifyButtom';
 
 export default function PostList( {data} ) {
     let [page, setPage] = useState(1);
@@ -11,27 +13,26 @@ export default function PostList( {data} ) {
     const _DATA = usePagination(data, PER_PAGE);
 
     const handleChange = (e, p) => {
-        setPage(p);
-        _DATA.jump(p);
+      setPage(p);
+      _DATA.jump(p);
     };
 
-    function LikeBottom( {likes} ) {
-        return (
-            <div className='likeBottom'>
-              
-            </div>
-        )
+    const handleComment = (event) => {
+      event.preventDefault();
     }
 
 
-    function PostEntry( {title, content, likes, comments} ) { // add an ID field
+    function PostEntry( {title, content, likes, comments, pid} ) { // add an ID field
         return (
           <div className='postEntry'>
             <h3>{title}</h3>
-            <p>{content}</p>              
-            <p>{likes}</p>
+            <p>{content}</p>
+            <div className='postEle'>
+              <LikeButtom likes={likes} pid={pid} />
+              <CommentButtom comments={comments} />
+              <NotifyButtom />
+            </div>        
             
-            <p>Comments: {comments.length}</p>
             
           </div>
         )
@@ -47,7 +48,8 @@ export default function PostList( {data} ) {
                     title={v.title} 
                     content={v.content} 
                     likes={v.likes} 
-                    comments={v.comments} />
+                    comments={v.comments}
+                    pid={v.pid} />
                 
               );
             })}
