@@ -5,6 +5,7 @@ import React from 'react';
 import { useState } from 'react';
 import '../App.css';
 import { Button, TextField, Stack, RadioGroup, FormControlLabel, Radio, FormControl } from '@mui/material';
+import { addNewPost } from '../api/FBNewPostAPI';
 
 export default function FBPostPage() {
     const [currentOnCampus, setcCurrentOnCampus] = useState('outlined');
@@ -13,6 +14,7 @@ export default function FBPostPage() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [category, setCategory] = useState('');
+    const [postObject, setPostObject] = useState({});
 
     const handleHousingTypeClickOne = (event) => {
         if (currentOnCampus === 'outlined') {
@@ -56,14 +58,24 @@ export default function FBPostPage() {
     };
 
     const handleSubmit= (event) => {
-        event.preventDefault();
-        // direct to url /forum_board, write the code
+        console.log("title", title);
+        console.log("content", content);
+        console.log("category", category);
+        console.log("housingType", housingType);
 
-
-
-        // send xdata to backend
+        // setPostObject({
+        //     "title": title,
+        //     "content": content,
+        //     "category": category,
+        //     "housingType": housingType
+        // })
         
-
+        async function addNewPostWrapper() {
+            const response = await addNewPost(title, content, category, housingType);
+            console.log("response", response);
+            return response;
+        }
+        addNewPostWrapper();
     };
 
 
