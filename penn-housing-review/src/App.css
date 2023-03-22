@@ -1,38 +1,117 @@
-.App {
-  text-align: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: #F5F5F5;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.MuiButton-outlinedPrimary {
+  color:rgb(117, 137, 122) !important;
+  border-color:rgba(117, 137, 122, 0.7) !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.MuiButton-containedPrimary {
+  background-color: rgba(117, 137, 122, 0.7) !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.MuiFormControlLabel-label {
+  font-size: 15px !important;
+  padding-top: 0% !important;
+
+}
+
+.MuiRadio-colorPrimary.Mui-checked {
+  color: rgba(117, 137, 122, 0.7) !important;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  background: rgba(117, 137, 122, 0.7);
+}
+
+.logo {
+  position: absolute;
+  left: 1%;
+  /* change size to half */
+
+}
+
+.title {
+  position: absolute;
+  left: 6%;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 43px;
+  display: flex;
+  align-items: top;
+  color: #FFFFFF;
+}
+
+.profile {
+  position: absolute;
+  right: 2%;
+}
+.main {
+  /* change the proportion of display */
+  justify-content: center;
+  margin-right: 80px;
+  margin-left: 80px;
+}
+
+.postingTitle {
+  font-size: 21px;
+}
+
+.postEle {
+  font-size: 15px;
+}
+
+.housingType {
+  color:rgba(117, 137, 122, 0.7)
+}
+
+.search-bar {
+  position: absolute;
+  left: 25%;
+  box-sizing: border-box;
+  width: 500px;
+  height: 40px;
+  border: 1px solid #788e7d;
+  border-radius: 96px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-size: 20px;
+}
+
+.filterCond {
+  display: flex;
+  flex-direction: column;
+  /* flex percentage */
+  justify-content: space-between;
+  padding: 25px;
+}
+
+.filterPage {
+  display: flex;
+}
+
+.filterResult {
+  padding: 25px;
+}
+/* .description-view {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+  margin-right: 20px;
+  width: 10%;
+  position: relative;
+  right: 2%;
+} */
