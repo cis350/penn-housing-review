@@ -11,9 +11,6 @@ import IconButton from '@mui/material/IconButton';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 
-
-
-
 function UserProfile({ username }) {
   const [password, setPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');

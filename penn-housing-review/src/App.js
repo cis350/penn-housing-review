@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
+
 import UserProfile from './components/UserProfile';
 function App() {
   const username = 'JohnDoe';
