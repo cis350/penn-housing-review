@@ -98,7 +98,7 @@ export default function Filter() {
                     variant="contained" 
                     onClick={handlePost}>
                         Make a Post</Button>
-                <h3 className='postEle'>Housing Type</h3>
+                <h3 className='postEle'>Housing</h3>
                 <FormControl>
                     <RadioGroup
                         aria-labelledby="demo-row-radio-buttons-group-label"
