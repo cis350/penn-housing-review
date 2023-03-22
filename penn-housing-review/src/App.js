@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.css';
 import Login from './components/Login.js';
 
-export const UserContext = React.createContext();
 
 function App() {
 
@@ -13,9 +12,7 @@ function App() {
 
   if (localStorage.getItem('userID') == null) {
     return (
-      <UserContext.Provider value={user}>
       <Login />
-    </UserContext.Provider>
     );
   }
 

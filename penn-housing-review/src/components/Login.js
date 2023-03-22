@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import "./Login.css";
 import loginUser from "../api/LoginAPI.js";
 import InputBox from "./InputBox.js";
-import UserContext from "../App.js";
+import registerUser from "../api/RegistrationAPI.js";
 
 function Login() { // will modify user ID once logged in
-  const value = React.useContext(UserContext);  
   // state variables for username and password input
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -26,10 +25,27 @@ function Login() { // will modify user ID once logged in
   };
 
   // handle click events for buttons
-  const handleRegisterClick = () => {
-    // logic for registering a new user
-    console.log("Registering user");
-    setIsRegister(true);
+  const handleRegisterClick = async () => {
+    if (!isRegister){
+      // logic for registering a new user
+      console.log("Registering user");
+      setIsRegister(true);
+    } else {
+      // Try to log in the user with the given credentials
+    try {
+      // Await for the loginUser function to resolve or reject
+      const data = await registerUser(username, email, password);
+      console.log(data);
+      // If resolved, get the userID from the data object
+      const userID = data.data.id;
+      console.log(userID);
+      loggedIn(username, userID);
+    } catch (error) {
+      // If rejected, handle the error by displaying a message or logging it
+      alert('Registration failed. Please check your username and password.');
+      console.error(error);
+    }
+    }
   };
 
   // handle click events for buttons
@@ -55,13 +71,7 @@ function Login() { // will modify user ID once logged in
       // If resolved, get the userID from the data object
       const userID = data.data.id;
       console.log(userID);
-      // then send it to main page
-      alert("logged in!");
-      // Do something with the userID, such as storing it in localStorage or redirecting to another page
-      localStorage.setItem('userID', userID);
-      localStorage.setItem('username', username);
-
-      window.location.href = '/';
+      loggedIn(username, userID);
     } catch (error) {
       // If rejected, handle the error by displaying a message or logging it
       alert('Login failed. Please check your username and password.');
@@ -69,10 +79,19 @@ function Login() { // will modify user ID once logged in
     }
   }
 
+  function loggedIn(username, userID) {
+    // then send it to main page
+    alert("logged in!");
+    // Do something with the userID, such as storing it in localStorage or redirecting to another page
+    localStorage.setItem('userID', userID);
+    localStorage.setItem('username', username);
+
+    window.location.href = '/';
+  }
+
   if (isRegister) {
     
     return (
-      <UserContext.Consumer>
       <div className="login-container">
         {/* semi-transparent background overlay */}
         <div className="login-overlay"></div>
@@ -88,7 +107,6 @@ function Login() { // will modify user ID once logged in
         </div>
         
       </div>
-      </UserContext.Consumer>
     );
   }
 
