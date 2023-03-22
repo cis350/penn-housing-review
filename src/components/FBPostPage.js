@@ -58,18 +58,6 @@ export default function FBPostPage() {
     };
 
     const handleSubmit= (event) => {
-        console.log("title", title);
-        console.log("content", content);
-        console.log("category", category);
-        console.log("housingType", housingType);
-
-        // setPostObject({
-        //     "title": title,
-        //     "content": content,
-        //     "category": category,
-        //     "housingType": housingType
-        // })
-        
         async function addNewPostWrapper() {
             const response = await addNewPost(title, content, category, housingType);
             console.log("response", response);
@@ -119,6 +107,7 @@ export default function FBPostPage() {
                     variant="outlined" 
                     color = "success"
                     placeholder = "Enter your title here"
+                    data-testid="title"
                     multiline
                     rows={1}
                     maxRows={2}
@@ -132,7 +121,7 @@ export default function FBPostPage() {
                         name="row-radio-buttons-group"
                         onChange= {handleChangeCategory}
                     >
-                        <FormControlLabel value="Discussion" control={<Radio />} label="Discussion" />
+                        <FormControlLabel value="Discussion" data-testid="dicussion" control={<Radio />} label="Discussion" />
                         <FormControlLabel value="Lease Info" control={<Radio />} label="Lease Info" />
                         <FormControlLabel value="Social" control={<Radio />} label="Social" />
                         <FormControlLabel value="Event" control={<Radio />} label="Event" />
@@ -150,6 +139,7 @@ export default function FBPostPage() {
                     id="full-width-text-field"
                     variant="outlined" 
                     color = "success"
+                    data-testid="content"
                     placeholder = "Enter you text here"
                     multiline
                     rows={10}
