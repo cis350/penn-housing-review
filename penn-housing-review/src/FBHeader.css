@@ -1,4 +1,4 @@
-.header {
+.fb-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,7 +11,7 @@
     left: 1%;
   }
   
-  .title {
+  .fb-title {
     position: absolute;
     left: 6%;
     font-family: 'Lato';

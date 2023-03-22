@@ -1,0 +1,60 @@
+
+{
+
+      "search": [{ 
+        "houseid": "1",
+        "houseName": "THE QUAD",
+        "description": {
+          "summary": "The Quad is a group of four dormitories on the west side of campus.",
+          "details": "The Quad consists of Fisher Hassenfeld College House, Riepe College House, Ware College House and New College House West. The Quad offers a variety of room types and amenities for students."
+        },
+        "ratings": [
+          {
+            "itemId": 1,
+            "rating": 4.2
+          },
+          {
+            "itemId": 2,
+            "rating": 3.8
+          },
+          {
+            "itemId": 3,
+            "rating": 4.0
+          }
+        ],
+        "onCampus": true,
+        "freshman": true,
+        "price": 12000
+      },
+      {
+        "houseid": "2",
+        "houseName": "SANSOM PLACE",
+        "description": {
+          "summary": "Sansom Place is a high-rise apartment complex on the east side of campus.",
+          "details": ""
+        }
+      },
+
+      {
+        "houseid": "3",
+        "houseName": "THE CHESTNUT",
+        "description": {
+          "summary": "the chestnut is a high-rise apartment complex on the east side of campus.",
+          "details": ""
+        }
+      },
+      {
+        "houseid": "4",
+        "houseName": "RODIN",
+        "description": {
+          "summary": "Rodin is a high-rise apartment complex on the east side of campus.",
+          "details": ""
+        }
+      }
+      
+    
+    
+    ]
+    
+  }
+  

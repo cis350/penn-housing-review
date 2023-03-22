@@ -1,4 +1,4 @@
-import logo from "../logo2.png"
+import logo from "../assets/logo2.png"
 function LogoTitle() {
     return (
         <div className = "logo-title">

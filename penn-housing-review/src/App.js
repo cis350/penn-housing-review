@@ -1,18 +1,16 @@
-import logo from './logo.svg';
+
 import './App.css';
 import MainHeader from './components/MainHeader.js'
-import MainBody from './components/MainSearch.js'
-import Header from './components/FBHeader.js'
+import MainBody from './components/MainSearch2.js'
 
 function App() {
   return (
-    /*<div>
+    <div>
       <MainHeader />
       <MainBody />
-    </div>*/
-    <div>
-      <Header />
+      
     </div>
+  
   )
 }
 
