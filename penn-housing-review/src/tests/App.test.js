@@ -1,6 +1,28 @@
-// Import React Testing Library and React
-import { render, screen } from '@testing-library/react';
+/**
+* @jest-environment jsdom
+*/
+
 import React from 'react';
+import '@testing-library/jest-dom/extend-expect';
+// import testing library functions
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import ReviewPage from './components/ReviewPage';
+
+test('renders app page', () => {
+  const { getByText } = render(<ReviewPage />);
+  const linkElement = getByText(/Chestnut/);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('button: On Campus Housing', async () => {
+  render(<ReviewPage />);
+  const button = screen.getByLabelText('button', { name: /10/i });
+  expect(button).toBeInTheDocument();
+
+  await userEvent.click(button);})
+
+// Import React Testing Library and React
 
 // Import the components you want to test
 import App from '../App.js';
@@ -35,4 +57,4 @@ test('renders Profile, ForYou and ForumBoard', () => {
   const forumBoard = screen.getByText(/forum/i);
   // Expect ForumBoard element to be in the document
   expect(forumBoard).toBeInTheDocument();
-});
+})
