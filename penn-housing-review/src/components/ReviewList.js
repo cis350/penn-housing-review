@@ -1,6 +1,5 @@
 import './ReviewPage.css';
 import * as React from "react";
-import { Routes, Route } from "react-router-dom"
 import { useState } from 'react';
 import * as Mui from '@mui/material';
 import List from "@mui/material/List";
@@ -49,6 +48,7 @@ export default function ReviewList( {data} ) {
         })}
       </List>
       <Pagination
+        id='100'
         count={count}
         size="large"
         page={page}
