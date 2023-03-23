@@ -1,8 +1,6 @@
 import CommentIcon from '@mui/icons-material/Comment';
 
-
-
-export default function LikeButton( {comments} ) {
+export default function CommentButton( {comments} ) {
     const handleComment = (event) => {
         event.preventDefault();
     }
@@ -11,10 +9,10 @@ export default function LikeButton( {comments} ) {
         <div>
             <span className='postButtom'>
                 <a href="#" onClick={handleComment}>
-                    <CommentIcon fontSize="medium"/>
+                    <CommentIcon fontSize="medium" data-testid="comment-icon"/>
                 </a>
                 &nbsp;
-                {comments.length}
+                {comments}
               </span>
         </div>
     );

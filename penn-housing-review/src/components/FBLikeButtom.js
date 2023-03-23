@@ -14,7 +14,7 @@ export default function LikeButton( {likes, pid} ) {
         <div>
             <span className='postButtom'>
                 <a href="#" onClick={handleLike}>
-                    <FavoriteBorderIcon fontSize="medium"/>
+                    <FavoriteBorderIcon fontSize="medium" data-testid="like-buttom-icon"/>
                 </a>
                 &nbsp;
                 {likes + selected}

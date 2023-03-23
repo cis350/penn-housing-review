@@ -110,7 +110,6 @@ export default function FBPostPage() {
                     data-testid="title"
                     multiline
                     rows={1}
-                    maxRows={2}
                     value={title}
                     onChange = {handleChangeTitle}/>
                 <h3 className='postEle'>Category</h3>
@@ -143,7 +142,6 @@ export default function FBPostPage() {
                     placeholder = "Enter you text here"
                     multiline
                     rows={10}
-                    maxRows={10}
                     value={content}
                     onChange = {handleChangeContent}
                     />
