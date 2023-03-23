@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Login from './components/Login.js';
+
 
 function App() {
+
+  const [username, setUsername] = useState(null);
+  const [userID, setUserID] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
+  const user = {username: username, userID: userID, userEmail: userEmail, setUsername: setUsername, setUserID: setUserID, setUserEmail: setUserEmail};
+
+  if (localStorage.getItem('userID') == null) {
+    return (
+      <Login />
+    );
+  }
+
+  alert('Logged in with userID: ' + userID + " and username: " + username);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <text>Welcome, your user ID is: {localStorage.getItem('userID')} and your username is: {localStorage.getItem("username")}</text>
     </div>
   );
+
 }
 
 export default App;
