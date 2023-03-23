@@ -43,9 +43,6 @@ function UserProfile({ username }) {
       alert('Error updating password. Please try again.');
     }
 
-    setPassword('');
-    setNewPassword('');
-    setConfirmPassword('');
   };
 
   return (
