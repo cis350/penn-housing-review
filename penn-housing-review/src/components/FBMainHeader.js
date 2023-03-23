@@ -23,8 +23,7 @@ return (
     <div className="header">
         <Logo />
         <h2 className='title'>Housing Review</h2>
-        <SearchBar />
+        {/* <SearchBar /> */}
         <Profile username="User" />
     </div>
-);
-}
+);}
