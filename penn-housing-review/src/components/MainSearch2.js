@@ -84,6 +84,8 @@ import logo from "../assets/logo2.png"
 // Import the searchHouse function from another file
 import { searchHouse } from "../api/MainSearchApi.js";
 
+import './Main.css'
+
 // Define a custom component for the logo and title
 function LogoTitle() {
   return (
