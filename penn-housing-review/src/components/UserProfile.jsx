@@ -61,29 +61,32 @@ function UserProfile({ username }) {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
-      />
+        data-testid="current-password" // Add this line
+        />
 
-      <TextField
+    <TextField
         id="new-password"
         label="New Password"
         type="password"
         value={newPassword}
         onChange={(e) => setNewPassword(e.target.value)}
         required
-      />
+        data-testid="new-password" // Add this line
+        />
 
-      <TextField
+    <TextField
         id="confirm-password"
         label="Confirm New Password"
         type="password"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         required
-      />
+        data-testid="confirm-password" // Add this line
+        />
 
-      <Button type="submit" variant="contained" color="primary">
+    <Button type="submit" variant="contained" color="primary" data-testid="change-password">
         Change Password
-      </Button>
+        </Button>
 
 
       <div className="logout-container">
