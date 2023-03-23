@@ -1,0 +1,55 @@
+.fb-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background: rgba(117, 137, 122, 0.7);
+  }
+  
+  .logo {
+    position: absolute;
+    left: 1%;
+  }
+  
+  .fb-title {
+    position: absolute;
+    left: 6%;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 43px;
+    display: flex;
+    align-items: top;
+    color: #FFFFFF;
+  }
+  
+  .search-bar {
+    position: absolute;
+    left: 25%;
+    box-sizing: border-box;
+    width: 500px;
+    height: 40px;
+    border: 1px solid #788e7d;
+    border-radius: 96px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  .search-bar:focus {
+    outline:none;
+  }
+  
+  .username-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .profile {
+    position: absolute;
+    right: 2%;
+  }
+  
