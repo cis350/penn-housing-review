@@ -1,7 +1,6 @@
 import './ReviewPage.css';
 import * as React from "react";
 import logo from '../assets/P-2.png';
-import { Routes, Route } from "react-router-dom"
   
   function Logo() {
     return (
