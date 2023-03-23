@@ -1,0 +1,26 @@
+.input-box-title {
+ 
+    /* display labels as block elements */
+    display:block;
+    
+    }
+
+.input-box-textbox:focus {
+    outline: none;
+}
+    
+.input-box-textbox {
+
+/* give some margin and width to input fields */
+margin:10px;
+width:100%;
+background-color: rgba(128, 128, 128, 0.1);
+border-radius: 10px;
+margin: 8px 0;
+padding: 12px 20px;
+border: none;
+padding: 10px;
+box-sizing: border-box;
+margin-bottom: 12px;
+
+}

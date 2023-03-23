@@ -1,0 +1,64 @@
+/* UserProfile.css */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+.user-profile {
+    padding-top: 150px;
+    background-color: #F3F9ED;
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif; /* Set the font family to Lato */
+   
+  }
+  
+  .user-profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Adjust this value to control the spacing between elements */
+    padding: 0 20px; /* Add horizontal padding to prevent content from touching the edges */
+    max-width: 800px; /* Set the desired maximum width */
+    margin: 0 auto; /* Center the content horizontally */
+  }
+  .user-profile-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+  }
+  .posts-container {
+    width: 100%;
+  }
+  .password-change-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .user-info-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* UserProfile.css */
+
+
+  .logout-container {
+    width: 100%;
+    margin-top: 40px; /* Add some spacing after the end of the posts */
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .logout-button {
+    background-color: #75897A;
+    color: white;
+  }
+  
+  .logout-button:hover {
+    background-color: #5c6f5b;
+  }
+  
+  
+  
+  

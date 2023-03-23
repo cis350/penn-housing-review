@@ -1,0 +1,36 @@
+{
+  "login": [
+    {
+      "username": "alice",
+      "password": "1234",
+      "id": 1
+    },
+    {
+      "username": "bob",
+      "password": "5678",
+      "id": 2
+    }
+  ],
+  "register": [
+    {
+      "username": "alice",
+      "password": "1234",
+      "id": 1
+    },
+    {
+      "username": "bob",
+      "password": "5678",
+      "id": 2
+    },
+    {
+      "{\"username\":\"newUserRegister\",\"email\":\"register@r.com\",\"password\":\"registerpwd\"}": "",
+      "id": 3
+    },
+    {
+      "username": "readfas",
+      "email": "adfasdfasdfad",
+      "password": "adfadsfadsfad",
+      "id": 4
+    }
+  ]
+}
