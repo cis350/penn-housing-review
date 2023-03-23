@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { useState } from 'react';
-import '../App.css';
+import './FBPostPageStyles.css';
 import { Button, TextField, Stack, RadioGroup, FormControlLabel, Radio, FormControl } from '@mui/material';
 import { addNewPost } from '../api/FBNewPostAPI';
 

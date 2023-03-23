@@ -1,4 +1,4 @@
-import '../App.css';
+import './FBPostPageStyles.css';
 import * as React from "react";
 import logo from '../assets/P-2.png';
   

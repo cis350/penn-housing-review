@@ -1,13 +1,8 @@
-import './App.css';
-import FBPostHeader from './components/FBPostHeader';
-import FBPostPage from './components/FBPostPage';
+import FBPostMainPage from "./components/FBPostMainPage";
 
 function App() {
   return (
-    <div className="container">
-      <FBPostHeader />
-      <FBPostPage />
-    </div>
+    <FBPostMainPage/>
     
   );
 }
