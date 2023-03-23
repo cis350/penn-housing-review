@@ -3,24 +3,14 @@ import './App.css';
 import Login from './components/Login.js';
 
 
+import UserProfile from './components/UserProfile';
 function App() {
-
-  const [username, setUsername] = useState(null);
-  const [userID, setUserID] = useState(null);
-  const [userEmail, setUserEmail] = useState(null);
-  const user = {username: username, userID: userID, userEmail: userEmail, setUsername: setUsername, setUserID: setUserID, setUserEmail: setUserEmail};
-
-  if (localStorage.getItem('userID') == null) {
-    return (
-      <Login />
-    );
-  }
-
-  alert('Logged in with userID: ' + userID + " and username: " + username);
+  const username = 'JohnDoe';
+  const posts = ['First post', 'Second post', 'Third post'];
 
   return (
-    <div>
-      <text>Welcome, your user ID is: {localStorage.getItem('userID')} and your username is: {localStorage.getItem("username")}</text>
+     <div className="App">
+      <UserProfile username={username} posts={posts} />
     </div>
   );
 
