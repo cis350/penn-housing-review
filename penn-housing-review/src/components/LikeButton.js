@@ -1,4 +1,4 @@
-import '../App.css';
+import './ReviewPage.css';
 import * as React from "react";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ToggleButton from '@mui/material/ToggleButton';
