@@ -5,10 +5,16 @@
 
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import FBMainHeader from '../components/FBMainHeader';
 
 test('text: Housing Review', () => {
-    render(<App />);
+    render(<FBMainHeader />);
     const text = screen.getByText(/Housing Review/i);
+    expect(text).toBeInTheDocument();
+});
+
+test('text: Housing Review', () => {
+    render(<FBMainHeader />);
+    const text = screen.getByText(/Welcome,/i);
     expect(text).toBeInTheDocument();
 });

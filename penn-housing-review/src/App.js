@@ -1,4 +1,4 @@
-import './App.css';
+import './components/FBMainPageStyles.css';
 import Header from './components/FBMainHeader';
 import Filter from './components/FBMainFilter';
 

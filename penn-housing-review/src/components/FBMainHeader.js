@@ -1,4 +1,4 @@
-import '../App.css';
+import './FBMainPageStyles.css';
 import * as React from "react";
 import logo from '../assets/P-2.png';
   
@@ -10,9 +10,9 @@ function Logo() {
     )
 }
 
-function SearchBar() {
-    return <input type="text" placeholder="   Search for Post" className='search-bar' />;
-}
+// function SearchBar() {
+//     return <input type="text" placeholder="   Search for Post" className='search-bar' />;
+// }
 
 function Profile({ username }) {
     return <a href="/user" className="profile">Welcome, {username}</a>;

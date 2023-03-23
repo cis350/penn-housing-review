@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Button, FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { getAllPosts, getFilteredPost, getFilteredPostByCategory, getFilteredPostByHousingType } from "../api/FBMainAPI";
 import PostList from './FBPostList';
+import './FBMainPageStyles.css';
+
 
 export default function Filter() {
     const [data, setData] = useState([]);

@@ -12,7 +12,6 @@ export default function LikeButton() {
                 <a href="#" onClick={handleNotify}>
                     <NotificationsNoneIcon fontSize="medium"/>
                 </a>
-
               </span>
         </div>
     );
