@@ -1,3 +1,6 @@
+
+import './Main.css'
+
 function Profile ({username}) {
     return <a href="/user-profile" className="main-profile header-button">welcome, {username}</a>
 }

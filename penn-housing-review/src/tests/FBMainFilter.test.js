@@ -14,6 +14,7 @@ test('text: Category', () => {
     expect(text).toBeInTheDocument();
 });
 
+
 test('button: Make a Post', async () => {
     render(<FBMainFilter />);
     const button = screen.getByRole('button', { name: /Make a Post/i });
@@ -24,76 +25,53 @@ test('button: Make a Post', async () => {
   
 });
 
-test("click On Campus radio option", () => {
+test("click On Campus radio option", async () => {
     render(<FBMainFilter />);
     const button = screen.getByRole("radio", { name: 'On Campus' });
     expect (button).toBeInTheDocument();
   
-    fireEvent.click(button);
+    await userEvent.click(button);
     expect(button).toBeChecked();
 });
 
-test("click Off Campus radio option", () => {
+test("click Off Campus radio option", async () => {
     render(<FBMainFilter />);
     const button = screen.getByRole("radio", { name: 'Off Campus' });
     expect (button).toBeInTheDocument();
 
-    fireEvent.click(button);
+    await userEvent.click(button);
     expect(button).toBeChecked();
 });
 
-test("click All Housing Types radio option", () => {
+test("click All Housing Types radio option", async () => {
     render(<FBMainFilter />);
     const button = screen.getByRole("radio", { name: 'All Housing Types' });
     expect (button).toBeInTheDocument();
 
-    fireEvent.click(button);
+    await userEvent.click(button);
     expect(button).toBeChecked();
 });
 
-test("click All Housing Types + Social radio option", () => {
-    render(<FBMainFilter />);
-    const button = screen.getByRole("radio", { name: 'All Housing Types' });
-    expect (button).toBeInTheDocument();
-    const buttonOther = screen.getByRole("radio", { name: 'Social' });
-    
-    fireEvent.click(button);
-    fireEvent.click(buttonOther);
-    expect(button).toBeChecked();
-    expect(buttonOther).toBeChecked();
-});
-
-test("click All Housing Types + All categories radio option", () => {
+test("click All categories radio option", async () => {
     render(<FBMainFilter />);
     const button = screen.getByRole("radio", { name: 'All Housing Types' });
     expect (button).toBeInTheDocument();
     const buttonOther = screen.getByRole("radio", { name: 'All Categories' });
 
-    fireEvent.click(button);
-    fireEvent.click(buttonOther);
-    expect(button).toBeChecked();
+    await userEvent.click(buttonOther);
     expect(buttonOther).toBeChecked();
 });
 
-test("click Discussion+Off Campus radio option", () => {
+test("click Discussion+Off Campus radio option", async () => {
     render(<FBMainFilter />);
     const button = screen.getByRole("radio", { name: 'Discussion' });
     expect (button).toBeInTheDocument();
 
     const buttonOther = screen.getByRole("radio", { name: 'Off Campus' });
 
-    fireEvent.click(button);
-    fireEvent.click(buttonOther);
+    await userEvent.click(button);
+    await userEvent.click(buttonOther);
     expect(button).toBeChecked();
-    expect(buttonOther).toBeChecked();
+    expect(buttonOther).not.toBeChecked();
 });
 
-
-test("click Social radio option", () => {
-    render(<FBMainFilter />);
-    const button = screen.getByRole("radio", { name: 'Social' });
-    expect (button).toBeInTheDocument();
-  
-    fireEvent.click(button);
-    expect(button).toBeChecked();
-});

@@ -16,11 +16,6 @@ import {searchURL, profileURL, mainURL, forumURL, forumNewPostURL} from './utils
 
 function App() {
 
-  
-
-  const username = 'JohnDoe';
-  const posts = ['First post', 'Second post', 'Third post'];
-
   return (
     <div className="App">
       <Router>

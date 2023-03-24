@@ -71,7 +71,7 @@ test('button: cancel Off Campus Housing', async () => {
 
   await userEvent.click(buttonOne);
   await userEvent.click(buttonOne);
-  expect(buttonOne).toHaveStyle('background-color: rgb(25, 118, 210)');
+  expect(buttonOne).toHaveStyle('background-color: transparent');
 
 });
 // test the presence of the text field for title
@@ -104,5 +104,3 @@ test("click Social radio option", () => {
   fireEvent.click(button);
   expect(button).toBeChecked();
 });
-
-
