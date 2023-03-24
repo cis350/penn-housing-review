@@ -131,6 +131,7 @@ export default function Filter() {
             </div>
             <div className="filterResult">
                 <PostList data={data} />
+                
             </div>
         </div>
         

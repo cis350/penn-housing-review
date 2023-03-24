@@ -5,16 +5,15 @@ import LikeButtom from './FBLikeButtom';
 import CommentButtom from './FBCommentButtom';
 import NotifyButtom from './FBNotifyButtom';
 
-export default function PostList( {c_data} ) {
+export default function PostList( {i_posts} ) {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
 
-  const PER_PAGE = 2;
-  
-  // if data is not empty, set data
-  if (data.length > 0) {
-    setData(c_data);
+  if (i_posts) {
+    setData(i_posts);
   }
+
+  const PER_PAGE = 2;
 
   const count = Math.ceil(data.length / PER_PAGE);
   const _DATA = usePagination(data, PER_PAGE);
@@ -29,18 +28,16 @@ export default function PostList( {c_data} ) {
   }
 
 
-  function PostEntry( {title, content, likes, comments, pid} ) { // add an ID field
+  function PostEntry( {key, title, content, likes, commentLength} ) { // add an ID field
       return (
         <div className='postEntry'>
           <h3>{title}</h3>
           <p>{content}</p>
           <div className='postEle'>
-            <LikeButtom likes={likes} pid={pid} />
-            <CommentButtom comments={comments} />
+            <LikeButtom likes={likes} pid={key} />
+            <CommentButtom comments={commentLength} onClick={handleComment} />
             <NotifyButtom />
           </div>        
-          
-          
         </div>
       )
   }
@@ -56,8 +53,7 @@ export default function PostList( {c_data} ) {
               title={v.title} 
               content={v.content} 
               likes={v.likes} 
-              comments={v.commentLength}
-              pid={v.pid} />
+              commentLength={v.commentLength}/>
             
           );
         })}
