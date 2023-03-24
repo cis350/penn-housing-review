@@ -24,12 +24,6 @@ function App() {
       <Router>
         <nav>
           <ul>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/user-profile">User Profile</Link>
-            </li>
             {/* Add links for your other components */}
             {/* <li>
               <Link to="/component-a">Component A</Link>
@@ -42,8 +36,9 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/search" element={<div><MainHeader /> <MainBody /></div> } />
           <Route path="/user-profile" element={<UserProfile username={username} posts={posts} />} />
+          <Route path="/" element={<div><Login /><MainHeader /> <MainBody /></div> } />
           {/* Add routes for your other components */}
           {/* <Route path="/component-a" element={<ComponentA />} />
           <Route path="/component-b" element={<ComponentB />} /> */}
