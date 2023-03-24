@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import MainHeader from './components/MainHeader.js'
 import MainBody from './components/MainSearch2.js'
 
