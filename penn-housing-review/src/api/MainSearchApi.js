@@ -1,4 +1,6 @@
 import axios from "axios";
+import { rootURL } from "../utils/utils";
+
 
 /*async function searchHouse(keyword, limit) {
   // Create an object with keyword and limit properties
@@ -86,7 +88,7 @@ async function searchHouse (keyword, limit){
   // Create an object with keyword and limit properties
   const params = { keyword, limit };
   // Return a promise that resolves with the response data or rejects with an error
-  return axios.get('http://localhost:3500/search')
+  return axios.get(rootURL + '/search')
     .then(response => {
       // Filter the response data by houseName property
 

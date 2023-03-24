@@ -49,21 +49,5 @@
         "details": ""
       }
     }
-  ],
-  "login": [
-    {
-      "username": "alice",
-      "password": "1234",
-      "id": 1
-    },
-    {
-      "username": "bob",
-      "password": "5678",
-      "id": 2
-    },
-    {
-      "{\"username\":\"dfadfadsfasdf\",\"password\":\"asdfasdfasdfa\"}": "",
-      "id": 3
-    }
   ]
 }

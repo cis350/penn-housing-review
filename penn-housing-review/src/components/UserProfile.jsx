@@ -96,7 +96,9 @@ function UserProfile({ username }) {
           color="primary"
           className="logout-button"
           onClick={() => {
-            console.log('Logout button clicked');
+            localStorage.removeItem('userID');
+            localStorage.removeItem('username');
+            window.location.href = '/';
           }}
         >
           Log out

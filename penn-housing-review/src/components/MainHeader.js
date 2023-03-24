@@ -2,15 +2,15 @@
 import './Main.css'
 
 function Profile ({username}) {
-    return <a href="/user" className="profile header-button">welcome, {username}</a>
+    return <a href="/user-profile" className="main-profile header-button">welcome, {username}</a>
 }
 
 function ForYou () {
-    return <a href="/foryou" className="foryou header-button">for you</a>
+    return <a href="/for-you" className="foryou header-button">for you</a>
 }
 
 function ForumBoard() {
-    return <a href="/forumBoard" className="forumBoard header-button">forum</a>
+    return <a href="/forum" className="forumBoard header-button">forum</a>
 }
 
 

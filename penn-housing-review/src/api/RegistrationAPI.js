@@ -1,4 +1,6 @@
 import axios from "axios";
+import { rootURL } from "../utils/utils";
+
 
 async function registerUser(username, email, password) {
     // Create an object with username and password properties
@@ -10,7 +12,7 @@ async function registerUser(username, email, password) {
 
     try {
 
-    const response = await axios.post('http://localhost:3500/' + 'register', data);
+    const response = await axios.post(rootURL + '/register', data);
     return response;
 
     } catch (err) {

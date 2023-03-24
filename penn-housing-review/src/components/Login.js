@@ -86,7 +86,7 @@ function Login() { // will modify user ID once logged in
     localStorage.setItem('userID', userID);
     localStorage.setItem('username', username);
 
-    window.location.href = '/';
+    window.location.href = '/search';
   }
 
   if (isRegister) {
