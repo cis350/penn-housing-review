@@ -24,6 +24,6 @@ const mockData = {
 test('add post', async () => {
     axios.post.mockImplementationOnce(() => Promise.resolve(mockData));
     const response = await addNewPost("t_title", "t_content", "t_c", "t_hs");
-    expect(axios.post).toHaveBeenCalledWith("http://localhost:3000/new_posts", "title=t_title&content=t_content&category=t_c&housingType=t_hs");
+    expect(axios.post).toHaveBeenCalledWith("http://localhost:3500/new_posts", "title=t_title&content=t_content&category=t_c&housingType=t_hs");
 
 });

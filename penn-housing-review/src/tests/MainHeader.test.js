@@ -31,6 +31,6 @@ test('ProfileButtonDisplayTest', () => {
     const linkElement = screen.getByText(/welcome/i);
 
     // check if the element has the correct href attribute
-    expect(linkElement).toHaveAttribute('href', '/user');
+    expect(linkElement).toHaveAttribute('href', '/user-profile');
   
   });
