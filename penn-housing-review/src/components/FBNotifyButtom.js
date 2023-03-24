@@ -10,7 +10,7 @@ export default function LikeButton() {
         <div>
             <span className='postButtom'>
                 <a href="#" onClick={handleNotify}>
-                    <NotificationsNoneIcon fontSize="medium"/>
+                    <NotificationsNoneIcon fontSize="medium" data-testid="notify-icon" />
                 </a>
               </span>
         </div>
