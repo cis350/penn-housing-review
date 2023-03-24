@@ -31,7 +31,7 @@ test('get Discussion posts', async () => {
     const response = await getFilteredPostByCategory("Discussion");
     console.log("response", response);
     expect(axios.get).toHaveBeenCalledTimes(1);
-    expect(axios.get).toHaveBeenCalledWith('http://localhost:3000/posts?category=Discussion');
+    expect(axios.get).toHaveBeenCalledWith('http://localhost:3500/posts?category=Discussion');
 
 });
 
