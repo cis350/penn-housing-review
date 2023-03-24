@@ -1,6 +1,5 @@
 import './ReviewPage.css';
 import * as React from "react";
-import { Routes, Route } from "react-router-dom"
 import * as Mui from '@mui/material';
 
   function OverallReview( {ratings} ) {

@@ -8,11 +8,11 @@ export default function LikeButton( {id, username, ratings, likes, desc} ) {
     const [selected, setSelected] = React.useState(false);
     let handleChange = () => {
       setSelected(!selected);
-      updateLike(1, id, username, ratings, likes + !selected, desc);
+      updateLike(1, id, username, ratings, selected ? likes - 1 : likes + 1, desc);
     }
     return (
         <ToggleButton className='like' value="check" selected={selected} onChange={handleChange}>
-          <span className='like-num'>{likes + selected}</span>
+          <span className='like-num'>{likes}</span>
           <ThumbUpIcon />
         </ToggleButton>
     )
