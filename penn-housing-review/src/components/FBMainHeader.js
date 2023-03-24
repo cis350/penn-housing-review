@@ -4,7 +4,7 @@ import logo from '../assets/P-2.png';
   
 function Logo() {
     return (
-        <a href="/main" className="logo">
+        <a href="/" className="logo">
         <img src={logo} alt='logo' width="40" height="40"/>
         </a>
     )
@@ -15,7 +15,7 @@ function Logo() {
 // }
 
 function Profile({ username }) {
-    return <a href="/user" className="profile">Welcome, {username}</a>;
+    return <a href="/user-profile" className="profile">Welcome, {username}</a>;
 }
 
 export default function Header() {

@@ -22,7 +22,7 @@ export default function Filter() {
 
     // event handler for clicking making a post (placeholder)
     const handlePost = (event) => {
-        event.preventDefault();
+        window.location.href = '/forum/new-post';
     }
 
     const handleChangeCategory = (event) => {

@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './App.css';
 import MainHeader from './components/MainHeader.js'
 import MainBody from './components/MainSearch2.js'
-
+import FBMain from './components/FBMainPage.js';
 import Login from './components/Login.js';
 import UserProfile from './components/UserProfile';
+import FBPostMainPage from './components/FBPostMainPage.js';
+import {searchURL, profileURL, mainURL, forumURL, forumNewPostURL} from './utils/utils.js';
 
 // Import your other components here
 // import ComponentA from './components/ComponentA';
@@ -36,9 +38,11 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path="/search" element={<div><MainHeader /> <MainBody /></div> } />
-          <Route path="/user-profile" element={<UserProfile username={username} posts={posts} />} />
-          <Route path="/" element={<div><Login /><MainHeader /> <MainBody /></div> } />
+          <Route path={searchURL} element={<div><MainHeader /> <MainBody /></div> } />
+          <Route path={profileURL} element={<UserProfile username={username} posts={posts} />} />
+          <Route path={mainURL} element={<div><Login /><MainHeader /> <MainBody /></div> } />
+          <Route path={forumURL} element={<div><FBMain /></div> } />
+          <Route path={forumNewPostURL} element={<div><FBPostMainPage /></div> } />
           {/* Add routes for your other components */}
           {/* <Route path="/component-a" element={<ComponentA />} />
           <Route path="/component-b" element={<ComponentB />} /> */}

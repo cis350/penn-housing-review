@@ -1,7 +1,10 @@
 import axios from 'axios';
+import { rootURL } from "../utils/utils";
+
+
 export async function getUserPosts(username) {
     // Replace this with the actual API endpoint for fetching user posts
-    const apiUrl = `http://localhost:8080/users?username=${username}`;
+    const apiUrl = rootURL + `/users?username=${username}`;
   
     try {
       const response = await axios.get(apiUrl);
@@ -19,7 +22,7 @@ export async function getUserPosts(username) {
   }
 
   export async function updateUserPassword(username, password, newPassword) {
-    const apiUrl = `http://localhost:8080/users/${username}/update-password`;
+    const apiUrl = rootURL + `/users/${username}/update-password`;
   
     try {
       const response = await axios.put(apiUrl, {

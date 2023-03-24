@@ -1,4 +1,6 @@
 import axios from "axios";
+import { rootURL } from "../utils/utils";
+
 
 async function loginUser(username, password) {
     // Create an object with username and password properties
@@ -9,7 +11,7 @@ async function loginUser(username, password) {
 
     try {
 
-    const response = await axios.post('http://localhost:3500/' + 'login', data);
+    const response = await axios.post(rootURL + '/login', data);
     return response;
 
     } catch (err) {

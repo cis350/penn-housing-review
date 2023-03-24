@@ -9,6 +9,16 @@
       "username": "bob",
       "password": "5678",
       "id": 2
+    },
+    {
+      "username": "Yixuan",
+      "password": "Jing",
+      "id": 3
+    },
+    {
+      "username": "Yixuan",
+      "password": "sdfadsfasd",
+      "id": 4
     }
   ],
   "register": [
