@@ -12,6 +12,7 @@ describe('userAPI', () => {
 
   it('fetches user posts', async () => {
     const username = 'testuser';
+    
     const mockPosts = [
       { title: 'Post 1', description: 'Post 1 description' },
       { title: 'Post 2', description: 'Post 2 description' },
@@ -19,20 +20,22 @@ describe('userAPI', () => {
 
     const usersResponse = [
       {
+        id: 1,
         username: 'testuser',
         posts: mockPosts,
       },
     ];
 
-    mockAxios.onGet(`http://localhost:8080/users?username=${username}`).reply(200, usersResponse);
+    mockAxios.onGet(`http://localhost:3500/users?username=${username}`).reply(200, usersResponse);
 
     const posts = await getUserPosts(username);
     expect(posts).toEqual(mockPosts);
+
   });
 
   it('handles error when fetching user posts', async () => {
     const username = 'testuser';
-    mockAxios.onGet(`http://localhost:8080/users?username=${username}`).networkError();
+    mockAxios.onGet(`http://localhost:3500/users?username=${username}`).networkError();
 
     const posts = await getUserPosts(username);
     expect(posts).toEqual([]);
@@ -42,8 +45,24 @@ describe('userAPI', () => {
     const username = 'testuser';
     const password = 'current_password';
     const newPassword = 'new_password';
+    const id = 1;
 
-    mockAxios.onPut(`http://localhost:8080/users/${username}/update-password`).reply(200);
+    const mockPosts = [
+      { title: 'Post 1', description: 'Post 1 description' },
+      { title: 'Post 2', description: 'Post 2 description' },
+    ];
+
+    const usersResponse = [
+      {
+        id: 1,
+        username: 'testuser',
+        posts: mockPosts,
+      },
+    ];
+
+    mockAxios.onGet(`http://localhost:3500/users?username=${username}`).reply(200, usersResponse);
+
+    mockAxios.onPut(`http://localhost:3500/users/${id}`).reply(200);
 
     const result = await updateUserPassword(username, password, newPassword);
     expect(result).toBe(true);
@@ -53,8 +72,24 @@ describe('userAPI', () => {
     const username = 'testuser';
     const password = 'current_password';
     const newPassword = 'new_password';
+    const id = 1;
 
-    mockAxios.onPut(`http://localhost:8080/users/${username}/update-password`).networkError();
+    const mockPosts = [
+      { title: 'Post 1', description: 'Post 1 description' },
+      { title: 'Post 2', description: 'Post 2 description' },
+    ];
+
+    mockAxios.onPut(`http://localhost:3500/users/${id}`).networkError();
+
+    const usersResponse = [
+      {
+        id: 1,
+        username: 'testuser',
+        posts: mockPosts,
+      },
+    ];
+
+    mockAxios.onGet(`http://localhost:3500/users?username=${username}`).reply(200, usersResponse);
 
     const result = await updateUserPassword(username, password, newPassword);
     expect(result).toBe(false);
