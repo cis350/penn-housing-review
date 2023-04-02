@@ -7,3 +7,9 @@ test('renders post list box', () => {
     const postListBox = screen.getByTestId('post-list-box');
     expect(postListBox).toBeInTheDocument();
     });
+
+test('text: Like', () => {
+    render(<FBPostList />);
+    const commentButton = screen.getByTestId('comment-icon');
+    expect(commentButton).toBeInTheDocument();
+});

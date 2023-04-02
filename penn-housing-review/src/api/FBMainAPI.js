@@ -50,15 +50,71 @@ export const getFilteredPostByHousingType = async (housingType) => {
     }
 }
 
-export const updateLike = async(likes, pid) => {
+export const updatePostLike = async(likes, pid) => {
     try {
-        const response = await axios.put(`${rootURL}/posts/${pid}`, {
+        const response = await axios.put(`${rootURL}/posts?pid=${pid}`, {
             likes: likes
         });
-        // console.log("update likes", response.data);
+        console.log("update likes", response.data);
         return response.data;
     } catch (err) {
         console.error("error", err.message);
     }
 }
 
+export const updateCommentLike = async(likes, cid) => {
+    try {
+        const response = await axios.put(`${rootURL}/comments?cid=${cid}`, `likes=${likes}`);
+        console.log("update likes", response.data);
+        return response.data;
+    } catch (err) {
+        console.error("error", err.message);
+    }
+}
+
+export const getAllCommentsByPostId = async (pid) => {
+    try {
+        const res = await axios.get(`${rootURL}/comments?pid=${pid}`);
+        // console.log("get all comments by post id", res.data);
+        return res.data;
+    } catch (err) {
+        console.error("error", err.message);
+    }
+}
+
+export const createComment = async (pid, content) => {
+    try {
+        const response = await axios.post(`${rootURL}/comments`, {
+            pid: pid,
+            content: content,
+            likes: 0,
+        });
+        console.log("create comment", response.data);
+        return response.data;
+    } catch (err) {
+        console.error("error", err.message);
+    }
+}
+
+export const updateCommentLength = async (pid, commentLength) => {
+    try {
+        const response = await axios.put(`${rootURL}/posts?pid=${pid}`, {
+            comments: commentLength
+        });
+        console.log("update comment length", response.data);
+        return response.data;
+    } catch (err) {
+        console.error("error", err.message);
+    }
+}
+
+export const addNewPost = async (title, content, category, housingType) => {
+    try {
+        const response = await axios.post(`${rootURL}/new_posts`,
+            `title=${title}&content=${content}&category=${category}&housingType=${housingType}`);
+        // console.log("add new post", response.data);
+        return response.data
+    } catch (err) {
+        console.error("error", err.message);
+    }
+}

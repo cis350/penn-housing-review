@@ -160,6 +160,16 @@
       "username": "adfasdfa",
       "password": "fasdfasdfasdf",
       "id": 8
+    },
+    {
+      "username": "lilian",
+      "password": "123",
+      "id": 9
+    },
+    {
+      "username": "",
+      "password": "",
+      "id": 10
     }
   ],
   "register": [
@@ -199,11 +209,48 @@
       "category": "Discussion"
     },
     {
-      "title": "",
-      "content": "",
-      "category": "",
-      "housingType": "",
+      "title": "dwd",
+      "content": "dwdq",
+      "category": "Lease Info",
+      "housingType": "On Campus",
       "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in ",
+      "createAt": "2023-01-01",
+      "pid": 1,
+      "likes": 10
+    },
+    {
+      "id": 2,
+      "content": "comment2 for Harrison Flooding Again",
+      "createAt": "2023-01-02",
+      "pid": 1,
+      "likes": 10
+    },
+    {
+      "id": 3,
+      "content": "comment1 for Finding Roomate for next year",
+      "createAt": "2023-01-01",
+      "pid": 2,
+      "likes": 11
+    },
+    {
+      "id": 4,
+      "content": "comment2 for Finding Roomate for next year",
+      "createAt": "2023-01-02",
+      "pid": 2,
+      "likes": 14
+    },
+    {
+      "id": 5,
+      "content": "comment3 for Finding Roomate for next year",
+      "createAt": "2023-01-03",
+      "pid": 2,
+      "likes": 15
     }
   ],
   "posts": [
@@ -216,7 +263,7 @@
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "On Campus",
       "category": "Discussion",
-      "comments": [],
+      "comments": 2,
       "likes": 10
     },
     {
@@ -228,7 +275,7 @@
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "On Campus",
       "category": "Social",
-      "comments": [],
+      "comments": 3,
       "likes": 10
     },
     {
@@ -240,7 +287,7 @@
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "Off Campus",
       "category": "Lease Info",
-      "comments": [],
+      "comments": 0,
       "likes": 10
     },
     {
@@ -252,7 +299,7 @@
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "On Campus",
       "category": "Social",
-      "comments": [],
+      "comments": 0,
       "likes": 10
     },
     {
@@ -264,7 +311,7 @@
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "Off Campus",
       "category": "Social",
-      "comments": [],
+      "comments": 0,
       "likes": 10
     }
   ],

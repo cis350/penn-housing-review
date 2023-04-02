@@ -5,7 +5,7 @@ import React from 'react';
 import { useState } from 'react';
 import './FBPostPageStyles.css';
 import { Button, TextField, Stack, RadioGroup, FormControlLabel, Radio, FormControl } from '@mui/material';
-import { addNewPost } from '../api/FBNewPostAPI';
+import { addNewPost } from '../api/FBMainAPI';
 
 export default function FBPostPage() {
     const [currentOnCampus, setcCurrentOnCampus] = useState('outlined');
