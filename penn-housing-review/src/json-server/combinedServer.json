@@ -12,6 +12,68 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
   ],
+  "posts": [
+    {
+      "uid": 1,
+      "user": "Lilian",
+      "pid": 1,
+      "createAt": "2023-01-01",
+      "title": "Harrison Flooding Again",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "housingType": "On Campus",
+      "category": "Discussion",
+      "comments": [],
+      "likes": 10
+    },
+    {
+      "uid": 2,
+      "user": "Ken",
+      "pid": 2,
+      "createAt": "2023-01-01",
+      "title": "Finding Roomate for next year",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "housingType": "On Campus",
+      "category": "Social",
+      "comments": [],
+      "likes": 10
+    },
+    {
+      "uid": 3,
+      "user": "Kevin",
+      "pid": 3,
+      "createAt": "2023-01-01",
+      "title": "3720 The Chestnut summer sublease",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "housingType": "Off Campus",
+      "category": "Lease Info",
+      "comments": [],
+      "likes": 10
+    },
+    {
+      "uid": 4,
+      "user": "Ethan",
+      "pid": 4,
+      "createAt": "2023-01-01",
+      "title": "Cultural Events @Gutmann",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "housingType": "On Campus",
+      "category": "Social",
+      "comments": [],
+      "likes": 10
+    },
+    {
+      "uid": 5,
+      "user": "Kitty",
+      "pid": 5,
+      "createAt": "2023-01-01",
+      "title": "Arrive: looking for roomate",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "housingType": "Off Campus",
+      "category": "Social",
+      "comments": [],
+      "likes": 10
+    }
+  ],
   "reviews1": [
     {
       "User": "Olivia",
@@ -160,6 +222,91 @@
       "username": "adfasdfa",
       "password": "fasdfasdfasdf",
       "id": 8
+    },
+    {
+      "username": "adsfKJLDKFJa",
+      "password": "adfasdfa;sdklj",
+      "id": 9
+    },
+    {
+      "username": "newUser",
+      "password": "adsjflasdkjfaksd",
+      "id": 10
+    },
+    {
+      "username": "adsfa",
+      "password": "adsfasd",
+      "id": 11
+    },
+    {
+      "username": "jjkljlkj",
+      "password": "vkjbjnlk",
+      "id": 12
+    },
+    {
+      "username": "djla;dfkjadsfajsdflk",
+      "password": "faldkjflaksdjfa",
+      "id": 13
+    },
+    {
+      "username": "helloWorld",
+      "password": "Hasdfad",
+      "id": 14
+    },
+    {
+      "username": "HelloWorld",
+      "password": "dafsdfasd",
+      "id": 15
+    },
+    {
+      "username": "asdfasdjflakdsj",
+      "password": "adlfkjasdlkfasda",
+      "id": 16
+    },
+    {
+      "username": "dfadsfa",
+      "password": "dfasdfasdf",
+      "id": 17
+    },
+    {
+      "username": "fdadsfasdfasd",
+      "password": "fasdfasdfa",
+      "id": 18
+    },
+    {
+      "username": "adfasdfa",
+      "password": "asdfasdf",
+      "id": 19
+    },
+    {
+      "username": "YEJLAKGJLADJf",
+      "password": "hlkjlkjljljk;j",
+      "id": 20
+    },
+    {
+      "username": "asdfasdfa",
+      "password": "asdfasdfa",
+      "id": 21
+    },
+    {
+      "username": "asdfasdf",
+      "password": "asdfasdf",
+      "id": 22
+    },
+    {
+      "username": "fasdfads",
+      "password": "dfasdfa",
+      "id": 23
+    },
+    {
+      "username": "aejfalkedfa",
+      "password": "asdfasdfa",
+      "id": 24
+    },
+    {
+      "username": "HelloWorld",
+      "password": "asdfjadslfak",
+      "id": 25
     }
   ],
   "register": [
@@ -182,6 +329,12 @@
       "email": "adfasdfasdfad",
       "password": "adfadsfadsfad",
       "id": 4
+    },
+    {
+      "username": "HelloWorld",
+      "email": "asdfaj2@ajfdlakjd.com",
+      "password": "dlfadfjad",
+      "id": 5
     }
   ],
   "new_posts": [
@@ -198,68 +351,34 @@
       "category": "",
       "housingType": "",
       "id": 2
-    }
-  ],
-  "posts": [
-    {
-      "uid": 1,
-      "user": "Lilian",
-      "pid": 1,
-      "createAt": "2023-01-01",
-      "title": "Harrison Flooding Again",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "housingType": "On Campus",
-      "category": "Discussion",
-      "comments": [],
-      "likes": 10
     },
     {
-      "uid": 2,
-      "user": "Ken",
-      "pid": 2,
-      "createAt": "2023-01-01",
-      "title": "Finding Roomate for next year",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "housingType": "On Campus",
-      "category": "Social",
-      "comments": [],
-      "likes": 10
-    },
-    {
-      "uid": 3,
-      "user": "Kevin",
-      "pid": 3,
-      "createAt": "2023-01-01",
-      "title": "3720 The Chestnut summer sublease",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "title": "",
+      "content": "",
+      "category": "",
       "housingType": "Off Campus",
-      "category": "Lease Info",
-      "comments": [],
-      "likes": 10
+      "id": 3
     },
     {
-      "uid": 4,
-      "user": "Ethan",
-      "pid": 4,
-      "createAt": "2023-01-01",
-      "title": "Cultural Events @Gutmann",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "housingType": "On Campus",
-      "category": "Social",
-      "comments": [],
-      "likes": 10
-    },
-    {
-      "uid": 5,
-      "user": "Kitty",
-      "pid": 5,
-      "createAt": "2023-01-01",
-      "title": "Arrive: looking for roomate",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "title": "Post",
+      "content": "asdf a",
+      "category": "Event",
       "housingType": "Off Campus",
-      "category": "Social",
-      "comments": [],
-      "likes": 10
+      "id": 4
+    },
+    {
+      "title": "Post",
+      "content": "asdf a",
+      "category": "Event",
+      "housingType": "Off Campus",
+      "id": 5
+    },
+    {
+      "title": "Post",
+      "content": "asdf a",
+      "category": "Event",
+      "housingType": "Off Campus",
+      "id": 6
     }
   ]
 }
