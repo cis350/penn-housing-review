@@ -11,13 +11,22 @@ import IconButton from '@mui/material/IconButton';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 
-function UserProfile({ username }) {
+function UserProfile({  }) {
   const [password, setPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [posts, setPosts] = useState([]);
+  const [username, setUsername] = useState('');
+
+
+  useEffect(async () => {
+    const name = localStorage.getItem('username');
+    setUsername(name);
+
+  }, []);
 
   useEffect(() => {
+
     const fetchPosts = async () => {
       const userPosts = await getUserPosts(username);
       setPosts(userPosts);

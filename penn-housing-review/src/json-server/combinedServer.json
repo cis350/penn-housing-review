@@ -160,6 +160,16 @@
       "username": "adfasdfa",
       "password": "fasdfasdfasdf",
       "id": 8
+    },
+    {
+      "username": "JohnDoe",
+      "password": "123",
+      "id": 9
+    },
+    {
+      "username": "test",
+      "password": "123",
+      "id": 10
     }
   ],
   "register": [
@@ -188,6 +198,12 @@
       "email": "123",
       "password": "123",
       "id": 5
+    },
+    {
+      "username": "JohnDoe",
+      "email": "123",
+      "password": "123",
+      "id": 6
     }
   ],
   "new_posts": [

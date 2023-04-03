@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { rootURL } from "../utils/utils";
+//import {rootURL} from "../utils/utils";
 
 
 export async function getUserPosts(username) {
@@ -22,13 +23,22 @@ export async function getUserPosts(username) {
   }
 
   export async function updateUserPassword(username, password, newPassword) {
-    const apiUrl = rootURL + `/users/${username}/update-password`;
+    
+    const apiUrl = rootURL + `/login?username=${username}`;
   
     try {
-      const response = await axios.put(apiUrl, {
-        password,
-        newPassword,
-      });
+
+      const data = await axios.get(apiUrl);
+      const users = data.data;
+      if(users.length>0){
+        users[0].password = newPassword;
+      } else{
+        throw new Error('User does not exist');
+      }
+
+      const userUrl = rootURL+ '/login/'+users[0].id;
+
+      const response = await axios.put(userUrl, users[0]);
   
       if (response.status === 200) {
         return true;

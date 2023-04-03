@@ -43,7 +43,7 @@ export async function followPost(houseid, username) {
             }
       
             const userUrl = rootURL+ '/users/'+users[0].id;
-      
+       
             const response = await axios.put(userUrl, users[0]);
         
             if (response.status === 200) {

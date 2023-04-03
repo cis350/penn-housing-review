@@ -14,8 +14,11 @@ import {searchURL, profileURL, mainURL, forumURL, forumNewPostURL} from './utils
 // import ComponentB from './components/ComponentB';
 // ...
 
-function App() {
 
+
+
+function App() {
+  const username = 'JohnDoe';
   return (
     <div className="App">
       <Router>
@@ -34,7 +37,7 @@ function App() {
 
         <Routes>
           <Route path={searchURL} element={<div><MainHeader /> <MainBody /></div> } />
-          <Route path={profileURL} element={<UserProfile username={username} posts={posts} />} />
+          <Route path={profileURL} element={<UserProfile username={username} />} />
           <Route path={mainURL} element={<div><Login /><MainHeader /> <MainBody /></div> } />
           <Route path={forumURL} element={<div><FBMain /></div> } />
           <Route path={forumNewPostURL} element={<div><FBPostMainPage /></div> } />
