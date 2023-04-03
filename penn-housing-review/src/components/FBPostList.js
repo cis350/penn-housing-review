@@ -71,16 +71,16 @@ export default function PostList( {data} ) {
       <List>
         {_DATA.currentData().map(v => {
           return (
-            <div key={v.pid}>
+            <div key={v.id}>
               <PostEntry 
-                pid={v.pid}
+                pid={v.id}
                 title={v.title} 
                 content={v.content} 
                 likes={v.likes} 
                 comments={v.comments}
                 />
-              {selectedPost === v.pid && (
-                <CommentSection comments={v.comments} pid={v.pid}/>
+              {selectedPost === v.id && (
+                <CommentSection comments={v.comments} pid={v.id}/>
               )}
               <Divider className="postDiv"/>
             </div>

@@ -50,10 +50,10 @@ export const getFilteredPostByHousingType = async (housingType) => {
     }
 }
 
-export const updatePostLike = async(likes, pid) => {
+export const updatePostLike = async(updateLikes, pid) => {
     try {
         const response = await axios.put(`${rootURL}/posts?pid=${pid}`, {
-            likes: likes
+            likes: updateLikes
         });
         console.log("update likes", response.data);
         return response.data;
@@ -62,9 +62,9 @@ export const updatePostLike = async(likes, pid) => {
     }
 }
 
-export const updateCommentLike = async(likes, cid) => {
+export const updateCommentLike = async(updateLikes, cid) => {
     try {
-        const response = await axios.put(`${rootURL}/comments?cid=${cid}`, `likes=${likes}`);
+        const response = await axios.put(`${rootURL}/comments?cid=${cid}`, `likes=${updateLikes}`);
         console.log("update likes", response.data);
         return response.data;
     } catch (err) {
@@ -98,7 +98,7 @@ export const createComment = async (pid, content) => {
 
 export const updateCommentLength = async (pid, commentLength) => {
     try {
-        const response = await axios.put(`${rootURL}/posts?pid=${pid}`, {
+        const response = await axios.put(`${rootURL}/posts?id=${pid}`, {
             comments: commentLength
         });
         console.log("update comment length", response.data);
@@ -108,11 +108,17 @@ export const updateCommentLength = async (pid, commentLength) => {
     }
 }
 
-export const addNewPost = async (title, content, category, housingType) => {
+export const addNewPost = async (title, content, category, housingType, user, uid) => {
     try {
-        const response = await axios.post(`${rootURL}/new_posts`,
-            `title=${title}&content=${content}&category=${category}&housingType=${housingType}`);
-        // console.log("add new post", response.data);
+        const response = await axios.post(`${rootURL}/posts`,{
+            title: title,
+            content: content,
+            category: category,
+            housingType: housingType,
+            comments: 0,
+            likes: 0,
+        });
+        console.log("add new post", response.data);
         return response.data
     } catch (err) {
         console.error("error", err.message);

@@ -170,6 +170,16 @@
       "username": "",
       "password": "",
       "id": 10
+    },
+    {
+      "username": "lilian",
+      "password": "123",
+      "id": 11
+    },
+    {
+      "username": "lilian",
+      "password": "123",
+      "id": 12
     }
   ],
   "register": [
@@ -198,22 +208,6 @@
       "email": "123",
       "password": "123",
       "id": 5
-    }
-  ],
-  "new_posts": [
-    {
-      "id": 1,
-      "title": "Harrison Flooding Again",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "housingType": "On Campus",
-      "category": "Discussion"
-    },
-    {
-      "title": "dwd",
-      "content": "dwdq",
-      "category": "Lease Info",
-      "housingType": "On Campus",
-      "id": 2
     }
   ],
   "comments": [
@@ -251,14 +245,19 @@
       "createAt": "2023-01-03",
       "pid": 2,
       "likes": 15
+    },
+    {
+      "pid": 1,
+      "content": "create testttt",
+      "likes": 0,
+      "id": 6
     }
   ],
   "posts": [
     {
       "uid": 1,
       "user": "Lilian",
-      "pid": 1,
-      "createAt": "2023-01-01",
+      "id": 1,
       "title": "Harrison Flooding Again",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "On Campus",
@@ -269,8 +268,7 @@
     {
       "uid": 2,
       "user": "Ken",
-      "pid": 2,
-      "createAt": "2023-01-01",
+      "id": 2,
       "title": "Finding Roomate for next year",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "On Campus",
@@ -281,8 +279,7 @@
     {
       "uid": 3,
       "user": "Kevin",
-      "pid": 3,
-      "createAt": "2023-01-01",
+      "id": 3,
       "title": "3720 The Chestnut summer sublease",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "Off Campus",
@@ -294,7 +291,6 @@
       "uid": 4,
       "user": "Ethan",
       "pid": 4,
-      "createAt": "2023-01-01",
       "title": "Cultural Events @Gutmann",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "On Campus",
@@ -305,14 +301,22 @@
     {
       "uid": 5,
       "user": "Kitty",
-      "pid": 5,
-      "createAt": "2023-01-01",
+      "id": 5,
       "title": "Arrive: looking for roomate",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "Off Campus",
       "category": "Social",
       "comments": 0,
       "likes": 10
+    },
+    {
+      "title": "testttt",
+      "content": "testtttt",
+      "category": "Discussion",
+      "housingType": "Off Campus",
+      "comments": 0,
+      "likes": 0,
+      "id": 6
     }
   ],
   "users": [

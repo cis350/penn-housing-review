@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { TextField, Button } from '@mui/material';
 
 export default function CommentSection( {pid, comments} ) {
+    console.log("comments", pid);
     const [commentsData, setCommentsData] = useState([]);
     const [newComment, setNewComment] = useState("");
 
@@ -24,8 +25,6 @@ export default function CommentSection( {pid, comments} ) {
       setNewComment("");
       updateCommentLength(pid, comments + 1);
     }
-
-
 
     return (
       <div>
