@@ -245,18 +245,6 @@
       "createAt": "2023-01-03",
       "pid": 2,
       "likes": 15
-    },
-    {
-      "pid": 1,
-      "content": "test",
-      "likes": 2,
-      "id": 6
-    },
-    {
-      "pid": 1,
-      "content": "dw",
-      "likes": 2,
-      "id": 7
     }
   ],
   "posts": [
