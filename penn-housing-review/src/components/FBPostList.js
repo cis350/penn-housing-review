@@ -1,7 +1,7 @@
 import { useState } from "react";
 import usePagination from '../utils/usePagination';
 import { Box, Divider, List, Pagination } from "@mui/material";
-import LikeButtom from './FBPostLikeButtom';
+import LikeButtom from './FBPostLikeButton';
 // import CommentButtom from './FBCommentButtom';
 import NotifyButtom from './FBNotifyButtom';
 import CommentSection from './FBCommentSection';
@@ -30,23 +30,19 @@ export default function PostList( {data} ) {
       } else {
         setSelectedPost(pid);
       }
-    
     }
 
     return (
       <div>
         <span className='postButtom'>
           <a href="#" onClick={handleComment}>
-              <CommentIcon fontSize="medium" data-testid="comment-icon"/>
+            <CommentIcon fontSize="medium" data-testid="comment-icon"/>
           </a>
-          &nbsp;
-          {comments}
         </span>
       </div>
     );
 
   }
-
 
   function PostEntry( {pid, title, content, likes, comments} ) { // add an ID field
     return (
@@ -62,8 +58,6 @@ export default function PostList( {data} ) {
     )
       
   }
-
-  
 
 
   return (

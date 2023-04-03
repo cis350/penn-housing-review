@@ -52,7 +52,9 @@ export const getFilteredPostByHousingType = async (housingType) => {
 
 export const updatePostLike = async(updateLikes, pid) => {
     try {
-        const response = await axios.put(`${rootURL}/posts?pid=${pid}`, {
+        console.log("pid", pid);
+        console.log("updateLikes", updateLikes);
+        const response = await axios.patch(`${rootURL}/posts/${pid}`, {
             likes: updateLikes
         });
         console.log("update likes", response.data);
@@ -64,7 +66,10 @@ export const updatePostLike = async(updateLikes, pid) => {
 
 export const updateCommentLike = async(updateLikes, cid) => {
     try {
-        const response = await axios.put(`${rootURL}/comments?cid=${cid}`, `likes=${updateLikes}`);
+        console.log("cid", cid);
+        const response = await axios.patch(`${rootURL}/comments/${cid}`, {
+            likes: updateLikes
+        });
         console.log("update likes", response.data);
         return response.data;
     } catch (err) {
@@ -96,17 +101,6 @@ export const createComment = async (pid, content) => {
     }
 }
 
-export const updateCommentLength = async (pid, commentLength) => {
-    try {
-        const response = await axios.put(`${rootURL}/posts?id=${pid}`, {
-            comments: commentLength
-        });
-        console.log("update comment length", response.data);
-        return response.data;
-    } catch (err) {
-        console.error("error", err.message);
-    }
-}
 
 export const addNewPost = async (title, content, category, housingType, user, uid) => {
     try {

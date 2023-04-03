@@ -1,36 +1,38 @@
 import { useState } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { updateCommentLike } from '../api/FBMainAPI';
+import { updatePostLike } from '../api/FBMainAPI';
 
 
-export default function LikeButton( {likes, cid} ) {
+export default function LikeButton( {likes, pid} ) {
     const [selected, setSelected] = useState(false);
 
     const handleLike = (event) => {
         setSelected(!selected);
-        if (selected) {
-            updateCommentLike(likes + 1, cid);
+        if (!selected) {
+            console.log("selected");
+            updatePostLike(likes + 1, pid);
         } else {
-            updateCommentLike(likes, cid);
+            console.log("not selected");
+            updatePostLike(likes, pid);
         }
         
     }
-
     return (
         <div>
             <span className='postButtom'>
-                <a href="#" onClick={handleLike}>
+                <span onClick={handleLike} id='clickableIcon'>
                     {!selected && (
                     <FavoriteBorderIcon fontSize="medium" data-testid="like-buttom-icon"/>
                     )}
                     {selected && (
                     <FavoriteIcon fontSize="medium" data-testid="like-buttom-icon"/>
                     )}
-                </a>
+                    
+                </span>
+                &nbsp;
                 {likes + selected}
             </span>
-            
         </div>
     );
 }

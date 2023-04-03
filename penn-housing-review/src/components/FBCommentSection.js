@@ -1,12 +1,13 @@
-import FBCommentLikeButton from './FBCommentLikeButton'
-import { getAllCommentsByPostId, createComment, updateCommentLength } from '../api/FBMainAPI';
+import { getAllCommentsByPostId, createComment } from '../api/FBMainAPI';
 import { useEffect, useState } from 'react';
 import { TextField, Button } from '@mui/material';
+import LikeButton from './FBCommentLikeButtom';
 
 export default function CommentSection( {pid, comments} ) {
     console.log("comments", pid);
     const [commentsData, setCommentsData] = useState([]);
     const [newComment, setNewComment] = useState("");
+    
 
     useEffect(() => {
       async function getAllCommentsByPostIdWrapper() {
@@ -14,7 +15,7 @@ export default function CommentSection( {pid, comments} ) {
         setCommentsData(commentsData);
       }
       getAllCommentsByPostIdWrapper();
-    }, []);
+    }, [newComment]);
 
     const handleChangeContent = (event) => {
       setNewComment(event.target.value);
@@ -23,8 +24,9 @@ export default function CommentSection( {pid, comments} ) {
     const handleCreateComment = () => {
       createComment(pid, newComment);
       setNewComment("");
-      updateCommentLength(pid, comments + 1);
     }
+
+    
 
     return (
       <div>
@@ -62,12 +64,12 @@ export default function CommentSection( {pid, comments} ) {
 
         <div className='commentSection'>
           {commentsData.map(comment => (
-            <div key={comment.cid} className='oneComment'>
+            <div key={comment.id} className='oneComment'>
               <p>{comment.content}</p>
-              <FBCommentLikeButton likes={comment.likes} cid={comment.cid} />
+              <LikeButton likes={comment.likes} cid={comment.id} />
             </div>
           ))}
         </div>
       </div>
     )
-  }
+}
