@@ -12,6 +12,10 @@ export default function PostList( {data} ) {
   const [page, setPage] = useState(1);
   const [selectedPost, setSelectedPost] = useState(0);
 
+  if (!data) {
+    data = [];
+  }
+
   const PER_PAGE = 2;
 
   const count = Math.ceil(data.length / PER_PAGE);
@@ -36,7 +40,7 @@ export default function PostList( {data} ) {
       <div>
         <span className='postButtom'>
           <a href="#" onClick={handleComment}>
-            <CommentIcon fontSize="medium" data-testid="comment-icon"/>
+            <CommentIcon fontSize="medium" data-testid="comment-icon-1"/>
           </a>
         </span>
       </div>
@@ -62,7 +66,7 @@ export default function PostList( {data} ) {
 
   return (
     <Box p="5" data-testid="post-list-box">
-      <List>
+      <List data-testid="postList">
         {_DATA.currentData().map(v => {
           return (
             <div key={v.id}>

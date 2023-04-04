@@ -57,7 +57,9 @@ export default function CommentSection( {pid, comments} ) {
             </div>
             <Button 
             variant="contained" 
-            onClick={handleCreateComment}>
+            onClick={handleCreateComment}
+            data-testid="post-button"
+            >
               Post</Button>
 
         </div>

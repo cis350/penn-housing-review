@@ -10,7 +10,6 @@ export default function Filter() {
     const [category, setCategory] = useState("");
     const [housingType, setHousingType] = useState("");
 
-
     useEffect(() => {
         async function getAllPostsWrapper() {
             const data = await getAllPosts();

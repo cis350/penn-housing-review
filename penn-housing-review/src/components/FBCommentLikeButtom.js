@@ -20,10 +20,10 @@ export default function LikeButton( {likes, cid} ) {
         <span className='postButtom'>
           <a href="#" onClick={handleLike}>
             {!selected && (
-            <FavoriteBorderIcon fontSize="medium" data-testid="like-buttom-icon"/>
+            <FavoriteBorderIcon fontSize="medium" data-testid="like-buttom-icon-1"/>
             )}
             {selected && (
-            <FavoriteIcon fontSize="medium" data-testid="like-buttom-icon"/>
+            <FavoriteIcon fontSize="medium" data-testid="like-buttom-icon-2"/>
             )}
           </a>
           {likes + selected}

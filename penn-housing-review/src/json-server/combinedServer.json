@@ -216,14 +216,14 @@
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in ",
       "createAt": "2023-01-01",
       "pid": 1,
-      "likes": 10
+      "likes": 11
     },
     {
       "id": 2,
       "content": "comment2 for Harrison Flooding Again",
       "createAt": "2023-01-02",
       "pid": 1,
-      "likes": 12
+      "likes": 13
     },
     {
       "id": 3,
@@ -245,6 +245,12 @@
       "createAt": "2023-01-03",
       "pid": 2,
       "likes": 15
+    },
+    {
+      "pid": 3,
+      "content": "test createComment",
+      "likes": 1,
+      "id": 6
     }
   ],
   "posts": [
@@ -268,7 +274,7 @@
       "housingType": "On Campus",
       "category": "Social",
       "comments": 3,
-      "likes": 10
+      "likes": 11
     },
     {
       "uid": 3,

@@ -52,12 +52,10 @@ export const getFilteredPostByHousingType = async (housingType) => {
 
 export const updatePostLike = async(updateLikes, pid) => {
     try {
-        console.log("pid", pid);
-        console.log("updateLikes", updateLikes);
         const response = await axios.patch(`${rootURL}/posts/${pid}`, {
             likes: updateLikes
         });
-        console.log("update likes", response.data);
+        // console.log("update likes", response.data);
         return response.data;
     } catch (err) {
         console.error("error", err.message);
@@ -66,11 +64,10 @@ export const updatePostLike = async(updateLikes, pid) => {
 
 export const updateCommentLike = async(updateLikes, cid) => {
     try {
-        console.log("cid", cid);
         const response = await axios.patch(`${rootURL}/comments/${cid}`, {
             likes: updateLikes
         });
-        console.log("update likes", response.data);
+        // console.log("update likes", response.data);
         return response.data;
     } catch (err) {
         console.error("error", err.message);
@@ -94,7 +91,7 @@ export const createComment = async (pid, content) => {
             content: content,
             likes: 0,
         });
-        console.log("create comment", response.data);
+        // console.log("create comment", response.data);
         return response.data;
     } catch (err) {
         console.error("error", err.message);
@@ -112,7 +109,7 @@ export const addNewPost = async (title, content, category, housingType, user, ui
             comments: 0,
             likes: 0,
         });
-        console.log("add new post", response.data);
+        // console.log("add new post", response.data);
         return response.data
     } catch (err) {
         console.error("error", err.message);
