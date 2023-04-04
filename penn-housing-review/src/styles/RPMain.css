@@ -1,0 +1,15 @@
+.RPLeft {
+    margin-left: 3%;
+    width: 15%;
+}
+.RPRight {
+    margin-right: 3%;
+    width: 80%;
+    margin-top: 5%;
+
+}
+
+.RPBodyWrapper {
+    justify-content: space-between;
+    display: flex;
+}

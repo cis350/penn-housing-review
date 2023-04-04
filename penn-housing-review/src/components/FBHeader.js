@@ -9,22 +9,18 @@ import logo from '../assets/logowhite.png';
     )
   }
   
-  function SearchBar() {
-    return <input type="text" placeholder="Search for a post" className='search-bar' />;
-  }
   
   function Profile({ username }) {
     return <a href="/user" className="profile">Welcome, {username}</a>;
   }
 
-  export default function Header() {
+  export default function Header({title}) {
     return (
       <header className='fb-header'>
         <Logo />
         
-        <h1 className='fb-title'>Forum Board</h1>
-    
-        <SearchBar />
+        <h1 className='fb-title'>{title}</h1>
+
         <Profile username='username'/>
       </header>
     )

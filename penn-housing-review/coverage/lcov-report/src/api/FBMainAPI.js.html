@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">67.85% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>19/28</span>
+                <span class='fraction'>21/28</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">67.85% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/28</span>
+                <span class='fraction'>21/28</span>
             </div>
         
             
@@ -135,14 +135,14 @@
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -151,7 +151,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,10 +160,10 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,10 +172,10 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -199,11 +199,11 @@ export const getAllPosts = async () =&gt; {
     try {
         const res = await axios.get(`${rootURL}/posts`);
         // console.log("get all posts", res.data);
-        return res.data;
+<span class="cstat-no" title="statement not covered" >        return res.data;</span>
 &nbsp;
     }
     catch (err) {
-<span class="cstat-no" title="statement not covered" >        console.error("error", err.message);</span>
+        console.error("error", err.message);
     }
 }
 &nbsp;
@@ -215,7 +215,7 @@ export const getFilteredPost = async (category, housingType) =&gt; {
 <span class="cstat-no" title="statement not covered" >        return res.data;</span>
     }
     catch (err) {
-<span class="cstat-no" title="statement not covered" >        console.error("error", err.message);</span>
+        console.error("error", err.message);
     }
 }
 &nbsp;
@@ -227,7 +227,7 @@ export const getFilteredPostByCategory = async (category) =&gt; {
         return res.data;
     }
     catch (err) {
-<span class="cstat-no" title="statement not covered" >        console.error("error", err.message);</span>
+        console.error("error", err.message);
     }
 }
 &nbsp;
@@ -236,10 +236,10 @@ export const getFilteredPostByHousingType = async (housingType) =&gt; {
         const url = `${rootURL}/posts?housingType=${housingType}`;
         const res = await axios.get(url);
         // console.log("get filtered posts by housing type", res.data);
-        return res.data;
+<span class="cstat-no" title="statement not covered" >        return res.data;</span>
     }
     catch (err) {
-<span class="cstat-no" title="statement not covered" >        console.error("error", err.message);</span>
+        console.error("error", err.message);
     }
 }
 &nbsp;
@@ -262,7 +262,7 @@ export const updateLike = <span class="fstat-no" title="function not covered" >a
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-30T21:21:57.115Z
+                at 2023-04-04T20:17:29.187Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

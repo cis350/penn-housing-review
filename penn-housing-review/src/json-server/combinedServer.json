@@ -312,11 +312,6 @@
       "username": "adsfa",
       "password": "asdfasdfwefasdasdf",
       "id": 26
-    },
-    {
-      "username": "FSDADFA",
-      "password": "adfgasdfa",
-      "id": 27
     }
   ],
   "register": [
@@ -339,6 +334,12 @@
       "email": "adfasdfasdfad",
       "password": "adfadsfadsfad",
       "id": 4
+    },
+    {
+      "username": "HelloWorld",
+      "email": "asdfaj2@ajfdlakjd.com",
+      "password": "dlfadfjad",
+      "id": 5
     }
   ],
   "new_posts": [
@@ -432,6 +433,7 @@
       "studio": false,
       "triple": false,
       "quad": false
+      
     },
     {
       "houseid": "3",
@@ -455,7 +457,7 @@
       "description": {
         "summary": "Rodin is a high-rise apartment complex on the east side of campus.",
         "details": ""
-      },
+      }, 
       "onCampus": true,
       "freshman": true,
       "2 bedroom": false,
@@ -471,7 +473,7 @@
       "description": {
         "summary": "HARRISON is a high-rise apartment complex on the east side of campus.",
         "details": ""
-      },
+      }, 
       "onCampus": true,
       "freshman": true,
       "2 bedroom": false,
@@ -487,7 +489,7 @@
       "description": {
         "summary": "DOMUS is a high-rise apartment complex on the east side of campus.",
         "details": ""
-      },
+      }, 
       "onCampus": true,
       "freshman": true,
       "2 bedroom": false,
@@ -496,52 +498,6 @@
       "triple": true,
       "quad": false,
       "price": 8490009392
-    },
-    {
-      "id": 1,
-      "houseid": 1,
-      "houseName": "NEW COLLEGE HOUSE",
-      "houseAddress": "UPENN",
-      "description": "EXPENSIVE HOUSE",
-      "onCampus": true,
-      "freshman": true,
-      "1 bedroom": true,
-      "2 bedroom": true,
-      "studio": false,
-      "triple": true,
-      "quad": false
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "username": "JohnDoe",
-      "password": "123",
-      "posts": [
-        {
-          "title": "Post 1",
-          "description": "This is the first post."
-        },
-        {
-          "title": "Post 2",
-          "description": "This is the second post."
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "username": "janedoe",
-      "password": "janespassword",
-      "posts": [
-        {
-          "title": "Post 3",
-          "description": "This is the third post."
-        },
-        {
-          "title": "Post 4",
-          "description": "This is the fourth post."
-        }
-      ]
     }
   ]
 }
