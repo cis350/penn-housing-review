@@ -339,12 +339,6 @@
       "email": "adfasdfasdfad",
       "password": "adfadsfadsfad",
       "id": 4
-    },
-    {
-      "username": "HelloWorld",
-      "email": "asdfaj2@ajfdlakjd.com",
-      "password": "dlfadfjad",
-      "id": 5
     }
   ],
   "new_posts": [
@@ -516,6 +510,38 @@
       "studio": false,
       "triple": true,
       "quad": false
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "JohnDoe",
+      "password": "123",
+      "posts": [
+        {
+          "title": "Post 1",
+          "description": "This is the first post."
+        },
+        {
+          "title": "Post 2",
+          "description": "This is the second post."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "janedoe",
+      "password": "janespassword",
+      "posts": [
+        {
+          "title": "Post 3",
+          "description": "This is the third post."
+        },
+        {
+          "title": "Post 4",
+          "description": "This is the fourth post."
+        }
+      ]
     }
   ]
 }
