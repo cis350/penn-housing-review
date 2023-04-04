@@ -83,7 +83,7 @@ import logo from "../assets/logo2.png"
 
 // Import the searchHouse function from another file
 import { searchHouse } from "../api/MainSearchApi.js";
-import {ReviewPageURL} from "../utils/utils.js";
+import {NewHouseURL, ReviewPageURL} from "../utils/utils.js";
 import './Main.css'
 
 // Define a custom component for the logo and title
@@ -143,7 +143,7 @@ function Search() {
         {results.map((name) => (
             <li><a href={ReviewPageURL}>{name}</a></li>
         ))}
-        <li> + add a house</li>
+        <li><a href={NewHouseURL}> + add a house</a></li>
       </ul>
     </div>
   );

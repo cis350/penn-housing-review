@@ -1,12 +1,13 @@
 .title-block {
     display: block;
     width: 80%;
-    padding-left: 10%;
+    padding-left: 5%;
 }
 .new-house-title {
     height: 10%;
     display: block;
     font-size: 35px;
+    padding-bottom: 30px;
 }
 
 .new-house-text {
@@ -22,7 +23,8 @@
     display: flex;
     justify-content: space-between;
     width: 80%;
-    padding-left: 10%;
+    padding-left: 5%;
+    margin: 0;
   }
   
   .left-section {
@@ -46,3 +48,29 @@
     flex-direction: column;
   }
   
+  .add-new-house-buttons {
+ 
+    /* display buttons as flex items */
+    display:flex;
+    
+    /* space them evenly */
+    justify-content:space-evenly;
+   
+    margin-top: 10px;
+
+    margin-bottom: 10%;
+    
+    
+    
+    }
+   
+    .add-new-house-buttons button {
+       background-color: #9fc7aa9a;
+       border: none;
+       border-radius: 10px;
+       padding: 5px 10px;
+       width: 10%;
+       height: 30px;
+       cursor: pointer;
+       font-family: "BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif";
+    }

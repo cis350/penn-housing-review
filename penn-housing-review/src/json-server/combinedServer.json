@@ -307,6 +307,16 @@
       "username": "HelloWorld",
       "password": "asdfjadslfak",
       "id": 25
+    },
+    {
+      "username": "adsfa",
+      "password": "asdfasdfwefasdasdf",
+      "id": 26
+    },
+    {
+      "username": "FSDADFA",
+      "password": "adfgasdfa",
+      "id": 27
     }
   ],
   "register": [
@@ -379,6 +389,133 @@
       "category": "Event",
       "housingType": "Off Campus",
       "id": 6
+    }
+  ],
+  "houses": [
+    {
+      "houseid": "1",
+      "houseName": "THE QUAD",
+      "description": {
+        "summary": "The Quad is a group of four dormitories on the west side of campus.",
+        "details": "The Quad consists of Fisher Hassenfeld College House, Riepe College House, Ware College House and New College House West. The Quad offers a variety of room types and amenities for students."
+      },
+      "ratings": [
+        {
+          "itemId": 1,
+          "rating": 4.2
+        },
+        {
+          "itemId": 2,
+          "rating": 3.8
+        },
+        {
+          "itemId": 3,
+          "rating": 4
+        }
+      ],
+      "onCampus": true,
+      "freshman": true,
+      "price": 12000,
+      "2 bedroom": true,
+      "1 bedroom": true,
+      "studio": true,
+      "triple": false,
+      "quad": false,
+      "image": "../src/assets/rodin.jpeg"
+    },
+    {
+      "houseid": "2",
+      "houseName": "SANSOM PLACE",
+      "description": {
+        "summary": "Sansom Place is a high-rise apartment complex on the east side of campus.",
+        "details": ""
+      },
+      "onCampus": true,
+      "freshman": true,
+      "price": 12000,
+      "2 bedroom": true,
+      "1 bedroom": false,
+      "studio": false,
+      "triple": false,
+      "quad": false
+    },
+    {
+      "houseid": "3",
+      "houseName": "THE CHESTNUT",
+      "description": {
+        "summary": "the chestnut is a high-rise apartment complex on the east side of campus.",
+        "details": ""
+      },
+      "onCampus": true,
+      "freshman": true,
+      "price": 12000,
+      "2 bedroom": false,
+      "1 bedroom": true,
+      "studio": true,
+      "triple": false,
+      "quad": true
+    },
+    {
+      "houseid": "4",
+      "houseName": "RODIN",
+      "description": {
+        "summary": "Rodin is a high-rise apartment complex on the east side of campus.",
+        "details": ""
+      },
+      "onCampus": true,
+      "freshman": true,
+      "2 bedroom": false,
+      "1 bedroom": true,
+      "studio": true,
+      "triple": true,
+      "quad": false,
+      "price": 2794839
+    },
+    {
+      "houseid": "5",
+      "houseName": "HARRISON",
+      "description": {
+        "summary": "HARRISON is a high-rise apartment complex on the east side of campus.",
+        "details": ""
+      },
+      "onCampus": true,
+      "freshman": true,
+      "2 bedroom": false,
+      "1 bedroom": true,
+      "studio": true,
+      "triple": true,
+      "quad": false,
+      "price": 2794839
+    },
+    {
+      "houseid": "6",
+      "houseName": "DOMUS",
+      "description": {
+        "summary": "DOMUS is a high-rise apartment complex on the east side of campus.",
+        "details": ""
+      },
+      "onCampus": true,
+      "freshman": true,
+      "2 bedroom": false,
+      "1 bedroom": true,
+      "studio": true,
+      "triple": true,
+      "quad": false,
+      "price": 8490009392
+    },
+    {
+      "id": 1,
+      "houseid": 1,
+      "houseName": "NEW COLLEGE HOUSE",
+      "houseAddress": "UPENN",
+      "description": "EXPENSIVE HOUSE",
+      "onCampus": true,
+      "freshman": true,
+      "1 bedroom": true,
+      "2 bedroom": true,
+      "studio": false,
+      "triple": true,
+      "quad": false
     }
   ]
 }

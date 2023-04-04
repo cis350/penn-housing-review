@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "axios-mock-adapter": "^1.21.2"
+  }
+}
