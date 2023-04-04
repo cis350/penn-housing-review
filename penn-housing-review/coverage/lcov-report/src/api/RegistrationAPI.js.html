@@ -23,9 +23,15 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>0/6</span>
+=======
+                <span class="strong">100% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>6/6</span>
+>>>>>>> 0559ee3a3c0e3f95acb08a74b2ab7fdbe976d0a8
             </div>
         
             
@@ -37,16 +43,28 @@
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
                 <span class='fraction'>0/1</span>
+=======
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>1/1</span>
+>>>>>>> 0559ee3a3c0e3f95acb08a74b2ab7fdbe976d0a8
             </div>
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>0/6</span>
+=======
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>6/6</span>
+>>>>>>> 0559ee3a3c0e3f95acb08a74b2ab7fdbe976d0a8
             </div>
         
             
@@ -61,7 +79,11 @@
             </div>
         </template>
     </div>
+<<<<<<< HEAD
     <div class='status-line low'></div>
+=======
+    <div class='status-line high'></div>
+>>>>>>> 0559ee3a3c0e3f95acb08a74b2ab7fdbe976d0a8
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -106,16 +128,23 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
+<<<<<<< HEAD
 <a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+=======
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> 0559ee3a3c0e3f95acb08a74b2ab7fdbe976d0a8
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -124,6 +153,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+=======
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+>>>>>>> 0559ee3a3c0e3f95acb08a74b2ab7fdbe976d0a8
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,15 +195,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from "axios";
+<<<<<<< HEAD
 &nbsp;
 async function <span class="fstat-no" title="function not covered" >registerUser(</span>username, email, password) {
     // Create an object with username and password properties
     const data = <span class="cstat-no" title="statement not covered" >{</span>
+=======
+import { rootURL } from "../utils/utils";
+&nbsp;
+&nbsp;
+async function registerUser(username, email, password) {
+    // Create an object with username and password properties
+    const data = {
+>>>>>>> 0559ee3a3c0e3f95acb08a74b2ab7fdbe976d0a8
       username: username,
       email: email,
       password: password
     };
 &nbsp;
+<<<<<<< HEAD
 <span class="cstat-no" title="statement not covered" >    try {</span>
 &nbsp;
     const response = <span class="cstat-no" title="statement not covered" >await axios.post('http://localhost:3500/' + 'register', data);</span>
@@ -167,6 +222,16 @@ async function <span class="fstat-no" title="function not covered" >registerUser
     } catch (err) {
 <span class="cstat-no" title="statement not covered" >      console.log(err);</span>
 <span class="cstat-no" title="statement not covered" >      throw new Error("registration failed");</span>
+=======
+    try {
+&nbsp;
+    const response = await axios.post(rootURL + '/register', data);
+    return response;
+&nbsp;
+    } catch (err) {
+      console.log(err);
+      throw new Error("registration failed");
+>>>>>>> 0559ee3a3c0e3f95acb08a74b2ab7fdbe976d0a8
     }
 &nbsp;
 &nbsp;
@@ -199,7 +264,11 @@ async function <span class="fstat-no" title="function not covered" >registerUser
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2023-03-24T02:26:39.874Z
+=======
+                at 2023-03-30T21:21:57.115Z
+>>>>>>> 0559ee3a3c0e3f95acb08a74b2ab7fdbe976d0a8
             </div>
         <script src="../../prettify.js"></script>
         <script>

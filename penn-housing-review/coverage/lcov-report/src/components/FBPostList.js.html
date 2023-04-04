@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.33% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/12</span>
+                <span class='fraction'>9/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.33% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/12</span>
+                <span class='fraction'>9/15</span>
             </div>
         
             
@@ -129,7 +129,11 @@
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -137,18 +141,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,9 +178,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -202,65 +210,69 @@ import LikeButtom from './FBLikeButtom';
 import CommentButtom from './FBCommentButtom';
 import NotifyButtom from './FBNotifyButtom';
 &nbsp;
-export default function PostList( {data} ) {
-    let [page, setPage] = useState(1);
-    const PER_PAGE = 2;
+export default function PostList( {i_posts} ) {
+  const [page, setPage] = useState(1);
+  const [data, setData] = useState([]);
 &nbsp;
-    const count = Math.ceil(data.length / PER_PAGE);
-    const _DATA = usePagination(data, PER_PAGE);
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (i_posts) {
+<span class="cstat-no" title="statement not covered" >    setData(i_posts);</span>
+  }
 &nbsp;
-    const handleChange = <span class="fstat-no" title="function not covered" >(e</span>, p) =&gt; {
-<span class="cstat-no" title="statement not covered" >      setPage(p);</span>
-<span class="cstat-no" title="statement not covered" >      _DATA.jump(p);</span>
-    };
+  const PER_PAGE = 2;
 &nbsp;
-    const handleComment = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {
-<span class="cstat-no" title="statement not covered" >      event.preventDefault();</span>
-    }
+  const count = Math.ceil(data.length / PER_PAGE);
+  const _DATA = usePagination(data, PER_PAGE);
+&nbsp;
+  const handleChange = <span class="fstat-no" title="function not covered" >(e</span>, p) =&gt; {
+<span class="cstat-no" title="statement not covered" >    setPage(p);</span>
+<span class="cstat-no" title="statement not covered" >    _DATA.jump(p);</span>
+  };
+&nbsp;
+  const handleComment = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {
+<span class="cstat-no" title="statement not covered" >    event.preventDefault();</span>
+  }
 &nbsp;
 &nbsp;
-    function <span class="fstat-no" title="function not covered" >PostEntry(</span> {title, content, likes, comments, pid} ) { // add an ID field
-<span class="cstat-no" title="statement not covered" >        return (</span>
-          &lt;div className='postEntry'&gt;
-            &lt;h3&gt;{title}&lt;/h3&gt;
-            &lt;p&gt;{content}&lt;/p&gt;
-            &lt;div className='postEle'&gt;
-              &lt;LikeButtom likes={likes} pid={pid} /&gt;
-              &lt;CommentButtom comments={comments} /&gt;
-              &lt;NotifyButtom /&gt;
-            &lt;/div&gt;        
+  function <span class="fstat-no" title="function not covered" >PostEntry(</span> {key, title, content, likes, commentLength} ) { // add an ID field
+<span class="cstat-no" title="statement not covered" >      return (</span>
+        &lt;div className='postEntry'&gt;
+          &lt;h3&gt;{title}&lt;/h3&gt;
+          &lt;p&gt;{content}&lt;/p&gt;
+          &lt;div className='postEle'&gt;
+            &lt;LikeButtom likes={likes} pid={key} /&gt;
+            &lt;CommentButtom comments={commentLength} onClick={handleComment} /&gt;
+            &lt;NotifyButtom /&gt;
+          &lt;/div&gt;        
+        &lt;/div&gt;
+      )
+  }
+&nbsp;
+&nbsp;
+  return (
+    &lt;Box p="5" data-testid="post-list-box"&gt;
+      &lt;List&gt;
+        {_DATA.currentData().map(<span class="fstat-no" title="function not covered" >v </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >          return (</span>
+            &lt;PostEntry 
+              key={v.pid}
+              title={v.title} 
+              content={v.content} 
+              likes={v.likes} 
+              commentLength={v.commentLength}/&gt;
             
-            
-          &lt;/div&gt;
-        )
-    }
-&nbsp;
-&nbsp;
-    return (
-        &lt;Box p="5"&gt;
-          &lt;List&gt;
-            {_DATA.currentData().map(<span class="fstat-no" title="function not covered" >v </span>=&gt; {
-<span class="cstat-no" title="statement not covered" >              return (</span>
-                &lt;PostEntry 
-                    title={v.title} 
-                    content={v.content} 
-                    likes={v.likes} 
-                    comments={v.comments}
-                    pid={v.pid} /&gt;
-                
-              );
-            })}
-          &lt;/List&gt;
-          &lt;Pagination
-            count={count}
-            size="large"
-            page={page}
-            variant="outlined"
-            shape="rounded"
-            onChange={handleChange}
-          /&gt;
-        &lt;/Box&gt;
-    );
+          );
+        })}
+      &lt;/List&gt;
+      &lt;Pagination
+        count={count}
+        size="large"
+        page={page}
+        variant="outlined"
+        shape="rounded"
+        onChange={handleChange}
+      /&gt;
+    &lt;/Box&gt;
+  );
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -268,7 +280,7 @@ export default function PostList( {data} ) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-24T02:26:39.874Z
+                at 2023-04-04T20:17:29.187Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

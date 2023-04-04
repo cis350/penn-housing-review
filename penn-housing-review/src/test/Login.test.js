@@ -26,4 +26,12 @@ describe("Login component", () => {
     const loginTitle = getByText("Login to Continue");
     expect(loginTitle).toBeInTheDocument();
   });
+
+  test("clicking login button does not change title", () => {
+    const { getByText } = render(<Login />);
+    const loginButton = getByText("Login");
+    fireEvent.click(loginButton);
+    const loginTitle = getByText("Login to Continue");
+    expect(loginTitle).toBeInTheDocument();
+  });
 })
