@@ -1,0 +1,23 @@
+.preferenceContainer {
+    margin-bottom: 1rem;
+  }
+  
+  .preferenceItem {
+    display: flex;
+
+    margin-bottom: 0.5rem;
+    flex-direction: column;
+  }
+  
+  .rpStar {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  .prefTitle {
+    display: block;
+  }
+  
+  .starWrapper {
+    display: flex;
+  }

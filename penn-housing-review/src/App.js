@@ -6,17 +6,18 @@ import Login from './components/Login.js';
 
 
 import UserProfile from './components/UserProfile';
+
+import RPMain from './components/RPMain.js';
+
+
+
 function App() {
 
-  
-
-  const username = 'JohnDoe';
-  const posts = ['First post', 'Second post', 'Third post'];
 
   return (
       <div>
-        <MainHeader />
-        <MainBody />
+       <RPMain />
+        
         
       </div>
     
