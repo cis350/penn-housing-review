@@ -1,6 +1,7 @@
 // userAPI.test.js
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
+import { rootURL } from "../utils/utils";
 import { getUserPosts, updateUserPassword } from '../api/userAPI';
 
 const mockAxios = new MockAdapter(axios);
@@ -26,7 +27,7 @@ describe('userAPI', () => {
       },
     ];
 
-    mockAxios.onGet(`http://localhost:3500/users?username=${username}`).reply(200, usersResponse);
+    mockAxios.onGet(rootURL + `/users?username=${username}`).reply(200, usersResponse);
 
     const posts = await getUserPosts(username);
     expect(posts).toEqual(mockPosts);
@@ -35,7 +36,7 @@ describe('userAPI', () => {
 
   it('handles error when fetching user posts', async () => {
     const username = 'testuser';
-    mockAxios.onGet(`http://localhost:3500/users?username=${username}`).networkError();
+    mockAxios.onGet(rootURL + `/users?username=${username}`).networkError();
 
     const posts = await getUserPosts(username);
     expect(posts).toEqual([]);
@@ -62,7 +63,7 @@ describe('userAPI', () => {
 
     mockAxios.onGet(`http://localhost:3500/users?username=${username}`).reply(200, usersResponse);
 
-    mockAxios.onPut(`http://localhost:3500/users/${id}`).reply(200);
+    mockAxios.onPut(rootURL + `/users/${username}/update-password`).reply(200);
 
     const result = await updateUserPassword(username, password, newPassword);
     expect(result).toBe(true);
@@ -89,7 +90,7 @@ describe('userAPI', () => {
       },
     ];
 
-    mockAxios.onGet(`http://localhost:3500/users?username=${username}`).reply(200, usersResponse);
+    mockAxios.onPut(rootURL + `/users/${username}/update-password`).networkError();
 
     const result = await updateUserPassword(username, password, newPassword);
     expect(result).toBe(false);

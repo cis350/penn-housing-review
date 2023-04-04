@@ -82,6 +82,8 @@ body {
   .search:focus {
     outline:none;
   }
+
+
   
   
   .search-results {
@@ -97,7 +99,7 @@ body {
     width: 97%;
     max-width: 800px;
     box-shadow: 1px 1px 0px rgb(193, 193, 193);
-    display: none;
+  
   
     
   }
@@ -107,6 +109,13 @@ body {
     cursor: pointer;
     font-weight: bold;
   }
+
+  .search-results li a {
+    text-decoration: none;
+    color: #4a4a4a;
+  }
+
+  
   
   .search-box input:focus + .search-results {
     display: block;
