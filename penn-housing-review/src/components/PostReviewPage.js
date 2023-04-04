@@ -8,7 +8,7 @@ function PostReviewPage( {aptid, username} ) {
         <div>
             <Header />
             <h1 className='post-title'>Post a Review</h1>
-            <PostReview aptid={1} username='Ken' />
+            <PostReview aptid={aptid} username={username} />
         </div>
     )
 }
