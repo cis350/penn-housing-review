@@ -1,0 +1,39 @@
+.post-title {
+    position: relative;
+    left: 3%;
+    font-size: 50px;
+}
+
+.post-review-page {
+    position: relative;
+    left: 8%;
+    display: flex;
+}
+
+.review-ratings {
+    flex: 20%;
+}
+
+.review-input {
+    flex: 80%;
+}
+
+.text-field {
+    width: 80%;
+    height: 90%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+.title-field {
+    height: 7%;
+    width: 80%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+.review-buttons {
+    position: relative;
+    left: 70%;
+    top: 150px;
+}
