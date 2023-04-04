@@ -4,7 +4,7 @@ import logo from '../assets/logowhite.png';
   function Logo() {
     return (
       <a href="/post-review" className="logo">
-        <img src={logo} alt='logo' width="50" height="50"/>
+        <img src={logo} alt='logo' width="50" height="50" />
       </a>
     )
   }

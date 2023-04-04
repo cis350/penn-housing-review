@@ -50,10 +50,10 @@ export const getFilteredPostByHousingType = async (housingType) => {
     }
 }
 
-export const updateLike = async(likes, pid) => {
+export const updatePostLike = async(updateLikes, pid) => {
     try {
-        const response = await axios.put(`${rootURL}/posts/${pid}`, {
-            likes: likes
+        const response = await axios.patch(`${rootURL}/posts/${pid}`, {
+            likes: updateLikes
         });
         // console.log("update likes", response.data);
         return response.data;
@@ -62,3 +62,56 @@ export const updateLike = async(likes, pid) => {
     }
 }
 
+export const updateCommentLike = async(updateLikes, cid) => {
+    try {
+        const response = await axios.patch(`${rootURL}/comments/${cid}`, {
+            likes: updateLikes
+        });
+        // console.log("update likes", response.data);
+        return response.data;
+    } catch (err) {
+        console.error("error", err.message);
+    }
+}
+
+export const getAllCommentsByPostId = async (pid) => {
+    try {
+        const res = await axios.get(`${rootURL}/comments?pid=${pid}`);
+        // console.log("get all comments by post id", res.data);
+        return res.data;
+    } catch (err) {
+        console.error("error", err.message);
+    }
+}
+
+export const createComment = async (pid, content) => {
+    try {
+        const response = await axios.post(`${rootURL}/comments`, {
+            pid: pid,
+            content: content,
+            likes: 0,
+        });
+        // console.log("create comment", response.data);
+        return response.data;
+    } catch (err) {
+        console.error("error", err.message);
+    }
+}
+
+
+export const addNewPost = async (title, content, category, housingType, user, uid) => {
+    try {
+        const response = await axios.post(`${rootURL}/posts`,{
+            title: title,
+            content: content,
+            category: category,
+            housingType: housingType,
+            comments: 0,
+            likes: 0,
+        });
+        // console.log("add new post", response.data);
+        return response.data
+    } catch (err) {
+        console.error("error", err.message);
+    }
+}

@@ -24,6 +24,7 @@ function App() {
   const posts = ['First post', 'Second post', 'Third post'];
 
   return (
+
     <div className="App">
       <Router>
         <nav>
@@ -41,7 +42,7 @@ function App() {
 
         <Routes>
           <Route path={searchURL} element={<div><MainHeader /> <MainBody /></div> } />
-          <Route path={profileURL} element={<UserProfile username={username} posts={posts} />} />
+          {/* <Route path={profileURL} element={<UserProfile username={username} posts={posts} />} /> */}
           <Route path={mainURL} element={<div><Login /><MainHeader /> <MainBody /></div> } />
           <Route path={forumURL} element={<div><FBMain /></div> } />
           <Route path={forumNewPostURL} element={<div><FBPostMainPage /></div> } />

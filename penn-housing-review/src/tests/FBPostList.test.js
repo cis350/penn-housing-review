@@ -1,9 +1,9 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import FBPostList from '../components/FBPostList';
+import { render, screen, fireEvent } from '@testing-library/react';
+import PostList from '../components/FBPostList';
 
-test('renders post list box', () => {
-    render(<FBPostList />);
-    const postListBox = screen.getByTestId('post-list-box');
-    expect(postListBox).toBeInTheDocument();
-    });
+test ('renders post list', () => {
+    render(<PostList />);
+    const text = screen.getByTestId('postList');
+    expect(text).toBeInTheDocument();
+});

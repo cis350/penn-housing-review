@@ -10,17 +10,14 @@ export default function Filter() {
     const [category, setCategory] = useState("");
     const [housingType, setHousingType] = useState("");
 
-
     useEffect(() => {
         async function getAllPostsWrapper() {
             const data = await getAllPosts();
             setData(data);
         }
         getAllPostsWrapper();
-
     }, []);
 
-    // event handler for clicking making a post (placeholder)
     const handlePost = (event) => {
         window.location.href = '/forum/new-post';
     }
@@ -110,7 +107,6 @@ export default function Filter() {
                         <FormControlLabel value="" control={<Radio />} label="All Housing Types" />
                         <FormControlLabel value="On Campus" control={<Radio />} label="On Campus" />
                         <FormControlLabel value="Off Campus" control={<Radio />} label="Off Campus" />
-                    
                     </RadioGroup>
                 </FormControl>
                 <h3 className='postEle'>Category</h3>
@@ -131,7 +127,6 @@ export default function Filter() {
             </div>
             <div className="filterResult">
                 <PostList data={data} />
-                
             </div>
         </div>
         

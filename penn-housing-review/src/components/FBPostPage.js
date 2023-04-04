@@ -5,7 +5,7 @@ import React from 'react';
 import { useState } from 'react';
 import './FBPostPageStyles.css';
 import { Button, TextField, Stack, RadioGroup, FormControlLabel, Radio, FormControl } from '@mui/material';
-import { addNewPost } from '../api/FBNewPostAPI';
+import { addNewPost } from '../api/FBMainAPI';
 
 export default function FBPostPage() {
     const [currentOnCampus, setcCurrentOnCampus] = useState('outlined');
@@ -14,7 +14,7 @@ export default function FBPostPage() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [category, setCategory] = useState('');
-    const [postObject, setPostObject] = useState({});
+    const [checkAllInfo, setCheckAllInfo] = useState(false);
 
     const handleHousingTypeClickOne = (event) => {
         if (currentOnCampus === 'outlined') {
@@ -58,20 +58,32 @@ export default function FBPostPage() {
     };
 
     const handleSubmit= (event) => {
+        // need to get user id and username
+        // var user = JSON.parse(localStorage.getItem("users"));
+
         async function addNewPostWrapper() {
             const response = await addNewPost(title, content, category, housingType);
             console.log("response", response);
             return response;
         }
-        addNewPostWrapper();
+        if (title === '' || content === '' || category === '' || housingType === '') {
+            setCheckAllInfo(true);
+        } else {
+            setCheckAllInfo(false);
+            addNewPostWrapper();
+            console.log("title", title);
+            window.location.href = '/forum';
+        }
+        
     };
-
-
 
     return (
         <div className="main">
             <div>
                 <h2 className='postingTitle'>Post Your Thread!</h2>
+                {checkAllInfo && (
+                    <p style={{color: "red"}}>*Remember to fill all information*</p>
+                )}
                 <Stack direction="row" spacing={2}>
                     <Button className='housingType'
                         style={{
@@ -159,12 +171,8 @@ export default function FBPostPage() {
                     onClick={handleSubmit}>
                         Post</Button>
                 </Stack>
-
                 
-                
-                
-            </div>
-                
+            </div>  
 
         </div>
     );
