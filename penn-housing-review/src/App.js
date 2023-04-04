@@ -7,7 +7,11 @@ import FBMain from './components/FBMainPage.js';
 import Login from './components/Login.js';
 import UserProfile from './components/UserProfile';
 import FBPostMainPage from './components/FBPostMainPage.js';
-import {searchURL, profileURL, mainURL, forumURL, forumNewPostURL} from './utils/utils.js';
+import ReviewPage from './components/ReviewPage.js';
+import NewHousePage from './components/ReviewNewHouse.js';
+
+
+import {searchURL, profileURL, mainURL, forumURL, forumNewPostURL, ReviewPageURL, NewHouseURL} from './utils/utils.js';
 
 // Import your other components here
 // import ComponentA from './components/ComponentA';
@@ -15,6 +19,9 @@ import {searchURL, profileURL, mainURL, forumURL, forumNewPostURL} from './utils
 // ...
 
 function App() {
+
+  const username = localStorage.getItem("username");
+  const posts = ['First post', 'Second post', 'Third post'];
 
   return (
     <div className="App">
@@ -38,6 +45,8 @@ function App() {
           <Route path={mainURL} element={<div><Login /><MainHeader /> <MainBody /></div> } />
           <Route path={forumURL} element={<div><FBMain /></div> } />
           <Route path={forumNewPostURL} element={<div><FBPostMainPage /></div> } />
+          <Route path={ReviewPageURL} element={<div><ReviewPage /></div> } />
+          <Route path={NewHouseURL} element={<div><NewHousePage /></div> } />
           {/* Add routes for your other components */}
           {/* <Route path="/component-a" element={<ComponentA />} />
           <Route path="/component-b" element={<ComponentB />} /> */}

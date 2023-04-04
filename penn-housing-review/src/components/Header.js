@@ -1,10 +1,11 @@
 import './ReviewPage.css';
 import * as React from "react";
 import logo from '../assets/P-2.png';
+import {searchURL} from '../utils/utils.js';
   
   function Logo() {
     return (
-      <a href="/post-review" className="logo">
+      <a href={searchURL} className="logo">
         <img src={logo} alt='logo' width="50" height="50"/>
       </a>
     )
