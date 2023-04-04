@@ -6,7 +6,7 @@ const HouseList = ({ houses }) => {
   return (
     <div className="houseList">
       {houses.map((house) => (
-        <RPHouse key={house.houseId} house={house} />
+        <RPHouse key={house.houseid} house={house} />
       ))}
     </div>
   );

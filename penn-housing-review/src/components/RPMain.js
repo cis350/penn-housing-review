@@ -10,19 +10,6 @@ import { fetchHouses } from '../api/RecommendApi.js';
 import HouseList from './RPHousingList.js';
 
 function RPMain() {
-  const house1 = {
-    id: "1",
-    name: 'The Quad',
-    image: 'https://www.thecrimson.com/wp-content/uploads/2019/09/Quad-1.jpg',
-    price: '$5000'
-  }
-
-  const house2 = {
-    id: "2",
-    name: 'The Radian',
-    image: 'https://www.thecrimson.com/wp-content/uploads/2019/09/Quad-1.jpg',
-    price: '$3000'
-  }
 
 
   
