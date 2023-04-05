@@ -5,7 +5,7 @@ class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      price: 0,
+      price: 0
     };
   }
 
@@ -23,29 +23,51 @@ class Filter extends Component {
         <h3>Filters</h3>
         <div className="singleFilter">
           <label>
-            <input type="checkbox" name="onCampus" onChange={this.handleFilterChange} />
+            <input
+              type="checkbox"
+              name="onCampus"
+              onChange={this.handleFilterChange}
+            />
             On-Campus Housing
           </label>
         </div>
         <div className="singleFilter">
           <label>
-            <input type="checkbox" name="freshman" onChange={this.handleFilterChange} />
+            <input
+              type="checkbox"
+              name="freshman"
+              onChange={this.handleFilterChange}
+            />
             Freshman Housing
           </label>
         </div>
         <div className="singleFilter">
           <label>
-            Price Range: <input type="range" name="price" min="0" max="5000" onChange={this.handleFilterChange} /> {this.state.price}
+            Price Range:{' '}
+            <input
+              type="range"
+              name="price"
+              min="0"
+              max="5000"
+              onChange={this.handleFilterChange}
+            />{' '}
+            {this.state.price}
           </label>
         </div>
         <div className="checkboxGroup">
           <h4>Room Types</h4>
-          {['studio', '1 bedroom', '2 bedroom', 'triple', 'quad'].map((type) => (
-            <label key={type} className="roomType">
-              <input type="checkbox" name={type} onChange={this.handleFilterChange} />
-              {type}
-            </label>
-          ))}
+          {['studio', '1 bedroom', '2 bedroom', 'triple', 'quad'].map(
+            (type) => (
+              <label key={type} className="roomType">
+                <input
+                  type="checkbox"
+                  name={type}
+                  onChange={this.handleFilterChange}
+                />
+                {type}
+              </label>
+            )
+          )}
         </div>
       </div>
     );

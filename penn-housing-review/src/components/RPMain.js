@@ -1,48 +1,39 @@
-
-
 import FBHeader from './FBHeader.js';
 import '../styles/RPMain.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Filter from './RPFilter';
-import React from 'react';
 import Preference from './RPPreference';
 import { fetchHouses } from '../api/RecommendApi.js';
 import HouseList from './RPHousingList.js';
 
 function RPMain() {
-
-
-  
-
   const [preferences, setPreferences] = useState([
     { name: 'security', label: 'Security', value: 0 },
     { name: 'distance', label: 'Distance to Campus', value: 0 },
-    { name: 'amenity', label: 'Amenity', value: 0 },
+    { name: 'amenity', label: 'Amenity', value: 0 }
   ]);
 
   const handlePreferenceChange = (name, value) => {
     setPreferences(
-      preferences.map((pref) => (pref.name === name ? { ...pref, value } : pref))
-      
+      preferences.map((pref) =>
+        pref.name === name ? { ...pref, value } : pref
+      )
     );
-    console.log(preferences)
+    console.log(preferences);
   };
-
 
   const [filters, setFilters] = useState({
     onCampus: false,
     freshman: false,
     priceRange: [0, 5000],
-    roomTypes: [],
+    roomTypes: []
   });
 
   const [houseList, setHouseList] = useState([]);
 
-
-
   const handleFilterChange = (name, value) => {
     setFilters({ ...filters, [name]: value });
-    console.log(filters)
+    console.log(filters);
   };
 
   const handleSubmit = async () => {
@@ -53,31 +44,26 @@ function RPMain() {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
-      <div>
-        <FBHeader title="For You"/>
-        <div className='RPBodyWrapper'>
-          <div className = "RPLeft">
-              <Filter filters={filters} onFilterChange={handleFilterChange} />
-              <Preference preferences={preferences} onPreferenceChange={handlePreferenceChange} />
-              <button onClick={handleSubmit}>Submit</button>
-              
-          </div>
-          <div className='RPRight'>
-            <HouseList houses = {houseList}/>
-          </div>
+    <div>
+      <FBHeader title="For You" />
+      <div className="RPBodyWrapper">
+        <div className="RPLeft">
+          <Filter filters={filters} onFilterChange={handleFilterChange} />
+          <Preference
+            preferences={preferences}
+            onPreferenceChange={handlePreferenceChange}
+          />
+          <button onClick={handleSubmit}>Submit</button>
         </div>
-        
-        
-        
-        
-        
+        <div className="RPRight">
+          <HouseList houses={houseList} />
+        </div>
       </div>
-    
-  
-  )
+    </div>
+  );
 }
 
 /*
@@ -139,7 +125,7 @@ class RPMain extends Component {
           <button onClick={this.handleSubmit}>Submit</button>
           {submitted && <h3>Showing houses based on your preferences and filters:</h3>}
         </div>
-        
+
         <HouseList houses={houses} />
       </div>
     );

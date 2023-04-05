@@ -5,6 +5,7 @@ import Preference from '../components/RPPreference';
 import HouseList from '../components/RPHousingList';
 import RPMain from '../components/RPMain';
 import { fetchHouses } from '../api/RecommendApi.js';
+
 jest.mock('../api/RecommendApi.js');
 
 describe('Filter component', () => {
@@ -14,7 +15,9 @@ describe('Filter component', () => {
 
   it('updates the onCampus filter when checkbox is clicked', () => {
     const onFilterChange = jest.fn();
-    const { getByLabelText } = render(<Filter onFilterChange={onFilterChange} />);
+    const { getByLabelText } = render(
+      <Filter onFilterChange={onFilterChange} />
+    );
     const onCampusCheckbox = getByLabelText('On-Campus Housing');
     fireEvent.click(onCampusCheckbox);
     expect(onFilterChange).toHaveBeenCalledWith('onCampus', true);
@@ -22,7 +25,9 @@ describe('Filter component', () => {
 
   it('updates the freshman filter when checkbox is clicked', () => {
     const onFilterChange = jest.fn();
-    const { getByLabelText } = render(<Filter onFilterChange={onFilterChange} />);
+    const { getByLabelText } = render(
+      <Filter onFilterChange={onFilterChange} />
+    );
     const freshmanCheckbox = getByLabelText('Freshman Housing');
     fireEvent.click(freshmanCheckbox);
     expect(onFilterChange).toHaveBeenCalledWith('freshman', true);
@@ -30,7 +35,9 @@ describe('Filter component', () => {
 
   it('updates the room type filters when checkbox is clicked', () => {
     const onFilterChange = jest.fn();
-    const { getByLabelText } = render(<Filter onFilterChange={onFilterChange} />);
+    const { getByLabelText } = render(
+      <Filter onFilterChange={onFilterChange} />
+    );
     const studioCheckbox = getByLabelText('studio');
     fireEvent.click(studioCheckbox);
     expect(onFilterChange).toHaveBeenCalledWith('studio', true);
@@ -49,13 +56,11 @@ describe('Filter component', () => {
   });
 });
 
-
-
 describe('Preference component', () => {
   const preferences = [
     { name: 'cleanliness', label: 'Cleanliness', value: 3 },
     { name: 'amenities', label: 'Amenities', value: 4 },
-    { name: 'location', label: 'Location', value: 2 },
+    { name: 'location', label: 'Location', value: 2 }
   ];
 
   it('renders the component without errors', () => {
@@ -70,15 +75,15 @@ describe('Preference component', () => {
     });
   });
 
-  /*it('renders the preference ratings', () => {
+  /* it('renders the preference ratings', () => {
     const { getAllByText } = render(<Preference preferences={preferences} />);
     preferences.forEach((pref) => {
       const prefRating = getAllByText('★'.repeat(pref.value))[0];
       expect(prefRating).toBeInTheDocument();
     });
-  });*/
+  }); */
 
-  /*it('updates the preference rating when star is clicked', () => {
+  /* it('updates the preference rating when star is clicked', () => {
     const onPreferenceChange = jest.fn();
     const { getAllByText } = render(<Preference preferences={preferences} onPreferenceChange={onPreferenceChange} />);
     preferences.forEach((pref) => {
@@ -87,9 +92,9 @@ describe('Preference component', () => {
       fireEvent.click(targetStar);
       expect(onPreferenceChange).toHaveBeenCalledWith(pref.name, pref.value);
     });
-  });*/
+  }); */
 
-  /*it('updates the star color when mouse enters and leaves', () => {
+  /* it('updates the star color when mouse enters and leaves', () => {
     const { getAllByText } = render(<Preference preferences={preferences} />);
     preferences.forEach((pref) => {
       const stars = getAllByText('★');
@@ -100,10 +105,8 @@ describe('Preference component', () => {
         expect(star).toHaveStyle('color: rgb(204, 204, 204)');
       });
     });
-  });*/
-
+  }); */
 });
-
 
 const mockHouses = [
   {
@@ -117,7 +120,7 @@ const mockHouses = [
     '2 bedroom': false,
     studio: false,
     triple: false,
-    quad: false,
+    quad: false
   },
   {
     houseid: 2,
@@ -130,15 +133,14 @@ const mockHouses = [
     '2 bedroom': true,
     studio: false,
     triple: true,
-    quad: true,
-  },
+    quad: true
+  }
 ];
 
 describe('HouseList component', () => {
   it('renders the component without errors', () => {
     render(<HouseList houses={mockHouses} />);
   });
-
 
   it('renders the correct house information', () => {
     const { getByText } = render(<HouseList houses={mockHouses} />);
@@ -148,12 +150,10 @@ describe('HouseList component', () => {
   });
 });
 
-
 describe('RPMain component', () => {
   beforeEach(() => {
     render(<RPMain />);
   });
-
 
   test('renders the submit button', () => {
     const submitButton = screen.getByRole('button', { name: 'Submit' });
@@ -161,7 +161,9 @@ describe('RPMain component', () => {
   });
 
   test('submits the filters and preferences to fetch houses on submit button click', async () => {
-    fetchHouses.mockResolvedValueOnce([{ houseid: 1, houseName: 'Test House', houseAddress: '123 Main St.' }]);
+    fetchHouses.mockResolvedValueOnce([
+      { houseid: 1, houseName: 'Test House', houseAddress: '123 Main St.' }
+    ]);
     const submitButton = screen.getByRole('button', { name: 'Submit' });
     fireEvent.click(submitButton);
 
@@ -173,12 +175,14 @@ describe('RPMain component', () => {
       onCampus: false,
       freshman: false,
       priceRange: [0, 5000],
-      roomTypes: [],
+      roomTypes: []
     });
   });
 
   test('updates the filters state on filter change', () => {
-    const onCampusCheckbox = screen.getByRole('checkbox', { name: 'On-Campus Housing' });
+    const onCampusCheckbox = screen.getByRole('checkbox', {
+      name: 'On-Campus Housing'
+    });
     fireEvent.click(onCampusCheckbox);
 
     expect(onCampusCheckbox).toBeChecked();
@@ -193,7 +197,7 @@ describe('RPMain component', () => {
       onCampus: true,
       freshman: false,
       priceRange: [0, 5000],
-      roomTypes: [],
+      roomTypes: []
     };
 
     expect(fetchHouses).not.toHaveBeenCalled();
@@ -208,11 +212,9 @@ describe('RPMain component', () => {
     const preferences = [
       { name: 'security', label: 'Security', value: 2 },
       { name: 'distance', label: 'Distance to Campus', value: 0 },
-      { name: 'amenity', label: 'Amenity', value: 0 },
+      { name: 'amenity', label: 'Amenity', value: 0 }
     ];
 
     expect(fetchHouses).not.toHaveBeenCalled();
   });
 });
-
-

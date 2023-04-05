@@ -1,4 +1,4 @@
-/*import axios from 'axios';
+/* import axios from 'axios';
 import searchHouse from '../api/MainSearchApi.js';
 
 // Mock axios.get to return a resolved promise with some mock data
@@ -34,12 +34,11 @@ describe('searchHouse', () => {
     // Expect the function call to throw an error
     await expect(searchHouse('New York', 4)).rejects.toThrow('Network error');
   });
-});*/
-
+}); */
 
 /**
-* @jest-environment jsdom
-*/
+ * @jest-environment jsdom
+ */
 /*
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
@@ -62,74 +61,65 @@ test('button: On Campus Housing', async () => {
   await userEvent.click(button);})
 */
 
-
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import MainBody from '../components/MainSearch2.js';
 
-
 /**
-* @jest-environment jsdom
-*/
+ * @jest-environment jsdom
+ */
 import '@testing-library/jest-dom/extend-expect';
 import axios from 'axios';
 import { searchHouse } from '../api/MainSearchApi.js';
 
-
-
 jest.mock('axios', () => ({
-    get: jest.fn(),
-  }));
+  get: jest.fn()
+}));
 
 const mockResponse = {
-    data: [
-      { houseName: "GREEN HOUSE" },
-      { houseName: "BLUE HOUSE" },
-      { houseName: "RED HOUSE" },
-    ],
-  };
+  data: [
+    { houseName: 'GREEN HOUSE' },
+    { houseName: 'BLUE HOUSE' },
+    { houseName: 'RED HOUSE' }
+  ]
+};
 
 // Define a mock error object
 const mockError = {
-    response: {
-      status: 404,
-      data: "Not found",
-    },
-  };
-  
-  
-
+  response: {
+    status: 404,
+    data: 'Not found'
+  }
+};
 
 // Define a test case
-test("search house three results", async () => {
-    // Mock the axios.get call with the mock response data
-    axios.get.mockImplementationOnce(() => Promise.resolve(mockResponse));
-  
-    // Call the searchHouse function with some parameters
-    const response = await searchHouse("house", 10);
-  
-    // Expect that axios.get was called once with the correct url
-    expect(axios.get).toHaveBeenCalledTimes(1);
-    expect(axios.get).toHaveBeenCalledWith("http://localhost:3500/search");
-  
-    // Expect that the response is an array with one element matching the keyword
-    expect(response).toEqual(["GREEN HOUSE", "BLUE HOUSE", "RED HOUSE"]);
-  });
+test('search house three results', async () => {
+  // Mock the axios.get call with the mock response data
+  axios.get.mockImplementationOnce(() => Promise.resolve(mockResponse));
 
+  // Call the searchHouse function with some parameters
+  const response = await searchHouse('house', 10);
+
+  // Expect that axios.get was called once with the correct url
+  expect(axios.get).toHaveBeenCalledTimes(1);
+  expect(axios.get).toHaveBeenCalledWith('http://localhost:3500/search');
+
+  // Expect that the response is an array with one element matching the keyword
+  expect(response).toEqual(['GREEN HOUSE', 'BLUE HOUSE', 'RED HOUSE']);
+});
 
 // Define a test case
-test("search house no results", async () => {
-    // Mock the axios.get call with the mock response data
-    axios.get.mockImplementationOnce(() => Promise.resolve(mockResponse));
-  
-    // Call the searchHouse function with some parameters
-    const response = await searchHouse("organe", 10);
-  
-    // Expect that axios.get was called once with the correct url
-    expect(axios.get).toHaveBeenCalledTimes(1);
-    expect(axios.get).toHaveBeenCalledWith("http://localhost:3500/search");
-  
-    // Expect that the response is an array with one element matching the keyword
-    expect(response).toEqual([]);
-  });
+test('search house no results', async () => {
+  // Mock the axios.get call with the mock response data
+  axios.get.mockImplementationOnce(() => Promise.resolve(mockResponse));
 
+  // Call the searchHouse function with some parameters
+  const response = await searchHouse('organe', 10);
+
+  // Expect that axios.get was called once with the correct url
+  expect(axios.get).toHaveBeenCalledTimes(1);
+  expect(axios.get).toHaveBeenCalledWith('http://localhost:3500/search');
+
+  // Expect that the response is an array with one element matching the keyword
+  expect(response).toEqual([]);
+});

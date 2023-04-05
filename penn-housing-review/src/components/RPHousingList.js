@@ -1,8 +1,7 @@
 import React from 'react';
 import RPHouse from './RPHouse';
 
-
-const HouseList = ({ houses }) => {
+function HouseList({ houses }) {
   return (
     <div className="houseList">
       {houses.map((house) => (
@@ -10,6 +9,6 @@ const HouseList = ({ houses }) => {
       ))}
     </div>
   );
-};
+}
 
 export default HouseList;

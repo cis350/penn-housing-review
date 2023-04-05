@@ -1,17 +1,28 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import MainHeader from './components/MainHeader.js'
-import MainBody from './components/MainSearch2.js'
-import FBMain from './components/FBMainPage.js';
-import Login from './components/Login.js';
+import MainHeader from './components/MainHeader';
+import MainBody from './components/MainSearch2';
+import FBMain from './components/FBMainPage';
+import Login from './components/Login';
 import UserProfile from './components/UserProfile';
-import FBPostMainPage from './components/FBPostMainPage.js';
-import ReviewPage from './components/ReviewPage.js';
-import NewHousePage from './components/ReviewNewHouse.js';
+import RPMain from './components/RPMain';
+import FBPostMainPage from './components/FBPostMainPage';
+import ReviewPage from './components/ReviewPage';
+import NewHousePage from './components/ReviewNewHouse';
+import PostReviewPage from './components/PostReviewPage';
 
-
-import {searchURL, profileURL, mainURL, forumURL, forumNewPostURL, ReviewPageURL, NewHouseURL} from './utils/utils.js';
+import {
+  searchURL,
+  profileURL,
+  mainURL,
+  forumURL,
+  forumNewPostURL,
+  ReviewPageURL,
+  NewHouseURL,
+  RPMainURL, 
+  reviewPostURL
+} from './utils/utils';
 
 // Import your other components here
 // import ComponentA from './components/ComponentA';
@@ -19,12 +30,10 @@ import {searchURL, profileURL, mainURL, forumURL, forumNewPostURL, ReviewPageURL
 // ...
 
 function App() {
-
-  const username = localStorage.getItem("username");
+  const username = localStorage.getItem('username');
   const posts = ['First post', 'Second post', 'Third post'];
 
   return (
-
     <div className="App">
       <Router>
         <nav>
@@ -41,13 +50,75 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path={searchURL} element={<div><MainHeader /> <MainBody /></div> } />
-          {/* <Route path={profileURL} element={<UserProfile username={username} posts={posts} />} /> */}
-          <Route path={mainURL} element={<div><Login /><MainHeader /> <MainBody /></div> } />
-          <Route path={forumURL} element={<div><FBMain /></div> } />
-          <Route path={forumNewPostURL} element={<div><FBPostMainPage /></div> } />
-          <Route path={ReviewPageURL} element={<div><ReviewPage /></div> } />
-          <Route path={NewHouseURL} element={<div><NewHousePage /></div> } />
+          <Route
+            path={searchURL}
+            element={
+              <div>
+                <MainHeader /> <MainBody />
+              </div>
+            }
+          />
+          <Route
+            path={reviewPostURL}
+            element={
+              <div>
+                <PostReviewPage aptid = {1} username = {localStorage.getItem("username")}/>
+              </div>
+            }
+          />
+          <Route
+            path={RPMainURL}
+            element={
+              <div>
+                <RPMain />
+              </div>
+            }
+          />
+          <Route
+            path={profileURL}
+            element={<UserProfile username={username} posts={posts} />}
+          />
+          <Route
+            path={mainURL}
+            element={
+              <div>
+                <Login />
+                <MainHeader /> <MainBody />
+              </div>
+            }
+          />
+          <Route
+            path={forumURL}
+            element={
+              <div>
+                <FBMain />
+              </div>
+            }
+          />
+          <Route
+            path={forumNewPostURL}
+            element={
+              <div>
+                <FBPostMainPage />
+              </div>
+            }
+          />
+          <Route
+            path={ReviewPageURL}
+            element={
+              <div>
+                <ReviewPage />
+              </div>
+            }
+          />
+          <Route
+            path={NewHouseURL}
+            element={
+              <div>
+                <NewHousePage />
+              </div>
+            }
+          />
           {/* Add routes for your other components */}
           {/* <Route path="/component-a" element={<ComponentA />} />
           <Route path="/component-b" element={<ComponentB />} /> */}

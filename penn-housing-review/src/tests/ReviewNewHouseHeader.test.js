@@ -22,5 +22,4 @@ describe('ReviewNewHouseHeader component', () => {
     expect(profileElement).toBeInTheDocument();
     expect(profileElement).toHaveAttribute('href', profileURL);
   });
-
 });

@@ -3,7 +3,7 @@ import LikeButton from '../components/FBCommentLikeButtom';
 import { updateCommentLike } from '../api/FBMainAPI';
 
 jest.mock('../api/FBMainAPI', () => ({
-  updateCommentLike: jest.fn(),
+  updateCommentLike: jest.fn()
 }));
 
 describe('LikeButton', () => {

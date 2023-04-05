@@ -1,27 +1,23 @@
-import axios from "axios";
-import { rootURL } from "../utils/utils";
-
+import axios from 'axios';
+import { rootURL } from '../utils/utils';
 
 async function registerUser(username, email, password) {
-    // Create an object with username and password properties
-    const data = {
-      username: username,
-      email: email,
-      password: password
-    };
+  // Create an object with username and password properties
+  const data = {
+    username,
+    email,
+    password
+  };
 
-    try {
-
-    const response = await axios.post(rootURL + '/register', data);
+  try {
+    const response = await axios.post(`${rootURL}/register`, data);
     return response;
+  } catch (err) {
+    console.log(err);
+    throw new Error('registration failed');
+  }
 
-    } catch (err) {
-      console.log(err);
-      throw new Error("registration failed");
-    }
-
-
-    /*
+  /*
     // Return a promise that resolves with the response data or rejects with an error
     return axios.post('/login', data)
       .then(response => response.data)
@@ -40,7 +36,7 @@ async function registerUser(username, email, password) {
         }
         // Reject the promise with the error object
         return Promise.reject(error);
-      });*/
-  }
+      }); */
+}
 
-  export default registerUser;
+export default registerUser;

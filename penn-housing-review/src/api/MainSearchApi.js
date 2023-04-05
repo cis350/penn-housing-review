@@ -1,18 +1,21 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const searchHouse = async (keyword, limit) => {
   // Create an object with keyword and limit properties
   const params = { keyword, limit };
   // Return a promise that resolves with the response data or rejects with an error
-  return axios.get('http://localhost:3500/search')
-    .then(response => {
+  return axios
+    .get('http://localhost:3500/search')
+    .then((response) => {
       // Filter the response data by houseName property
 
-      const filtered = response.data.filter(search => search.houseName.includes(keyword.toUpperCase()));
-      const results = filtered.map(search => search.houseName);
+      const filtered = response.data.filter((search) =>
+        search.houseName.includes(keyword.toUpperCase())
+      );
+      const results = filtered.map((search) => search.houseName);
       return results;
     })
-    .catch(error => {
+    .catch((error) => {
       // Handle different error scenarios
       if (error.response) {
         // The request was made and the server responded with a status code that falls out of the range of 2xx
@@ -28,4 +31,4 @@ export const searchHouse = async (keyword, limit) => {
       // Reject the promise with the error object
       return Promise.reject(error);
     });
-}
+};

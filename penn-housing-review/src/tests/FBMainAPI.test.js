@@ -52,13 +52,17 @@ import {
 jest.mock('axios');
 
 describe('Unit tests for module functions', () => {
-
   afterEach(() => {
     jest.resetAllMocks();
   });
 
   test('getAllPosts function returns expected data', async () => {
-    const mockData = { data: [{ id: 1, title: 'Post 1' }, { id: 2, title: 'Post 2' }] };
+    const mockData = {
+      data: [
+        { id: 1, title: 'Post 1' },
+        { id: 2, title: 'Post 2' }
+      ]
+    };
     axios.get.mockResolvedValue(mockData);
 
     const result = await getAllPosts();
@@ -74,7 +78,10 @@ describe('Unit tests for module functions', () => {
     const result = await updatePostLike(5, 1);
 
     expect(result).toEqual(mockData.data);
-    expect(axios.patch).toHaveBeenCalledWith(expect.stringContaining('/posts/1'), { likes: 5 });
+    expect(axios.patch).toHaveBeenCalledWith(
+      expect.stringContaining('/posts/1'),
+      { likes: 5 }
+    );
   });
 
   test('updateCommentLike function returns expected data', async () => {
@@ -84,40 +91,69 @@ describe('Unit tests for module functions', () => {
     const result = await updateCommentLike(5, 1);
 
     expect(result).toEqual(mockData.data);
-    expect(axios.patch).toHaveBeenCalledWith(expect.stringContaining('/comments/1'), { likes: 5 });
+    expect(axios.patch).toHaveBeenCalledWith(
+      expect.stringContaining('/comments/1'),
+      {
+        likes: 5
+      }
+    );
   });
 
-    test('getAllCommentsByPostId function returns expected data', async () => {
-        const mockData = { data: [{ id: 1, title: 'Post 1' }, { id: 2, title: 'Post 2' }] };
-        axios.get.mockResolvedValue(mockData);
+  test('getAllCommentsByPostId function returns expected data', async () => {
+    const mockData = {
+      data: [
+        { id: 1, title: 'Post 1' },
+        { id: 2, title: 'Post 2' }
+      ]
+    };
+    axios.get.mockResolvedValue(mockData);
 
-        const result = await getAllCommentsByPostId(1);
+    const result = await getAllCommentsByPostId(1);
 
-        expect(result).toEqual(mockData.data);
-        expect(axios.get).toHaveBeenCalledWith(expect.stringContaining('/comments?pid=1'));
-    }
+    expect(result).toEqual(mockData.data);
+    expect(axios.get).toHaveBeenCalledWith(
+      expect.stringContaining('/comments?pid=1')
+    );
+  });
+
+  test('createComment function returns expected data', async () => {
+    const mockData = { data: { id: 1, title: 'Post 1' } };
+    axios.post.mockResolvedValue(mockData);
+
+    const result = await createComment(1, 'test comment');
+
+    expect(result).toEqual(mockData.data);
+    expect(axios.post).toHaveBeenCalledWith(
+      expect.stringContaining('/comments'),
+      {
+        pid: 1,
+        likes: 0,
+        content: 'test comment'
+      }
+    );
+  });
+
+  test('addNewPost function returns expected data', async () => {
+    const mockData = { data: { id: 1, title: 'Post 1' } };
+    axios.post.mockResolvedValue(mockData);
+
+    const result = await addNewPost(
+      'test title',
+      'test content',
+      'Discussion',
+      'On Campus',
+      'test user',
+      1
     );
 
-    test('createComment function returns expected data', async () => {
-        const mockData = { data: { id: 1, title: 'Post 1' } };
-        axios.post.mockResolvedValue(mockData);
-
-        const result = await createComment(1, 'test comment');
-
-        expect(result).toEqual(mockData.data);
-        expect(axios.post).toHaveBeenCalledWith(expect.stringContaining('/comments'), { pid: 1, likes: 0, content: 'test comment' });
-    }
-    );
-
-    test('addNewPost function returns expected data', async () => {
-        const mockData = { data: { id: 1, title: 'Post 1' } };
-        axios.post.mockResolvedValue(mockData);
-
-        const result = await addNewPost('test title', 'test content', 'Discussion', 'On Campus', 'test user', 1);
-
-        expect(result).toEqual(mockData.data);
-        expect(axios.post).toHaveBeenCalledWith(expect.stringContaining('/posts'), { title: 'test title', content: 'test content', category: 'Discussion', housingType: 'On Campus', comments: 0, likes: 0 });
-    }
-    );
-
+    expect(result).toEqual(mockData.data);
+    expect(axios.post).toHaveBeenCalledWith(expect.stringContaining('/posts'), {
+      title: 'test title',
+      content: 'test content',
+      category: 'Discussion',
+      housingType: 'On Campus',
+      comments: 0,
+      likes: 0
+    });
+  });
 });
