@@ -425,6 +425,12 @@
       "email": "123",
       "password": "123",
       "id": 6
+    },
+    {
+      "username": "ggg",
+      "email": "123",
+      "password": "123",
+      "id": 7
     }
   ],
   "comments": [
@@ -489,6 +495,14 @@
         3,
         4
       ]
+    },
+    {
+      "username": "ggg",
+      "email": "123",
+      "followedPosts": [
+        2
+      ],
+      "id": 2
     }
   ],
   "houses": [
