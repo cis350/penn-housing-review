@@ -4,10 +4,9 @@ import { rootURL } from '../utils/utils';
 export const getApartmentById = async (id) => {
   try {
     const response = await axios.get(`${rootURL}/apartments/${id}`);
-    console.log('apartment', response.data);
     return response;
   } catch (err) {
-    console.error('error', err.message);
+    // do something
   }
   return null;
 };
@@ -15,10 +14,9 @@ export const getApartmentById = async (id) => {
 export const getReviewsById = async (aptid) => {
   try {
     const response = await axios.get(`${rootURL}/reviews${aptid}`);
-    console.log('reviews', response.data);
     return response;
   } catch (err) {
-    console.error('error', err.message);
+    // do something
   }
   return null;
 };
@@ -31,10 +29,9 @@ export const updateLike = async (aptid, id, username, ratings, likes, desc) => {
       likes,
       desc
     });
-    console.log('likes', response.data);
     return response.data;
   } catch (err) {
-    console.error('error', err.message);
+    // do something
   }
   return null;
 };
@@ -56,7 +53,7 @@ export const submitReview = async (
     });
     return response.data;
   } catch (err) {
-    console.error('error', err.message);
+    // do something
   }
   return null;
 };
