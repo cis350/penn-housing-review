@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 import logo from '../assets/logo2.png';
 
 // Import the searchHouse function from another file
-import { searchHouse } from '../api/MainSearchApi.js';
-import { NewHouseURL, ReviewPageURL } from '../utils/utils.js';
+import searchHouse from '../api/MainSearchApi';
+import { NewHouseURL, ReviewPageURL } from '../utils/utils';
 import './Main.css';
 
 // Define a custom component for the logo and title
 function LogoTitle() {
   return (
     <div className="logo-title">
-      <img src={logo} />
+      <img src={logo} alt="logo"/>
       <h1 className="main-title">Penn Housing Review</h1>
     </div>
   );
@@ -40,10 +40,8 @@ function Search() {
         const data = await searchHouse(value, 4);
         // Update the results state variable with data
         setResults(data);
-        console.log(data);
       } catch (error) {
         // Handle any error from searchHouse function call
-        console.error(error);
       }
     } else {
       // If value is empty, clear results state variable
