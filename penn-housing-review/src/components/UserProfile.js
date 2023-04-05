@@ -103,7 +103,9 @@ function UserProfile() {
             localStorage.removeItem('username');
             window.location.href = '/';
           }}
-        />
+          
+        >Log Out</Button>
+        
       </div>
       <h1>Posts</h1>
           {posts.map((post) => (
