@@ -54,7 +54,7 @@ export default function PostList({ data }) {
         <div className="postEle">
           <LikeButtom likes={likes} pid={pid} />
           <CommentButtom comments={comments} pid={pid} />
-          <NotifyButtom />
+          <NotifyButtom postId={pid}/>
         </div>
       </div>
     );

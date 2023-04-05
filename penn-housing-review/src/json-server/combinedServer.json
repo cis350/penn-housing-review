@@ -460,6 +460,28 @@
       "id": 6
     }
   ],
+  "users": [
+    {
+      "id": 0,
+      "username": "abc",
+      "email": "123",
+      "followedPosts": [
+        1,
+        2
+      ],
+      "follows": []
+    },
+    {
+      "id": 1,
+      "username": "alice",
+      "email": "123a",
+      "followedPosts": [
+        2,
+        3,
+        4
+      ]
+    }
+  ],
   "houses": [
     {
       "houseid": "1",
