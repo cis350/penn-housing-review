@@ -20,6 +20,7 @@ function Profile() {
   );
 }
 
+
 export default function ReviewNewHouseHeader() {
   return (
     <header className="new-house-header">

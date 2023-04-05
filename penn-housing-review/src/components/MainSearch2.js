@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import logo from '../assets/logo2.png';
 
 // Import the searchHouse function from another file
-import searchHouse from '../api/MainSearchApi';
+import {searchHouse} from '../api/MainSearchApi';
 import { NewHouseURL, ReviewPageURL } from '../utils/utils';
 import './Main.css';
 

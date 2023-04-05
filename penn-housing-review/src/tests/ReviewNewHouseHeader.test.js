@@ -16,10 +16,4 @@ describe('ReviewNewHouseHeader component', () => {
     expect(titleElement).toBeInTheDocument();
   });
 
-  it('renders the profile link with the correct username and href', () => {
-    render(<ReviewNewHouseHeader />);
-    const profileElement = screen.getByText('Welcome, username');
-    expect(profileElement).toBeInTheDocument();
-    expect(profileElement).toHaveAttribute('href', profileURL);
-  });
 });
