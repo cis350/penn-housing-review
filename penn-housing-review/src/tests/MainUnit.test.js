@@ -102,7 +102,7 @@ test('search house three results', async () => {
 
   // Expect that axios.get was called once with the correct url
   expect(axios.get).toHaveBeenCalledTimes(1);
-  expect(axios.get).toHaveBeenCalledWith('http://localhost:3500/search');
+  expect(axios.get).toHaveBeenCalledWith('http://localhost:3500/houses');
 
   // Expect that the response is an array with one element matching the keyword
   expect(response).toEqual(['GREEN HOUSE', 'BLUE HOUSE', 'RED HOUSE']);
@@ -118,7 +118,7 @@ test('search house no results', async () => {
 
   // Expect that axios.get was called once with the correct url
   expect(axios.get).toHaveBeenCalledTimes(1);
-  expect(axios.get).toHaveBeenCalledWith('http://localhost:3500/search');
+  expect(axios.get).toHaveBeenCalledWith('http://localhost:3500/houses');
 
   // Expect that the response is an array with one element matching the keyword
   expect(response).toEqual([]);

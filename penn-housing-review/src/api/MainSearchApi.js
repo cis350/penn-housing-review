@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const searchHouse = async (keyword) => 
+export const searchHouse = async (keyword) => 
   // Create an object with keyword and limit properties
   // Return a promise that resolves with the response data or rejects with an error
   axios
