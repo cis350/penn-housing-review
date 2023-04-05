@@ -67,6 +67,15 @@
       "category": "Social",
       "comments": 0,
       "likes": 10
+    },
+    {
+      "title": "New Post",
+      "content": "Hello",
+      "category": "Discussion",
+      "housingType": "On Campus",
+      "comments": 0,
+      "likes": 0,
+      "id": 6
     }
   ],
   "reviews1": [
@@ -223,6 +232,17 @@
       "likes": 0,
       "desc": "Hello this is a new review",
       "id": 14
+    },
+    {
+      "User": "HelloWorld",
+      "ratings": [
+        4.6,
+        4.6,
+        4.6
+      ],
+      "likes": 0,
+      "desc": "Hello",
+      "id": 15
     }
   ],
   "search": [

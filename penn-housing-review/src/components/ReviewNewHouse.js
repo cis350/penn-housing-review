@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './ReviewNewHouse.css';
-import InputBox from './InputBox.js';
-import ReviewNewHouseHeader from './ReviewNewHouseHeader.js';
-import addHouse from '../api/NewHouseAPI.js';
+import InputBox from './InputBox';
+import ReviewNewHouseHeader from './ReviewNewHouseHeader';
+import addHouse from '../api/NewHouseAPI';
 
 export default function NewHousePage() {
   const [name, setName] = useState(''); // name of the house
@@ -62,7 +62,7 @@ export default function NewHousePage() {
         quad: roomTypes.includes('quad')
       };
       // Await for the addHouse function to resolve or reject
-      const data = await addHouse(house);
+      await addHouse(house);
       // console.log(data);
       // If resolved, get the userID from the data object
       // const userID = data.data.id;

@@ -16,7 +16,7 @@ export const getReviewsById = async (aptid) => {
     const response = await axios.get(`${rootURL}/reviews${aptid}`);
     return response;
   } catch (err) {
-    // do something
+      // do something
   }
   return null;
 };
