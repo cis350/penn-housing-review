@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './App.css';
-import MainHeader from './components/MainHeader.js'
-import MainBody from './components/MainSearch2.js'
-import FBMain from './components/FBMainPage.js';
-import Login from './components/Login.js';
+import MainHeader from './components/MainHeader'
+import MainBody from './components/MainSearch2'
+import FBMain from './components/FBMainPage';
+import Login from './components/Login';
 import UserProfile from './components/UserProfile';
-import FBPostMainPage from './components/FBPostMainPage.js';
-import ReviewPage from './components/ReviewPage.js';
-import NewHousePage from './components/ReviewNewHouse.js';
+import FBPostMainPage from './components/FBPostMainPage';
+import ReviewPage from './components/ReviewPage';
+import NewHousePage from './components/ReviewNewHouse';
 
 
 import {searchURL, profileURL, mainURL, forumURL, forumNewPostURL, ReviewPageURL, NewHouseURL} from './utils/utils.js';
@@ -42,7 +42,7 @@ function App() {
 
         <Routes>
           <Route path={searchURL} element={<div><MainHeader /> <MainBody /></div> } />
-          {/* <Route path={profileURL} element={<UserProfile username={username} posts={posts} />} /> */}
+          <Route path={profileURL} element={<UserProfile username={username} posts={posts} />} />
           <Route path={mainURL} element={<div><Login /><MainHeader /> <MainBody /></div> } />
           <Route path={forumURL} element={<div><FBMain /></div> } />
           <Route path={forumNewPostURL} element={<div><FBPostMainPage /></div> } />

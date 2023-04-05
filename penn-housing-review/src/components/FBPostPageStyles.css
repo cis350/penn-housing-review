@@ -58,11 +58,13 @@
   position: absolute;
   right: 2%;
 }
-.main {
-  /* change the proportion of display */
+
+.mainPostPage {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-right: 80px;
-  margin-left: 80px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 .postingTitle {
