@@ -32,7 +32,9 @@ describe('NewHousePage component', () => {
 
   it('allows the user to select room types', () => {
     const { getByLabelText, getAllByLabelText } = render(<NewHousePage />);
-    const roomTypeCheckboxes = getAllByLabelText(/Studio|1 Bedroom|2 Bedroom|Triple|Quad/);
+    const roomTypeCheckboxes = getAllByLabelText(
+      /Studio|1 Bedroom|2 Bedroom|Triple|Quad/
+    );
     roomTypeCheckboxes.forEach((checkbox) => {
       fireEvent.click(checkbox);
       expect(checkbox.checked).toBe(true);
@@ -42,9 +44,15 @@ describe('NewHousePage component', () => {
   it('submits the new house request when the user clicks the Request button', async () => {
     addHouse.mockResolvedValueOnce({ data: { id: 1 } });
     const { getByText, getByLabelText } = render(<NewHousePage />);
-    fireEvent.change(getByLabelText('Name'), { target: { value: 'New House' } });
-    fireEvent.change(getByLabelText('Address'), { target: { value: '123 Main St.' } });
-    fireEvent.change(getByLabelText('Description'), { target: { value: 'A new house' } });
+    fireEvent.change(getByLabelText('Name'), {
+      target: { value: 'New House' }
+    });
+    fireEvent.change(getByLabelText('Address'), {
+      target: { value: '123 Main St.' }
+    });
+    fireEvent.change(getByLabelText('Description'), {
+      target: { value: 'A new house' }
+    });
     fireEvent.click(getByLabelText('Studio'));
     fireEvent.click(getByText('Request'));
     await waitFor(() => {
@@ -60,7 +68,7 @@ describe('NewHousePage component', () => {
         '2 bedroom': false,
         studio: true,
         triple: false,
-        quad: false,
+        quad: false
       });
     });
   });

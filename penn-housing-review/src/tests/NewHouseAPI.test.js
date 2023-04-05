@@ -4,7 +4,7 @@ import addHouse from '../api/NewHouseAPI';
 jest.mock('axios');
 
 describe('addHouse function', () => {
-  const mockHouse = { 
+  const mockHouse = {
     houseName: 'Test House',
     houseAddress: '123 Main St.',
     description: 'A test house',
@@ -14,7 +14,7 @@ describe('addHouse function', () => {
     '2 bedroom': false,
     studio: false,
     triple: false,
-    quad: false,
+    quad: false
   };
 
   it('makes a POST request to the correct URL', async () => {

@@ -1,12 +1,12 @@
 /**
-* @jest-environment jsdom
-*/
+ * @jest-environment jsdom
+ */
 
 import React from 'react';
 // import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render, screen } from '@testing-library/react';
-import FBPostPage from '../components/FBPostPage';
 import userEvent from '@testing-library/user-event';
+import FBPostPage from '../components/FBPostPage';
 
 test('text: post your thread', () => {
   render(<FBPostPage />);
@@ -40,7 +40,6 @@ test('button: On Campus Housing', async () => {
 
   await userEvent.click(button);
   expect(button).toHaveStyle('background-color: rgb(25, 118, 210)');
-
 });
 
 test('button: cancel On Campus Housing', async () => {
@@ -51,7 +50,6 @@ test('button: cancel On Campus Housing', async () => {
   await userEvent.click(button);
   await userEvent.click(button);
   expect(button).toHaveStyle('background-color: transparent');
-
 });
 
 test('button: Off Campus Housing', async () => {
@@ -61,7 +59,6 @@ test('button: Off Campus Housing', async () => {
 
   await userEvent.click(buttonOne);
   expect(buttonOne).toHaveStyle('background-color: rgb(25, 118, 210)');
-
 });
 
 test('button: cancel Off Campus Housing', async () => {
@@ -72,7 +69,6 @@ test('button: cancel Off Campus Housing', async () => {
   await userEvent.click(buttonOne);
   await userEvent.click(buttonOne);
   expect(buttonOne).toHaveStyle('background-color: transparent');
-
 });
 // test the presence of the text field for title
 test('text field: content', async () => {
@@ -87,19 +83,19 @@ test('text field: title', () => {
   expect(textbox).toBeInTheDocument();
 });
 
-test("click Dicussion radio option", () => {
+test('click Dicussion radio option', () => {
   render(<FBPostPage />);
-  const button = screen.getByRole("radio", { name: 'Discussion' });
-  expect (button).toBeInTheDocument();
+  const button = screen.getByRole('radio', { name: 'Discussion' });
+  expect(button).toBeInTheDocument();
 
   fireEvent.click(button);
   expect(button).toBeChecked();
 });
 
-test("click Social radio option", () => {
+test('click Social radio option', () => {
   render(<FBPostPage />);
-  const button = screen.getByRole("radio", { name: 'Social' });
-  expect (button).toBeInTheDocument();
+  const button = screen.getByRole('radio', { name: 'Social' });
+  expect(button).toBeInTheDocument();
 
   fireEvent.click(button);
   expect(button).toBeChecked();

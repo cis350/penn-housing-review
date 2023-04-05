@@ -1,7 +1,7 @@
 // userAPI.test.js
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { rootURL } from "../utils/utils";
+import { rootURL } from '../utils/utils';
 import { getUserPosts, updateUserPassword } from '../api/userAPI';
 
 const mockAxios = new MockAdapter(axios);
@@ -13,30 +13,31 @@ describe('userAPI', () => {
 
   it('fetches user posts', async () => {
     const username = 'testuser';
-    
+
     const mockPosts = [
       { title: 'Post 1', description: 'Post 1 description' },
-      { title: 'Post 2', description: 'Post 2 description' },
+      { title: 'Post 2', description: 'Post 2 description' }
     ];
 
     const usersResponse = [
       {
         id: 1,
         username: 'testuser',
-        posts: mockPosts,
-      },
+        posts: mockPosts
+      }
     ];
 
-    mockAxios.onGet(rootURL + `/users?username=${username}`).reply(200, usersResponse);
+    mockAxios
+      .onGet(`${rootURL}/users?username=${username}`)
+      .reply(200, usersResponse);
 
     const posts = await getUserPosts(username);
     expect(posts).toEqual(mockPosts);
-
   });
 
   it('handles error when fetching user posts', async () => {
     const username = 'testuser';
-    mockAxios.onGet(rootURL + `/users?username=${username}`).networkError();
+    mockAxios.onGet(`${rootURL}/users?username=${username}`).networkError();
 
     const posts = await getUserPosts(username);
     expect(posts).toEqual([]);
@@ -50,20 +51,22 @@ describe('userAPI', () => {
 
     const mockPosts = [
       { title: 'Post 1', description: 'Post 1 description' },
-      { title: 'Post 2', description: 'Post 2 description' },
+      { title: 'Post 2', description: 'Post 2 description' }
     ];
 
     const usersResponse = [
       {
         id: 1,
         username: 'testuser',
-        posts: mockPosts,
-      },
+        posts: mockPosts
+      }
     ];
 
-    mockAxios.onGet(`http://localhost:3500/users?username=${username}`).reply(200, usersResponse);
+    mockAxios
+      .onGet(`http://localhost:3500/users?username=${username}`)
+      .reply(200, usersResponse);
 
-    mockAxios.onPut(rootURL + `/users/${username}/update-password`).reply(200);
+    mockAxios.onPut(`${rootURL}/users/${username}/update-password`).reply(200);
 
     const result = await updateUserPassword(username, password, newPassword);
     expect(result).toBe(true);
@@ -77,7 +80,7 @@ describe('userAPI', () => {
 
     const mockPosts = [
       { title: 'Post 1', description: 'Post 1 description' },
-      { title: 'Post 2', description: 'Post 2 description' },
+      { title: 'Post 2', description: 'Post 2 description' }
     ];
 
     mockAxios.onPut(`http://localhost:3500/users/${id}`).networkError();
@@ -86,11 +89,13 @@ describe('userAPI', () => {
       {
         id: 1,
         username: 'testuser',
-        posts: mockPosts,
-      },
+        posts: mockPosts
+      }
     ];
 
-    mockAxios.onPut(rootURL + `/users/${username}/update-password`).networkError();
+    mockAxios
+      .onPut(`${rootURL}/users/${username}/update-password`)
+      .networkError();
 
     const result = await updateUserPassword(username, password, newPassword);
     expect(result).toBe(false);

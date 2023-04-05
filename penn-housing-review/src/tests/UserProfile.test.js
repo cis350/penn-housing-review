@@ -1,5 +1,11 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  act
+} from '@testing-library/react';
 import UserProfile from '../components/UserProfile';
 import { getUserPosts, updateUserPassword } from '../api/userAPI';
 
@@ -39,9 +45,9 @@ describe('UserProfile', () => {
       render(<UserProfile username={testUsername} />);
     });
     expect(getUserPosts).toHaveBeenCalledWith(testUsername);
-    
+
     await waitFor(() => {
-      testPosts.forEach(post => {
+      testPosts.forEach((post) => {
         expect(screen.getByText(post.title)).toBeInTheDocument();
         expect(screen.getByText(post.description)).toBeInTheDocument();
       });
@@ -53,38 +59,68 @@ describe('UserProfile', () => {
     await act(async () => {
       render(<UserProfile username={testUsername} />);
     });
-  
-    fireEvent.change(screen.getByTestId('current-password').querySelector('input'), { target: { value: 'current_password' } });
-    fireEvent.change(screen.getByTestId('new-password').querySelector('input'), { target: { value: 'new_password' } });
-    fireEvent.change(screen.getByTestId('confirm-password').querySelector('input'), { target: { value: 'new_password' } });
-  
+
+    fireEvent.change(
+      screen.getByTestId('current-password').querySelector('input'),
+      {
+        target: { value: 'current_password' }
+      }
+    );
+    fireEvent.change(
+      screen.getByTestId('new-password').querySelector('input'),
+      {
+        target: { value: 'new_password' }
+      }
+    );
+    fireEvent.change(
+      screen.getByTestId('confirm-password').querySelector('input'),
+      {
+        target: { value: 'new_password' }
+      }
+    );
+
     await act(async () => {
       fireEvent.click(screen.getByTestId('change-password'));
     });
-  
+
     await waitFor(() => {
-      expect(updateUserPassword).toHaveBeenCalledWith(testUsername, 'current_password', 'new_password');
+      expect(updateUserPassword).toHaveBeenCalledWith(
+        testUsername,
+        'current_password',
+        'new_password'
+      );
     });
   });
-  
+
   it('shows error when new and confirm password do not match', async () => {
     const alertSpy = jest.spyOn(window, 'alert').mockImplementation(() => {});
-  
+
     await act(async () => {
       render(<UserProfile username={testUsername} />);
     });
-    fireEvent.change(screen.getByTestId('new-password').querySelector('input'), { target: { value: 'new_password' } });
-    fireEvent.change(screen.getByTestId('confirm-password').querySelector('input'), { target: { value: 'wrong_password' } });
-  
+    fireEvent.change(
+      screen.getByTestId('new-password').querySelector('input'),
+      {
+        target: { value: 'new_password' }
+      }
+    );
+    fireEvent.change(
+      screen.getByTestId('confirm-password').querySelector('input'),
+      {
+        target: { value: 'wrong_password' }
+      }
+    );
+
     await act(async () => {
       fireEvent.click(screen.getByTestId('change-password'));
     });
-  
+
     await waitFor(() => {
-      expect(alertSpy).toHaveBeenCalledWith('New password and confirm password do not match!');
+      expect(alertSpy).toHaveBeenCalledWith(
+        'New password and confirm password do not match!'
+      );
     });
-  
+
     alertSpy.mockRestore();
   });
-
 });

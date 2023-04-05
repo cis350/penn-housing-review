@@ -9,9 +9,12 @@ describe('fetchHouses function', () => {
     onCampus: true,
     freshman: true,
     priceRange: [0, 5000],
-    roomTypes: ['studio', '1 bedroom'],
+    roomTypes: ['studio', '1 bedroom']
   };
-  const mockResponse = [{ houseid: 1, houseName: 'Test House 1' }, { houseid: 2, houseName: 'Test House 2' }];
+  const mockResponse = [
+    { houseid: 1, houseName: 'Test House 1' },
+    { houseid: 2, houseName: 'Test House 2' }
+  ];
 
   it('makes a GET request to the correct URL with filters', async () => {
     axios.get.mockResolvedValueOnce({ data: mockResponse });
@@ -29,4 +32,3 @@ describe('fetchHouses function', () => {
     axios.get.mockRejectedValueOnce(error);
   });
 });
-

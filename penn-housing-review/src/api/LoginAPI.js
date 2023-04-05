@@ -1,26 +1,22 @@
-import axios from "axios";
-import { rootURL } from "../utils/utils";
-
+import axios from 'axios';
+import { rootURL } from '../utils/utils';
 
 async function loginUser(username, password) {
-    // Create an object with username and password properties
-    const data = {
-      username: username,
-      password: password
-    };
+  // Create an object with username and password properties
+  const data = {
+    username,
+    password
+  };
 
-    try {
-
-    const response = await axios.post(rootURL + '/login', data);
+  try {
+    const response = await axios.post(`${rootURL}/login`, data);
     return response;
+  } catch (err) {
+    console.log(err);
+    throw new Error('login failed');
+  }
 
-    } catch (err) {
-      console.log(err);
-      throw new Error("login failed");
-    }
-
-
-    /*
+  /*
     // Return a promise that resolves with the response data or rejects with an error
     return axios.post('/login', data)
       .then(response => response.data)
@@ -39,7 +35,7 @@ async function loginUser(username, password) {
         }
         // Reject the promise with the error object
         return Promise.reject(error);
-      });*/
-  }
+      }); */
+}
 
-  export default loginUser;
+export default loginUser;
