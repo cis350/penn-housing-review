@@ -13,23 +13,36 @@ describe('userAPI', () => {
   it('fetches user posts', async () => {
     const username = 'testuser';
     
+    const mockUser = {
+      id: 1,
+      username: 'testuser',
+      followedPosts: [1, 2],
+    };
+
     const mockPosts = [
-      { title: 'Post 1', description: 'Post 1 description' },
-      { title: 'Post 2', description: 'Post 2 description' },
+      { id: 1, title: 'Post 1', description: 'Post 1 description' },
+      { id: 2, title: 'Post 2', description: 'Post 2 description' },
     ];
 
     mockAxios
-      .onGet(`${rootURL}/posts?userId=${username}`)
-      .reply(200, mockPosts);
+      .onGet(`${rootURL}/users?username=${username}`)
+      .reply(200, [mockUser]);
+
+    mockAxios
+      .onGet(`${rootURL}/posts/1`)
+      .reply(200, mockPosts[0]);
+
+    mockAxios
+      .onGet(`${rootURL}/posts/2`)
+      .reply(200, mockPosts[1]);
 
     const posts = await getUserPosts(username);
     expect(posts).toEqual(mockPosts);
-
   });
 
   it('handles error when fetching user posts', async () => {
     const username = 'testuser';
-    mockAxios.onGet(`${rootURL}/posts?userId=${username}`).networkError();
+    mockAxios.onGet(`${rootURL}/users?username=${username}`).networkError();
 
     const posts = await getUserPosts(username);
     expect(posts).toEqual([]);
