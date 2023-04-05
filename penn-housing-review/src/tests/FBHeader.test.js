@@ -3,7 +3,7 @@ import Header from '../components/FBHeader';
 
 test ('renders comment section', () => {
     render(<Header />);
-    const text = screen.getByText(/Forum Board/i);
+    const text = screen.getByText(/Welcome/i);
     expect(text).toBeInTheDocument();
 });
 
