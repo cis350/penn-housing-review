@@ -20,8 +20,8 @@ import {
   forumNewPostURL,
   ReviewPageURL,
   NewHouseURL,
-  RPMainURL, 
-  reviewPostURL
+  RPMainURL,
+  reviewPostURL,
 } from './utils/utils';
 
 // Import your other components here
@@ -29,9 +29,10 @@ import {
 // import ComponentB from './components/ComponentB';
 // ...
 
+
+
+
 function App() {
-  const username = localStorage.getItem('username');
-  const posts = ['First post', 'Second post', 'Third post'];
 
   return (
     <div className="App">
@@ -52,72 +53,76 @@ function App() {
         <Routes>
           <Route
             path={searchURL}
-            element={
+            element={(
               <div>
-                <MainHeader /> <MainBody />
+                <MainHeader />
+                {' '}
+                <MainBody />
               </div>
-            }
+            )}
           />
           <Route
             path={reviewPostURL}
-            element={
+            element={(
               <div>
-                <PostReviewPage aptid = {1} username = {localStorage.getItem("username")}/>
+                <PostReviewPage aptid={1} username={localStorage.getItem('username')} />
               </div>
-            }
+            )}
           />
           <Route
             path={RPMainURL}
-            element={
+            element={(
               <div>
                 <RPMain />
               </div>
-            }
+            )}
           />
           <Route
             path={profileURL}
-            element={<UserProfile username={username} posts={posts} />}
+            element={<UserProfile />}
           />
           <Route
             path={mainURL}
-            element={
+            element={(
               <div>
                 <Login />
-                <MainHeader /> <MainBody />
+                <MainHeader />
+                {' '}
+                <MainBody />
               </div>
-            }
+            )}
           />
           <Route
             path={forumURL}
-            element={
+            element={(
               <div>
                 <FBMain />
               </div>
-            }
+            )}
           />
           <Route
             path={forumNewPostURL}
-            element={
+            element={(
               <div>
                 <FBPostMainPage />
               </div>
-            }
+            )}
           />
           <Route
             path={ReviewPageURL}
-            element={
+            element={(
               <div>
                 <ReviewPage />
               </div>
-            }
+            )}
           />
           <Route
             path={NewHouseURL}
-            element={
+            element={(
               <div>
                 <NewHousePage />
               </div>
-            }
+            )}
           />
           {/* Add routes for your other components */}
           {/* <Route path="/component-a" element={<ComponentA />} />
