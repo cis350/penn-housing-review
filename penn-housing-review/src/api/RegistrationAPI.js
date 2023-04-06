@@ -9,8 +9,17 @@ async function registerUser(username, email, password) {
     password
   };
 
+  const followedPosts = [];
+
+  const dataUser = {
+    username,
+    email,
+    followedPosts
+  };
+
   try {
     const response = await axios.post(`${rootURL}/register`, data);
+    await axios.post(`${rootURL}/users`, dataUser);
     return response;
   } catch (err) {
     console.log(err);

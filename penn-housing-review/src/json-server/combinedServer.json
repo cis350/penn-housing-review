@@ -381,11 +381,6 @@
       "username": "abc",
       "password": "123",
       "id": 17
-    },
-    {
-      "username": "adfadsf",
-      "password": "adsfadsfad",
-      "id": 18
     }
   ],
   "register": [
@@ -420,6 +415,12 @@
       "email": "123",
       "password": "123",
       "id": 6
+    },
+    {
+      "username": "ggg",
+      "email": "123",
+      "password": "123",
+      "id": 7
     }
   ],
   "comments": [
@@ -463,6 +464,35 @@
       "content": "test createComment",
       "likes": 1,
       "id": 6
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "username": "abc",
+      "email": "123",
+      "followedPosts": [
+        2
+      ],
+      "follows": []
+    },
+    {
+      "id": 1,
+      "username": "alice",
+      "email": "123a",
+      "followedPosts": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "username": "ggg",
+      "email": "123",
+      "followedPosts": [
+        2
+      ],
+      "id": 2
     }
   ],
   "houses": [

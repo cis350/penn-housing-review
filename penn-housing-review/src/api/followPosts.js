@@ -9,7 +9,12 @@ export async function followPost(houseid, username) {
     const data = await axios.get(apiUrl);
     const users = data.data;
     if (users.length > 0) {
-      users[0].followedPosts.push(houseid);
+
+      if (!users[0].followedPosts.includes(houseid)) {
+        users[0].followedPosts.push(houseid);
+      } else{
+        users[0].followedPosts = users[0].followedPosts.filter((id) => id !== houseid);
+      }
     } else {
       throw new Error('User does not exist');
     }
