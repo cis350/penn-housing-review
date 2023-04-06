@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import { getAllCommentsByPostId, createComment } from '../api/FBMainAPI';
 import LikeButton from './FBCommentLikeButtom';
 
-export default function CommentSection({ pid, comments }) {
+export default function CommentSection({ pid }) {
   console.log('comments', pid);
   const [commentsData, setCommentsData] = useState([]);
   const [newComment, setNewComment] = useState('');
 
   useEffect(() => {
     async function getAllCommentsByPostIdWrapper() {
-      const commentsData = await getAllCommentsByPostId(pid);
-      setCommentsData(commentsData);
+      const allData = await getAllCommentsByPostId(pid);
+      setCommentsData(allData);
     }
     getAllCommentsByPostIdWrapper();
   }, [newComment]);

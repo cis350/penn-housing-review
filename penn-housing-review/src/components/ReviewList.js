@@ -55,17 +55,17 @@ export default function ReviewList({ data }) {
   const PER_PAGE = 2;
 
   const count = Math.ceil(data.length / PER_PAGE);
-  const _DATA = usePagination(data, PER_PAGE);
+  const allData = usePagination(data, PER_PAGE);
 
   const handleChange = (e, p) => {
     setPage(p);
-    _DATA.jump(p);
+    allData.jump(p);
   };
 
   return (
     <Box p="5">
       <List p="10" pt="3" spacing={2}>
-        {_DATA.currentData().map((v) => (
+        {allData.currentData().map((v) => (
           <ReviewEntry
             id={v.id}
             username={v.User}
