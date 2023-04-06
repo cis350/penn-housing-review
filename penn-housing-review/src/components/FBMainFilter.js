@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 import {
   Button,
   FormControl,
@@ -22,13 +22,13 @@ export default function Filter() {
 
   useEffect(() => {
     async function getAllPostsWrapper() {
-      const data = await getAllPosts();
-      setData(data);
+      const allData = await getAllPosts();
+      setData(allData);
     }
     getAllPostsWrapper();
   }, []);
 
-  const handlePost = (event) => {
+  const handlePost = () => {
     window.location.href = '/forum/new-post';
   };
 
@@ -36,23 +36,23 @@ export default function Filter() {
     setCategory(event.target.value);
 
     async function getAllPostsWrapper() {
-      const data = await getAllPosts();
-      setData(data);
+      const a = await getAllPosts();
+      setData(a);
     }
 
     async function getFilteredPostByCategoryWrapper() {
-      const data = await getFilteredPostByCategory(event.target.value);
-      setData(data);
+      const b = await getFilteredPostByCategory(event.target.value);
+      setData(b);
     }
 
     async function getFilteredPostByHousingTypeWrapper() {
-      const data = await getFilteredPostByHousingType(housingType);
-      setData(data);
+      const d = await getFilteredPostByHousingType(housingType);
+      setData(d);
     }
 
     async function getFilteredPostWrapper() {
-      const data = await getFilteredPost(event.target.value, housingType);
-      setData(data);
+      const c = await getFilteredPost(event.target.value, housingType);
+      setData(c);
     }
     if (housingType === '' && event.target.value === '') {
       getAllPostsWrapper();
@@ -69,23 +69,23 @@ export default function Filter() {
     setHousingType(event.target.value);
 
     async function getAllPostsWrapper() {
-      const data = await getAllPosts();
-      setData(data);
+      const e = await getAllPosts();
+      setData(e);
     }
 
     async function getFilteredPostByCategoryWrapper() {
-      const data = await getFilteredPostByCategory(category);
-      setData(data);
+      const f = await getFilteredPostByCategory(category);
+      setData(f);
     }
 
     async function getFilteredPostByHousingTypeWrapper() {
-      const data = await getFilteredPostByHousingType(event.target.value);
-      setData(data);
+      const g = await getFilteredPostByHousingType(event.target.value);
+      setData(g);
     }
 
     async function getFilteredPostWrapper() {
-      const data = await getFilteredPost(category, event.target.value);
-      setData(data);
+      const h = await getFilteredPost(category, event.target.value);
+      setData(h);
     }
 
     if (event.target.value === '' && category === '') {

@@ -1,11 +1,11 @@
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useState } from 'react';
+import { React, useState } from 'react';
 import { updateCommentLike } from '../api/FBMainAPI';
 
 export default function LikeButton({ likes, cid }) {
   const [selected, setSelected] = useState(false);
-  const handleLike = (event) => {
+  const handleLike = () => {
     setSelected(!selected);
     if (!selected) {
       updateCommentLike(likes + 1, cid);

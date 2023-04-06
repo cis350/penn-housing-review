@@ -1,7 +1,7 @@
 import './ReviewPage.css';
 import * as React from 'react';
 import logo from '../assets/P-2.png';
-import { searchURL } from '../utils/utils.js';
+import { searchURL } from '../utils/utils';
 
 function Logo() {
   return (

@@ -61,7 +61,7 @@ export default function FBPostPage() {
     setCategory(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     // need to get user id and username
     // var user = JSON.parse(localStorage.getItem("users"));
 

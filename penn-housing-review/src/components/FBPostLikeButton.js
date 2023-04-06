@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { React, useState } from 'react';
+import PropTypes from 'prop-types';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { updatePostLike } from '../api/FBMainAPI';
@@ -6,7 +7,7 @@ import { updatePostLike } from '../api/FBMainAPI';
 export default function LikeButton({ likes, pid }) {
   const [selected, setSelected] = useState(false);
 
-  const handleLike = (event) => {
+  const handleLike = () => {
     setSelected(!selected);
     if (!selected) {
       console.log('selected');
@@ -19,7 +20,7 @@ export default function LikeButton({ likes, pid }) {
   return (
     <div>
       <span className="postButtom">
-        <span onClick={handleLike} id="clickableIcon">
+        <a href="#" className="button" onClick={handleLike} id="clickableIcon">
           {!selected && (
             <FavoriteBorderIcon
               fontSize="medium"
@@ -29,10 +30,15 @@ export default function LikeButton({ likes, pid }) {
           {selected && (
             <FavoriteIcon fontSize="medium" data-testid="like-buttom-icon" />
           )}
-        </span>
+        </a>
         &nbsp;
         {likes + selected}
       </span>
     </div>
   );
 }
+
+LikeButton.propTypes = {
+  likes: PropTypes.number.isRequired,
+  pid: PropTypes.number.isRequired,
+};

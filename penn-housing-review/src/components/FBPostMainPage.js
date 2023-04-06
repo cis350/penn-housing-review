@@ -1,3 +1,4 @@
+import React from 'react';
 import FBPostHeader from './FBPostHeader';
 import FBPostPage from './FBPostPage';
 

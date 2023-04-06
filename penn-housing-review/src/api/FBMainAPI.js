@@ -9,6 +9,7 @@ export const getAllPosts = async () => {
     return res.data;
   } catch (err) {
     console.error('error', err.message);
+    return err;
   }
 };
 
@@ -20,6 +21,7 @@ export const getFilteredPost = async (category, housingType) => {
     return res.data;
   } catch (err) {
     console.error('error', err.message);
+    return err;
   }
 };
 
@@ -31,6 +33,7 @@ export const getFilteredPostByCategory = async (category) => {
     return res.data;
   } catch (err) {
     console.error('error', err.message);
+    return err;
   }
 };
 
@@ -42,6 +45,7 @@ export const getFilteredPostByHousingType = async (housingType) => {
     return res.data;
   } catch (err) {
     console.error('error', err.message);
+    return err;
   }
 };
 
@@ -54,6 +58,7 @@ export const updatePostLike = async (updateLikes, pid) => {
     return response.data;
   } catch (err) {
     console.error('error', err.message);
+    return err;
   }
 };
 
@@ -66,6 +71,7 @@ export const updateCommentLike = async (updateLikes, cid) => {
     return response.data;
   } catch (err) {
     console.error('error', err.message);
+    return err;
   }
 };
 
@@ -76,6 +82,7 @@ export const getAllCommentsByPostId = async (pid) => {
     return res.data;
   } catch (err) {
     console.error('error', err.message);
+    return err;
   }
 };
 
@@ -90,6 +97,7 @@ export const createComment = async (pid, content) => {
     return response.data;
   } catch (err) {
     console.error('error', err.message);
+    return err;
   }
 };
 
@@ -98,8 +106,6 @@ export const addNewPost = async (
   content,
   category,
   housingType,
-  user,
-  uid
 ) => {
   try {
     const response = await axios.post(`${rootURL}/posts`, {
@@ -114,5 +120,6 @@ export const addNewPost = async (
     return response.data;
   } catch (err) {
     console.error('error', err.message);
+    return err;
   }
 };
