@@ -427,35 +427,30 @@
     {
       "id": 1,
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in ",
-      "createAt": "2023-01-01",
       "pid": 1,
       "likes": 11
     },
     {
       "id": 2,
       "content": "comment2 for Harrison Flooding Again",
-      "createAt": "2023-01-02",
       "pid": 1,
       "likes": 13
     },
     {
       "id": 3,
       "content": "comment1 for Finding Roomate for next year",
-      "createAt": "2023-01-01",
       "pid": 2,
       "likes": 11
     },
     {
       "id": 4,
       "content": "comment2 for Finding Roomate for next year",
-      "createAt": "2023-01-02",
       "pid": 2,
       "likes": 14
     },
     {
       "id": 5,
       "content": "comment3 for Finding Roomate for next year",
-      "createAt": "2023-01-03",
       "pid": 2,
       "likes": 15
     },
