@@ -25,6 +25,16 @@ function Login() {
     setEmail(event.target.value);
   };
 
+  function loggedIn(usernameParam, userID) {
+    // then send it to main page
+    alert('logged in!');
+    // Do something with the userID, such as storing it in localStorage or redirecting to another page
+    localStorage.setItem('userID', userID);
+    localStorage.setItem('username', usernameParam);
+
+    window.location.href = '/search';
+  }
+
   // handle click events for buttons
   const handleRegisterClick = async () => {
     if (!isRegister) {
@@ -60,6 +70,7 @@ function Login() {
     loginUserResponse = await loginUser(username, password);
   }; */
 
+
   async function handleLoginClick() {
     // Try to log in the user with the given credentials
     try {
@@ -77,15 +88,6 @@ function Login() {
     }
   }
 
-  function loggedIn(username, userID) {
-    // then send it to main page
-    alert('logged in!');
-    // Do something with the userID, such as storing it in localStorage or redirecting to another page
-    localStorage.setItem('userID', userID);
-    localStorage.setItem('username', username);
-
-    window.location.href = '/search';
-  }
 
   if (isRegister) {
     return (
@@ -113,8 +115,8 @@ function Login() {
             handleVal={handlePasswordChange}
           />
           <div className="login-buttons">
-            <button onClick={handleBackClick}>Back</button>
-            <button onClick={handleRegisterClick}>Register</button>
+            <button type = "button" onClick={handleBackClick}>Back</button>
+            <button type = "submit" onClick={handleRegisterClick}>Register</button>
           </div>
         </div>
       </div>
@@ -140,8 +142,8 @@ function Login() {
           handleVal={handlePasswordChange}
         />
         <div className="login-buttons">
-          <button onClick={handleRegisterClick}>Register</button>
-          <button onClick={handleLoginClick}>Login</button>
+          <button type = "submit" onClick={handleRegisterClick}>Register</button>
+          <button type = "submit" onClick={handleLoginClick}>Login</button>
         </div>
       </div>
     </div>

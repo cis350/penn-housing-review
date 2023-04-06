@@ -99,7 +99,7 @@ export default function NewHousePage() {
           <div className="checkbox-group">
             <h3>Is the House on Campus?</h3>
             <div className="checkbox">
-              <label>
+              <label htmlFor='onCampus'>
                 <input
                   type="checkbox"
                   value="onCampus"
@@ -112,7 +112,7 @@ export default function NewHousePage() {
             {onCampus && (
               <div className="checkbox">
                 <h3>Is the House Freshman Only?</h3>
-                <label>
+                <label htmlFor='freshman'>
                   <input
                     type="checkbox"
                     value="freshmanOnly"
@@ -126,7 +126,7 @@ export default function NewHousePage() {
             <div className="checkbox">
               <h3>What Room Types Are Available?</h3>
               <div className="checkbox-options">
-                <label>
+                <label htmlFor='studio'>
                   <input
                     type="checkbox"
                     value="studio"
@@ -135,7 +135,7 @@ export default function NewHousePage() {
                   />
                   Studio
                 </label>
-                <label>
+                <label htmlFor='1b'>
                   <input
                     type="checkbox"
                     value="1 bedroom"
@@ -144,7 +144,7 @@ export default function NewHousePage() {
                   />
                   1 Bedroom
                 </label>
-                <label>
+                <label htmlFor='2b'>
                   <input
                     type="checkbox"
                     value="2 bedroom"
@@ -153,7 +153,7 @@ export default function NewHousePage() {
                   />
                   2 Bedroom
                 </label>
-                <label>
+                <label htmlFor='triple'>
                   <input
                     type="checkbox"
                     value="triple"
@@ -162,7 +162,7 @@ export default function NewHousePage() {
                   />
                   Triple
                 </label>
-                <label>
+                <label htmlFor='quad'>
                   <input
                     type="checkbox"
                     value="quad"
@@ -197,8 +197,8 @@ export default function NewHousePage() {
         </div>
       </div>
       <div className="add-new-house-buttons">
-        <button onClick={handleCancelClick}>Cancel</button>
-        <button onClick={handleRequestClick}>Request</button>
+        <button onClick={handleCancelClick} type = "button">Cancel</button>
+        <button onClick={handleRequestClick} type = "submit">Request</button>
       </div>
     </div>
   );

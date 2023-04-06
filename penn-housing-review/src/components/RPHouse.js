@@ -21,7 +21,7 @@ const imgStyles = {
 function RPHouse({ house }) {
   return (
     <div className="house" style={styles}>
-      <img src={house.image} style={imgStyles} />
+      <img src={house.image} style={imgStyles} alt = "house"/>
       <h3>{house.houseName}</h3>
       <p>
         Price range:

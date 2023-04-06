@@ -21,14 +21,17 @@ function Preference({ preferences, onPreferenceChange }) {
       <h3>Preferences</h3>
       {preferences.map((pref) => (
         <div key={pref.name} className="preferenceItem">
-          <label className="prefTitle">{pref.label}</label>
+          <label className="prefTitle" htmlFor='preference'>{pref.label}</label>
           <div className="starWrapper">
             {[...Array(5)].map((_, i) => (
               <span
-                key={i}
+                key={`${pref.name}`}
+                role = "button"
+                tabIndex = {0}
                 onMouseEnter={() => handleMouseEnter(pref.name, i + 1)}
                 onMouseLeave={() => handleMouseLeave(pref.name)}
                 onClick={() => handleClick(pref.name, i + 1)}
+                onKeyDown={() => {}}
                 className="rpStar"
                 style={{
                   color:
