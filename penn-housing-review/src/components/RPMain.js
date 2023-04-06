@@ -1,10 +1,10 @@
-import FBHeader from './FBHeader.js';
-import '../styles/RPMain.css';
 import React, { useState } from 'react';
+import FBHeader from './FBHeader';
+import '../styles/RPMain.css';
 import Filter from './RPFilter';
 import Preference from './RPPreference';
-import { fetchHouses } from '../api/RecommendApi.js';
-import HouseList from './RPHousingList.js';
+import fetchHouses from '../api/RecommendApi';
+import HouseList from './RPHousingList';
 
 function RPMain() {
   const [preferences, setPreferences] = useState([
@@ -56,7 +56,7 @@ function RPMain() {
             preferences={preferences}
             onPreferenceChange={handlePreferenceChange}
           />
-          <button onClick={handleSubmit}>Submit</button>
+          <button type = "submit" onClick={handleSubmit}>Submit</button>
         </div>
         <div className="RPRight">
           <HouseList houses={houseList} />

@@ -1,4 +1,5 @@
 import './Main.css';
+import React from 'react';
 
 function Profile({ username }) {
   return (
@@ -24,7 +25,7 @@ function ForumBoard() {
   );
 }
 
-function MainHeader({ username }) {
+function MainHeader() {
   return (
     <header className="header">
       <div className="button-right">

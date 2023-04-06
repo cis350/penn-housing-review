@@ -11,18 +11,20 @@ class Filter extends Component {
 
   handleFilterChange = (e) => {
     const { name, value, type, checked } = e.target;
-    this.props.onFilterChange(name, type === 'checkbox' ? checked : value);
+    const {onFilterChange} = this.props;
+    onFilterChange(name, type === 'checkbox' ? checked : value);
     if (name === 'price') {
       this.setState({ price: value });
     }
   };
 
   render() {
+    const { price } = this.state;
     return (
       <div className="filterContainer">
         <h3>Filters</h3>
         <div className="singleFilter">
-          <label>
+          <label htmlFor='onCampus'>
             <input
               type="checkbox"
               name="onCampus"
@@ -32,7 +34,7 @@ class Filter extends Component {
           </label>
         </div>
         <div className="singleFilter">
-          <label>
+          <label htmlFor='freshman'>
             <input
               type="checkbox"
               name="freshman"
@@ -42,7 +44,7 @@ class Filter extends Component {
           </label>
         </div>
         <div className="singleFilter">
-          <label>
+          <label htmlFor='price'>
             Price Range:{' '}
             <input
               type="range"
@@ -51,14 +53,14 @@ class Filter extends Component {
               max="5000"
               onChange={this.handleFilterChange}
             />{' '}
-            {this.state.price}
+            {price}
           </label>
         </div>
         <div className="checkboxGroup">
           <h4>Room Types</h4>
           {['studio', '1 bedroom', '2 bedroom', 'triple', 'quad'].map(
             (type) => (
-              <label key={type} className="roomType">
+              <label key={type} className="roomType" htmlFor={type}>
                 <input
                   type="checkbox"
                   name={type}

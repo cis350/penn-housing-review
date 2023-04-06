@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { rootURL } from '../utils/utils';
 
-export const fetchHouses = async (filters) => {
+const fetchHouses = async (filters) => {
   try {
     const response = await axios.get(`${rootURL}/houses`, {
       filters
@@ -10,4 +10,7 @@ export const fetchHouses = async (filters) => {
   } catch (error) {
     console.error(error);
   }
+  return null;
 };
+
+export default fetchHouses;
