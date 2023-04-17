@@ -1,62 +1,72 @@
-import { useState } from "react";
+import { React, useState } from 'react';
+import {
+  Box,
+  Divider,
+  List,
+  Pagination,
+} from '@mui/material';
+import propTypes from 'prop-types';
+import CommentIcon from '@mui/icons-material/Comment';
 import usePagination from '../utils/usePagination';
-import { Box, List, Pagination } from "@mui/material";
-import LikeButtom from './FBLikeButtom';
-import CommentButtom from './FBCommentButtom';
+import LikeButtom from './FBPostLikeButton';
 import NotifyButtom from './FBNotifyButtom';
+import CommentSection from './FBCommentSection';
 
-export default function PostList( {i_posts} ) {
+export default function PostList({ data }) {
   const [page, setPage] = useState(1);
-  const [data, setData] = useState([]);
+  const [selectedPost, setSelectedPost] = useState(0);
 
-  if (i_posts) {
-    setData(i_posts);
+  if (!data) {
+    data = [];
   }
 
   const PER_PAGE = 2;
 
   const count = Math.ceil(data.length / PER_PAGE);
-  const _DATA = usePagination(data, PER_PAGE);
+  const postData = usePagination(data, PER_PAGE);
 
   const handleChange = (e, p) => {
     setPage(p);
-    _DATA.jump(p);
+    postData.jump(p);
   };
 
-  const handleComment = (event) => {
-    event.preventDefault();
-  }
-
-
-  function PostEntry( {key, title, content, likes, commentLength} ) { // add an ID field
-      return (
-        <div className='postEntry'>
-          <h3>{title}</h3>
-          <p>{content}</p>
-          <div className='postEle'>
-            <LikeButtom likes={likes} pid={key} />
-            <CommentButtom comments={commentLength} onClick={handleComment} />
-            <NotifyButtom />
-          </div>        
-        </div>
-      )
-  }
-
+  const handleComment = (pid) => {
+    if (selectedPost === pid) {
+      setSelectedPost(0);
+    } else {
+      setSelectedPost(pid);
+    }
+  };
 
   return (
     <Box p="5" data-testid="post-list-box">
-      <List>
-        {_DATA.currentData().map(v => {
-          return (
-            <PostEntry 
-              key={v.pid}
-              title={v.title} 
-              content={v.content} 
-              likes={v.likes} 
-              commentLength={v.commentLength}/>
-            
-          );
-        })}
+      <List data-testid="postList">
+        {postData.currentData().map((v) => (
+          <div key={v.id}>
+            <div className="postEntry">
+              <h3>{v.title}</h3>
+              <p>{v.content}</p>
+              <div className="postEle">
+                <LikeButtom likes={v.likes} pid={v.id} />
+                <div>
+                  <span className="postButtom">
+                    <a href="#" onClick={() => handleComment(v.id)}>
+                      <CommentIcon
+                        fontSize="medium"
+                        data-testid="comment-icon-1"
+                      />
+                    </a>
+                  </span>
+                </div>
+                <NotifyButtom />
+              </div>
+            </div>
+            {selectedPost === v.id && (
+              <CommentSection comments={v.comments} pid={v.id} />
+            )}
+            <Divider className="postDiv" />
+          </div>
+        ))}
       </List>
       <Pagination
         count={count}
@@ -69,3 +79,19 @@ export default function PostList( {i_posts} ) {
     </Box>
   );
 }
+
+PostList.propTypes = {
+  data: propTypes.arrayOf(
+    propTypes.shape({
+      id: propTypes.number,
+      title: propTypes.string,
+      content: propTypes.string,
+      likes: propTypes.number,
+      comments: propTypes.number,
+    }),
+  ),
+};
+
+PostList.defaultProps = {
+  data: [],
+};

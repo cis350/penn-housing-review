@@ -1,20 +1,18 @@
 // Import React and createContext
-import React, { createContext } from "react";
+import React, { createContext } from 'react';
 
 // Create a UserContext object
 const UserContext = createContext();
 
 // Create a custom hook to access the UserContext
-export const useUser = () => {
-  return React.useContext(UserContext);
-};
+export const useUser = () => React.useContext(UserContext);
 
 // Create a UserProvider component that wraps the children with the UserContext.Provider
-export const UserProvider = ({ children }) => {
+export function UserProvider({ children }) {
   // Use state variables to store the user information
-  const [username, setUsername] = React.useState("");
-  const [userID, setUserID] = React.useState("");
-  const [userEmail, setUserEmail] = React.useState("");
+  const [username, setUsername] = React.useState('');
+  const [userID, setUserID] = React.useState('');
+  const [userEmail, setUserEmail] = React.useState('');
 
   // Use an effect hook to fetch the user information from an API or localStorage
   React.useEffect(() => {
@@ -31,8 +29,17 @@ export const UserProvider = ({ children }) => {
 
   // Return the UserContext.Provider with the value prop containing the user information and setters
   return (
-    <UserContext.Provider value={{ username, userID, userEmail, setUsername, setUserID, setUserEmail }}>
+    <UserContext.Provider
+      value={{
+        username,
+        userID,
+        userEmail,
+        setUsername,
+        setUserID,
+        setUserEmail
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
-};
+}

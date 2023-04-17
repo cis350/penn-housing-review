@@ -15,63 +15,67 @@
   "posts": [
     {
       "uid": 1,
-      "user": "Lilian",
-      "pid": 1,
-      "createAt": "2023-01-01",
+      "userId": "Lilian",
+      "id": 1,
       "title": "Harrison Flooding Again",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "On Campus",
       "category": "Discussion",
-      "comments": [],
-      "likes": 10
+      "comments": 4,
+      "likes": 13
     },
     {
       "uid": 2,
-      "user": "Ken",
-      "pid": 2,
-      "createAt": "2023-01-01",
+      "userId": "Ken",
+      "id": 2,
       "title": "Finding Roomate for next year",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "On Campus",
       "category": "Social",
-      "comments": [],
-      "likes": 10
+      "comments": 3,
+      "likes": 11
     },
     {
       "uid": 3,
-      "user": "Kevin",
-      "pid": 3,
-      "createAt": "2023-01-01",
+      "userId": "Kevin",
+      "id": 3,
       "title": "3720 The Chestnut summer sublease",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "Off Campus",
       "category": "Lease Info",
-      "comments": [],
+      "comments": 0,
       "likes": 10
     },
     {
       "uid": 4,
-      "user": "Ethan",
+      "userId": "Ethan",
       "pid": 4,
-      "createAt": "2023-01-01",
       "title": "Cultural Events @Gutmann",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "On Campus",
       "category": "Social",
-      "comments": [],
+      "comments": 0,
       "likes": 10
     },
     {
       "uid": 5,
-      "user": "Kitty",
-      "pid": 5,
-      "createAt": "2023-01-01",
+      "userId": "Kitty",
+      "id": 5,
       "title": "Arrive: looking for roomate",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "housingType": "Off Campus",
       "category": "Social",
-      "comments": [],
+      "comments": 0,
       "likes": 10
+    },
+    {
+      "title": "New Post",
+      "content": "Hello",
+      "category": "Discussion",
+      "housingType": "On Campus",
+      "comments": 0,
+      "likes": 0,
+      "id": 6
     }
   ],
   "reviews1": [
@@ -206,6 +210,39 @@
       "likes": 0,
       "desc": "ha",
       "id": 12
+    },
+    {
+      "User": "HelloWorld",
+      "ratings": [
+        4.2,
+        4.6,
+        4.8
+      ],
+      "likes": 0,
+      "desc": "aDFahdflakjdsfasdf",
+      "id": 13
+    },
+    {
+      "User": "HelloWorld",
+      "ratings": [
+        4.5,
+        4.7,
+        4.7
+      ],
+      "likes": 0,
+      "desc": "Hello this is a new review",
+      "id": 14
+    },
+    {
+      "User": "HelloWorld",
+      "ratings": [
+        4.6,
+        4.6,
+        4.6
+      ],
+      "likes": 0,
+      "desc": "Hello",
+      "id": 15
     }
   ],
   "search": [
@@ -301,94 +338,49 @@
       "id": 8
     },
     {
-      "username": "adsfKJLDKFJa",
-      "password": "adfasdfa;sdklj",
+      "username": "lilian",
+      "password": "123",
       "id": 9
     },
     {
-      "username": "newUser",
-      "password": "adsjflasdkjfaksd",
+      "username": "",
+      "password": "",
       "id": 10
     },
     {
-      "username": "adsfa",
-      "password": "adsfasd",
+      "username": "lilian",
+      "password": "123",
       "id": 11
     },
     {
-      "username": "jjkljlkj",
-      "password": "vkjbjnlk",
+      "username": "lilian",
+      "password": "123",
       "id": 12
     },
     {
-      "username": "djla;dfkjadsfajsdflk",
-      "password": "faldkjflaksdjfa",
+      "username": "HelloWorld",
+      "password": "adsfajsdlfkajsdfas",
       "id": 13
     },
     {
-      "username": "helloWorld",
-      "password": "Hasdfad",
+      "username": "HelloWOrldLDf",
+      "password": "adfasdfa",
       "id": 14
     },
     {
-      "username": "HelloWorld",
-      "password": "dafsdfasd",
+      "username": "Gekkadfadf",
+      "password": "adsfasdfa",
       "id": 15
     },
     {
-      "username": "asdfasdjflakdsj",
-      "password": "adlfkjasdlkfasda",
+      "username": "HelloWorld",
+      "password": "adfasdfasdf",
       "id": 16
     },
     {
-      "username": "dfadsfa",
-      "password": "dfasdfasdf",
+      "username": "abc",
+      "password": "123",
       "id": 17
-    },
-    {
-      "username": "fdadsfasdfasd",
-      "password": "fasdfasdfa",
-      "id": 18
-    },
-    {
-      "username": "adfasdfa",
-      "password": "asdfasdf",
-      "id": 19
-    },
-    {
-      "username": "YEJLAKGJLADJf",
-      "password": "hlkjlkjljljk;j",
-      "id": 20
-    },
-    {
-      "username": "asdfasdfa",
-      "password": "asdfasdfa",
-      "id": 21
-    },
-    {
-      "username": "asdfasdf",
-      "password": "asdfasdf",
-      "id": 22
-    },
-    {
-      "username": "fasdfads",
-      "password": "dfasdfa",
-      "id": 23
-    },
-    {
-      "username": "aejfalkedfa",
-      "password": "asdfasdfa",
-      "id": 24
-    },
-    {
-      "username": "HelloWorld",
-      "password": "asdfjadslfak",
-      "id": 25
-    },
-    {
-      "username": "adsfa",
-      "password": "asdfasdfwefasdasdf",
-      "id": 26
     }
   ],
   "register": [
@@ -417,50 +409,85 @@
       "email": "asdfaj2@ajfdlakjd.com",
       "password": "dlfadfjad",
       "id": 5
+    },
+    {
+      "username": "abc",
+      "email": "123",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "username": "ggg",
+      "email": "123",
+      "password": "123",
+      "id": 7
     }
   ],
-  "new_posts": [
+  "comments": [
     {
       "id": 1,
-      "title": "Harrison Flooding Again",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "housingType": "On Campus",
-      "category": "Discussion"
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in ",
+      "pid": 1,
+      "likes": 11
     },
     {
-      "title": "",
-      "content": "",
-      "category": "",
-      "housingType": "",
-      "id": 2
+      "id": 2,
+      "content": "comment2 for Harrison Flooding Again",
+      "pid": 1,
+      "likes": 13
     },
     {
-      "title": "",
-      "content": "",
-      "category": "",
-      "housingType": "Off Campus",
-      "id": 3
+      "id": 3,
+      "content": "comment1 for Finding Roomate for next year",
+      "pid": 2,
+      "likes": 11
     },
     {
-      "title": "Post",
-      "content": "asdf a",
-      "category": "Event",
-      "housingType": "Off Campus",
-      "id": 4
+      "id": 4,
+      "content": "comment2 for Finding Roomate for next year",
+      "pid": 2,
+      "likes": 14
     },
     {
-      "title": "Post",
-      "content": "asdf a",
-      "category": "Event",
-      "housingType": "Off Campus",
-      "id": 5
+      "id": 5,
+      "content": "comment3 for Finding Roomate for next year",
+      "pid": 2,
+      "likes": 15
     },
     {
-      "title": "Post",
-      "content": "asdf a",
-      "category": "Event",
-      "housingType": "Off Campus",
+      "pid": 3,
+      "content": "test createComment",
+      "likes": 1,
       "id": 6
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "username": "abc",
+      "email": "123",
+      "followedPosts": [
+        2
+      ],
+      "follows": []
+    },
+    {
+      "id": 1,
+      "username": "alice",
+      "email": "123a",
+      "followedPosts": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "username": "ggg",
+      "email": "123",
+      "followedPosts": [
+        2
+      ],
+      "id": 2
     }
   ],
   "houses": [
@@ -510,7 +537,6 @@
       "studio": false,
       "triple": false,
       "quad": false
-      
     },
     {
       "houseid": "3",
@@ -534,7 +560,7 @@
       "description": {
         "summary": "Rodin is a high-rise apartment complex on the east side of campus.",
         "details": ""
-      }, 
+      },
       "onCampus": true,
       "freshman": true,
       "2 bedroom": false,
@@ -550,7 +576,7 @@
       "description": {
         "summary": "HARRISON is a high-rise apartment complex on the east side of campus.",
         "details": ""
-      }, 
+      },
       "onCampus": true,
       "freshman": true,
       "2 bedroom": false,
@@ -566,7 +592,7 @@
       "description": {
         "summary": "DOMUS is a high-rise apartment complex on the east side of campus.",
         "details": ""
-      }, 
+      },
       "onCampus": true,
       "freshman": true,
       "2 bedroom": false,

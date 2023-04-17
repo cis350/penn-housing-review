@@ -1,15 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 import { rootURL } from '../utils/utils';
 
-export const getApartmentById = async(id) => {
-    try {
-        const response = await axios.get(`${rootURL}/apartments/${id}`);
-        console.log("apartment", response.data);
-        return response;
-    } catch (err) {
-        console.error('error', err.message);
-    }
-}
+export const getApartmentById = async (id) => {
+  try {
+    const response = await axios.get(`${rootURL}/apartments/${id}`);
+    return response;
+  } catch (err) {
+    // do something
+  }
+  return null;
+};
 
 export const getReviewsById = async(aptid) => {
     try {

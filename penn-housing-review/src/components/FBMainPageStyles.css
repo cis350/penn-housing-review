@@ -73,6 +73,7 @@
 }
 
 .postEle {
+  width: 40%;
   font-size: 15px;
 }
 
@@ -107,13 +108,19 @@
   padding-right: 30px;
   width: 200px;
 }
+.oneComment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
+  align-items: center;
+}
 
 .filterResult {
   padding-top: 30px;
   padding-left: 30px;
   padding-right: 100px;
-  width: 700px;
+  width: 800px;
 }
 
 .postButtom {
@@ -125,4 +132,33 @@
 .postEle {
   display: flex;
   justify-content: space-between;
+}
+
+.postDiv {
+  padding-top: 15px;
+}
+
+.commentSection {
+  padding: 0px;
+  /* display: flex;
+  flex-direction: row; */
+
+}
+
+.commentsTitle {
+  /* bold */
+  font-weight: 600;
+  padding-top: 10px;
+}
+
+#clickableIcon {
+  cursor: pointer;
+}
+
+.writeComment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
 }
