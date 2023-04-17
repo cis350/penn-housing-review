@@ -11,18 +11,13 @@ import PostReviewPage from './PostReviewPage';
 export default function ReviewView( {aptid} ) {
     const [reviews, setReviews] = React.useState([]);
     React.useEffect(()=>{
-        getReviewsById(aptid).then(response => setReviews(response.data))
+        getReviewsById(aptid).then(response => setReviews(response.data.data));
+        console.log(reviews);
     });
   return (
     <div className="review-view">
-      <Filter />
       <Mui.Button variant='contained' className='post-review' color='success'>Post Review</Mui.Button>
       <ReviewList data={reviews} />
     </div>
   )
-  /*
-  <Routes>
-      <Route path={reviewPostURL} elements={<PostReviewPage/>}/>
-  </Routes>
-  */
 }

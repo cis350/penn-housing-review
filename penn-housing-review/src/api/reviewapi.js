@@ -13,7 +13,7 @@ export const getApartmentById = async(id) => {
 
 export const getReviewsById = async(aptid) => {
     try {
-        const response = await axios.get(`${rootURL}/reviews${aptid}`);
+        const response = await axios.get(`${rootURL}/reviews/${aptid}`);
         console.log("reviews", response.data);
         return response;
     } catch (err) {
@@ -23,7 +23,7 @@ export const getReviewsById = async(aptid) => {
 
 export const updateLike = async(aptid, id, username, ratings, likes, desc) => {
     try {
-        const response = await axios.put(`${rootURL}/reviews${aptid}/${id}`, {
+        const response = await axios.put(`${rootURL}/reviews/${id}`, {
             User: username,
             ratings: ratings,
             likes: likes,
@@ -38,7 +38,7 @@ export const updateLike = async(aptid, id, username, ratings, likes, desc) => {
 
 export const submitReview = async(aptid, username, rating1, rating2, rating3, text) => {
     try {
-        const response = await axios.post(`${rootURL}/reviews${aptid}`, {
+        const response = await axios.post(`/reviews${aptid}`, {
             User: username,
             ratings: [rating1, rating2, rating3],
             likes: 0,

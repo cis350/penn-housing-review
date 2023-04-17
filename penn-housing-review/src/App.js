@@ -11,7 +11,8 @@ import ReviewPage from './components/ReviewPage.js';
 import NewHousePage from './components/ReviewNewHouse.js';
 
 
-import {searchURL, profileURL, mainURL, forumURL, forumNewPostURL, ReviewPageURL, NewHouseURL} from './utils/utils.js';
+import {searchURL, profileURL, mainURL, forumURL, forumNewPostURL, ReviewPageURL, NewHouseURL, reviewPostURL} from './utils/utils.js';
+import PostReviewPage from './components/PostReviewPage';
 
 // Import your other components here
 // import ComponentA from './components/ComponentA';
@@ -47,6 +48,7 @@ function App() {
           <Route path={forumNewPostURL} element={<div><FBPostMainPage /></div> } />
           <Route path={ReviewPageURL} element={<div><ReviewPage /></div> } />
           <Route path={NewHouseURL} element={<div><NewHousePage /></div> } />
+          <Route path={reviewPostURL} element={<PostReviewPage />} />
           {/* Add routes for your other components */}
           {/* <Route path="/component-a" element={<ComponentA />} />
           <Route path="/component-b" element={<ComponentB />} /> */}

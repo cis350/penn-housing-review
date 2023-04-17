@@ -43,7 +43,7 @@ export default function ReviewList( {data} ) {
       <List p="10" pt="3" spacing={2}>
         {_DATA.currentData().map(v => {
           return (
-            <ReviewEntry id={v.id} username={v.User} ratings={v.ratings} desc={v.desc} likes={v.likes} />
+            <ReviewEntry id={v._id} username={v.User} ratings={v.ratings} desc={v.desc} likes={v.likes} />
           );
         })}
       </List>

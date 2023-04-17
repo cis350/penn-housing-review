@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from "./App.js";
+import ReviewPage from './components/ReviewPage';
+import PostReviewPage from './components/PostReviewPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <App />
+  <ReviewPage />
 );
 
 
