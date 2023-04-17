@@ -1,0 +1,35 @@
+{
+  "name": "phr-backend",
+  "version": "1.0.0",
+  "description": "the backend of the penn housing review app, implemented with mongodb and express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cis350/penn-housing-review.git"
+  },
+  "keywords": [
+    "backend",
+    "mongodb",
+    "express",
+    "nodejs"
+  ],
+  "author": "lilian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cis350/penn-housing-review/issues"
+  },
+  "homepage": "https://github.com/cis350/penn-housing-review#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^5.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2"
+  }
+}
