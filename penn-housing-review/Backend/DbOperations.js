@@ -61,7 +61,7 @@ const updateLikes = async (id, likes) => {
   try {
     // get the db
     const db = await getDB();
-    console.log(id);
+    console.log(id); 
     const result = await db.collection('reviews').updateOne(
       { _id: new ObjectId(id) },
       { $set: { likes: likes } },
