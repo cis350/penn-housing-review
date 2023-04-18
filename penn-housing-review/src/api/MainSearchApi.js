@@ -1,18 +1,22 @@
 import axios from 'axios';
+import { rootURL } from '../utils/utils';
 
 export const searchHouse = async (keyword) => 
   // Create an object with keyword and limit properties
   // Return a promise that resolves with the response data or rejects with an error
   axios
-    .get('http://localhost:3500/houses')
+    .get(rootURL + '/search/' + keyword)
     .then((response) => {
       // Filter the response data by houseName property
 
+      /*
       const filtered = response.data.filter((search) =>
         search.houseName.includes(keyword.toUpperCase())
       );
       const results = filtered.map((search) => search.houseName);
-      return results;
+      */
+     console.log(response.data.data);
+      return response.data.data;
     })
     .catch((error) => {
       // Handle different error scenarios

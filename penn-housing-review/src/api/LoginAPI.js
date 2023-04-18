@@ -3,13 +3,15 @@ import { rootURL } from '../utils/utils';
 
 async function loginUser(username, password) {
   // Create an object with username and password properties
+  const register = false;
   const data = {
     username,
-    password
+    password, 
+    register
   };
 
   try {
-    const response = await axios.post(`${rootURL}/login`, data);
+    const response = await axios.post(`${rootURL}/users`, data);
     return response;
   } catch (err) {
     console.log(err);

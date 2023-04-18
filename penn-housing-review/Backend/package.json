@@ -4,14 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "test": "jest --coverage --runInBand"
     "test": "jest --coverage --runInBand"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongodb": "5.2"
+    "mongodb": "5.2",
+    "supertest": "^6.3.3"
   },
   "devDependencies": {
     "eslint": "^8.38.0",
