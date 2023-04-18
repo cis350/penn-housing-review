@@ -45,16 +45,10 @@ describe('GET student(s) endpoint integration test', () => {
     }
   });
 
-  test('Get an apartment', async () => {
-    const resp = await request(webapp).get('/apartments/643dc668c494c0ddeef7e717');
+  test('Get all students endpoint status code and data', async () => {
+    const resp = await request(webapp).put('/reviews/643dc6a3c494c0ddeef7e718');
     expect(resp.status).toEqual(200);
     expect(resp.type).toBe('application/json');
   });
-
-  test('Get all reviews for apartment', async () => {
-    const resp = await request(webapp).get('/reviews/643dc668c494c0ddeef7e717');
-    expect(resp.status).toEqual(200);
-    expect(resp.type).toBe('application/json');
-  });
-
+  
 });
