@@ -3,23 +3,19 @@ import { rootURL } from '../utils/utils';
 
 async function registerUser(username, email, password) {
   // Create an object with username and password properties
+  const followedPosts = [];
+  const register = true;
   const data = {
     username,
     email,
-    password
+    password, 
+    followedPosts, 
+    register
   };
 
-  const followedPosts = [];
-
-  const dataUser = {
-    username,
-    email,
-    followedPosts
-  };
 
   try {
-    const response = await axios.post(`${rootURL}/register`, data);
-    await axios.post(`${rootURL}/users`, dataUser);
+    const response = await axios.post(`${rootURL}/users`, data);
     return response;
   } catch (err) {
     console.log(err);

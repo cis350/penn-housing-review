@@ -59,9 +59,9 @@ function Search() {
         onChange={handleChange}
       />
       <ul className="search-results">
-        {results.map((name) => (
+        {results.map((house) => (
           <li>
-            <a href={ReviewPageURL}>{name}</a>
+            <a href={ReviewPageURL}>{house.name}</a>
           </li>
         ))}
         <li>
