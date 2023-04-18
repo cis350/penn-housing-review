@@ -1,5 +1,5 @@
 const { MongoClient, ObjectId } = require('mongodb');
-const dbURL = 'mongodb+srv://CIS3500:7xAFew9opAfEWxHS@cluster0.xxgvtwj.mongodb.net/PHR?retryWrites=true&w=majority';
+const dbURL =  'mongodb+srv://PHR:fjz8AQYGYZtfWLKq@cluster0.0pdxrtn.mongodb.net/PHR?retryWrites=true&w=majority';
 let MongoConnection;
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -90,6 +90,7 @@ const updateLikes = async (id, likes) => {
 
 const createUser = async (username, email, password, followedPosts) => {
   try {
+    console.log("creating user DB");
     const db = await getDB();
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     const newUser = {
@@ -99,8 +100,8 @@ const createUser = async (username, email, password, followedPosts) => {
       followedPosts: followedPosts || [],
     };
     const result = await db.collection('users').insertOne(newUser);
-    console.log(`User created: ${JSON.stringify(result.ops[0])}`);
-    return result.ops[0];
+    console.log(`User created: ${JSON.stringify(result)}`);
+    return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
     throw err;
@@ -122,6 +123,19 @@ const getUserPassword = async (username) => {
   }
 };
 
+const searchHouses = async (query) => {
+  try {
+    const db = await getDB();
+    const regexQuery = new RegExp(query, 'i');
+    const results = await db.collection('houses').find({ name: { $regex: regexQuery } }).toArray();
+    console.log(`Houses matching the query: ${JSON.stringify(results)}`);
+    return results;
+  } catch (err) {
+    console.log(`error: ${err.message}`);
+    throw err;
+  }
+};
+
 
 module.exports = {
   closeMongoDBConnection,
@@ -131,5 +145,6 @@ module.exports = {
   getReviews,
   updateLikes, 
   createUser,
-  getUserPassword
+  getUserPassword, 
+  searchHouses
 };
