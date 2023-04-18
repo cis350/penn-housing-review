@@ -37,7 +37,7 @@ const connect = async () => {
 /**
  * close the connection to the mongoDB server
  */
-const closeDBConnection = async () => {
+const closeMongoDBConnection = async () => {
     await mongoConnection.close();
 }
 
@@ -165,7 +165,7 @@ const addNewPost = async (post) => {
 
 module.exports = {
     connect,
-    closeDBConnection,
+    closeMongoDBConnection,
     getDB,
     getAllPosts,
     getFilteredPostByHousingType,
