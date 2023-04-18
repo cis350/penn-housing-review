@@ -12,7 +12,6 @@ webapp.get('/', (req, resp) =>{
 });
 
 webapp.get('/apartments/:id', async (req, res) => {
-    console.log('READ an apartment');
     try {
       // get the data from the db
       const results = await dbLib.getApartment(req.params.id);
@@ -28,7 +27,6 @@ webapp.get('/apartments/:id', async (req, res) => {
   });
 
 webapp.get('/reviews/:id', async (req, res) => {
-    console.log('READ all reviews for an apartment');
     try {
       // get the data from the db
       const results = await dbLib.getReviews(req.params.id);
@@ -45,8 +43,10 @@ webapp.get('/reviews/:id', async (req, res) => {
 
 webapp.put('/reviews/:id', async (req, res) => {
     console.log('UPDATE a review');
+    console.log(req.params.id);
     try {
-      const result = await dbLib.updateLikes(req.params.id, req.body.likes);
+      const result = await dbLib.updateLikes(req.params.id, Number(req.body.like));
+      console.log(typeof(req.body.like));
       // send the response with the appropriate status code
       res.status(200).json({ message: result });
     } catch (err) {

@@ -8,8 +8,7 @@ import { getApartmentById } from '../api/reviewapi';
 function ReviewPage() {
   const [reviews, setReviews] = React.useState([]);
     React.useEffect(()=>{
-      getApartmentById('643a02dceb13b068603b0c5a').then(response => setReviews(response.data.data[0]));
-      console.log(reviews.ratings);
+      getApartmentById('643dc668c494c0ddeef7e717').then(response => setReviews(response.data.data[0]));
     });
     
   return (
@@ -19,7 +18,7 @@ function ReviewPage() {
         <DescriptionView aptname={reviews.name} aptimg={reviews.image} 
         aptratings={[3,3,3]} aptdesc={reviews.description} />
         <span className='vl' />
-        <ReviewView aptid={'643a02dceb13b068603b0c5a'} />
+        <ReviewView aptid='643dc668c494c0ddeef7e717' />
       </div>
     </div>
   );
