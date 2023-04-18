@@ -65,10 +65,13 @@ webapp.patch('/posts/:id', async (req, res) => {
 
 
 webapp.post('/posts', async (req, res) => {
+
+    console.log('posts', req.body);
     if (!req.body.title || !req.body.housingType || !req.body.category || !req.body.content) {
-        res.status(404).json({message: 'Missing required fields'});
+        res.status(400).json({message: 'Missing required fields'});
         return;
     }
+
     try {
         const newPost = {
             username: req.body.username,

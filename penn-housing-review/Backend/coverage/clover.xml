@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1681790626714" clover="3.2.0">
-  <project timestamp="1681790626715" name="All files">
-    <metrics statements="99" coveredstatements="61" conditionals="22" coveredconditionals="14" methods="12" coveredmethods="8" elements="133" coveredelements="83" complexity="0" loc="99" ncloc="99" packages="1" files="2" classes="2"/>
+<coverage generated="1681837500621" clover="3.2.0">
+  <project timestamp="1681837500621" name="All files">
+    <metrics statements="100" coveredstatements="61" conditionals="22" coveredconditionals="14" methods="12" coveredmethods="8" elements="134" coveredelements="83" complexity="0" loc="100" ncloc="100" packages="1" files="2" classes="2"/>
     <file name="DbOperations.js" path="/Users/jie/Desktop/penn-housing/penn-housing-review/Backend/DbOperations.js">
       <metrics statements="55" coveredstatements="37" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="6"/>
       <line num="10" count="3" type="stmt"/>
@@ -10,14 +10,14 @@
       <line num="23" count="3" type="stmt"/>
       <line num="24" count="9" type="stmt"/>
       <line num="25" count="9" type="stmt"/>
-      <line num="30" count="7" type="stmt"/>
+      <line num="30" count="8" type="stmt"/>
       <line num="33" count="0" type="stmt"/>
       <line num="40" count="3" type="stmt"/>
       <line num="41" count="0" type="stmt"/>
       <line num="47" count="3" type="stmt"/>
       <line num="49" count="9" type="cond" truecount="2" falsecount="0"/>
       <line num="50" count="6" type="stmt"/>
-      <line num="52" count="7" type="stmt"/>
+      <line num="52" count="8" type="stmt"/>
       <line num="58" count="3" type="stmt"/>
       <line num="59" count="1" type="stmt"/>
       <line num="61" count="1" type="stmt"/>
@@ -33,7 +33,7 @@
       <line num="90" count="3" type="stmt"/>
       <line num="91" count="4" type="stmt"/>
       <line num="93" count="4" type="stmt"/>
-      <line num="94" count="3" type="stmt"/>
+      <line num="94" count="4" type="stmt"/>
       <line num="96" count="3" type="stmt"/>
       <line num="99" count="0" type="stmt"/>
       <line num="106" count="3" type="stmt"/>
@@ -61,7 +61,7 @@
       <line num="168" count="3" type="stmt"/>
     </file>
     <file name="server.js" path="/Users/jie/Desktop/penn-housing/penn-housing-review/Backend/server.js">
-      <metrics statements="44" coveredstatements="24" conditionals="20" coveredconditionals="12" methods="3" coveredmethods="2"/>
+      <metrics statements="45" coveredstatements="24" conditionals="20" coveredconditionals="12" methods="3" coveredmethods="2"/>
       <line num="6" count="3" type="stmt"/>
       <line num="8" count="3" type="stmt"/>
       <line num="10" count="3" type="stmt"/>
@@ -97,15 +97,16 @@
       <line num="59" count="0" type="stmt"/>
       <line num="62" count="0" type="stmt"/>
       <line num="67" count="3" type="stmt"/>
-      <line num="68" count="0" type="cond" truecount="0" falsecount="6"/>
       <line num="69" count="0" type="stmt"/>
-      <line num="70" count="0" type="stmt"/>
+      <line num="70" count="0" type="cond" truecount="0" falsecount="6"/>
+      <line num="71" count="0" type="stmt"/>
       <line num="72" count="0" type="stmt"/>
-      <line num="73" count="0" type="stmt"/>
-      <line num="81" count="0" type="stmt"/>
-      <line num="82" count="0" type="stmt"/>
+      <line num="75" count="0" type="stmt"/>
+      <line num="76" count="0" type="stmt"/>
+      <line num="84" count="0" type="stmt"/>
       <line num="85" count="0" type="stmt"/>
-      <line num="91" count="3" type="stmt"/>
+      <line num="88" count="0" type="stmt"/>
+      <line num="94" count="3" type="stmt"/>
     </file>
   </project>
 </coverage>

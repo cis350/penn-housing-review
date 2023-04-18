@@ -6,7 +6,7 @@ export const getAllPosts = async () => {
   try {
     const res = await axios.get(`${rootURL}/posts`);
     // console.log("get all posts", res.data);
-    return res.data;
+    return res.data.data;
   } catch (err) {
     console.error('error', err.message);
     return err;
@@ -18,7 +18,7 @@ export const getFilteredPost = async (category, housingType) => {
     const url = `${rootURL}/posts?category=${category}&housingType=${housingType}`;
     const res = await axios.get(url);
     // console.log("get filtered posts", res.data);
-    return res.data;
+    return res.data.data;
   } catch (err) {
     console.error('error', err.message);
     return err;
@@ -30,7 +30,7 @@ export const getFilteredPostByCategory = async (category) => {
     const url = `${rootURL}/posts?category=${category}`;
     const res = await axios.get(url);
     // console.log("get filtered posts by category", res.data);
-    return res.data;
+    return res.data.data;
   } catch (err) {
     console.error('error', err.message);
     return err;
@@ -42,7 +42,7 @@ export const getFilteredPostByHousingType = async (housingType) => {
     const url = `${rootURL}/posts?housingType=${housingType}`;
     const res = await axios.get(url);
     // console.log("get filtered posts by housing type", res.data);
-    return res.data;
+    return res.data.data;
   } catch (err) {
     console.error('error', err.message);
     return err;
@@ -55,7 +55,7 @@ export const updatePostLike = async (updateLikes, pid) => {
       likes: updateLikes
     });
     // console.log("update likes", response.data);
-    return response.data;
+    return response.data.data;
   } catch (err) {
     console.error('error', err.message);
     return err;
@@ -68,7 +68,7 @@ export const updateCommentLike = async (updateLikes, cid) => {
       likes: updateLikes
     });
     // console.log("update likes", response.data);
-    return response.data;
+    return response.data.data;
   } catch (err) {
     console.error('error', err.message);
     return err;
@@ -79,7 +79,7 @@ export const getAllCommentsByPostId = async (pid) => {
   try {
     const res = await axios.get(`${rootURL}/comments?pid=${pid}`);
     // console.log("get all comments by post id", res.data);
-    return res.data;
+    return res.data.data.data;
   } catch (err) {
     console.error('error', err.message);
     return err;
@@ -94,7 +94,7 @@ export const createComment = async (pid, content) => {
       likes: 0
     });
     // console.log("create comment", response.data);
-    return response.data;
+    return response.data.data;
   } catch (err) {
     console.error('error', err.message);
     return err;
@@ -107,19 +107,13 @@ export const addNewPost = async (
   category,
   housingType,
 ) => {
+  const post = `title=${title}&content=${content}&category=${category}&housingType=${housingType}&comments=0&likes=0`;
   try {
-    const response = await axios.post(`${rootURL}/posts`, {
-      title,
-      content,
-      category,
-      housingType,
-      comments: 0,
-      likes: 0
-    });
+    const response = await axios.post(`${rootURL}/posts`, post);
     // console.log("add new post", response.data);
-    return response.data;
+    return response.data.data;
   } catch (err) {
-    console.error('error', err.message);
+    console.error('error adding new post', err.message);
     return err;
   }
 };

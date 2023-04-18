@@ -1,4 +1,4 @@
-export const rootURL = 'http://localhost:3500';
+export const rootURL = 'http://localhost:8080';
 export const searchURL = '/search';
 export const profileURL = '/user-profile';
 export const mainURL = '/';

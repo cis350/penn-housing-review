@@ -20,7 +20,7 @@ export default function PostList({ data }) {
     data = [];
   }
 
-  const PER_PAGE = 2;
+  const PER_PAGE = 4;
 
   const count = Math.ceil(data.length / PER_PAGE);
   const postData = usePagination(data, PER_PAGE);
