@@ -160,10 +160,8 @@ const addNewPost = async (post) => {
 //     "likes": 0,
 //     "comments": 0
 // });
-updatePostLike(10, '643dea4e9c2ad1df2f187939')
-
-
-getFilteredPostByCategory('Discussion');
+// updatePostLike(10, '643dea4e9c2ad1df2f187939')
+// getFilteredPostByCategory('Discussion');
 
 module.exports = {
     connect,
