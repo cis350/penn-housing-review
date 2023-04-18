@@ -26,7 +26,7 @@ const connect = async () => {
             dburl, 
             { useNewUrlParser: true, useUnifiedTopology: true },
             ));
-        console.log("Connected to MongoDB", mongoConnection.db().databaseName);
+        // console.log("Connected to MongoDB", mongoConnection.db().databaseName);
         return mongoConnection;
     }
     catch (err) {
@@ -60,7 +60,7 @@ const getAllPosts = async () => {
         // get the db
         const db = await getDB();
         const fbPosts = await db.collection('posts').find({}).toArray();
-        console.log(`FB posts: ${JSON.stringify(fbPosts)}`);
+        // console.log(`FB posts: ${JSON.stringify(fbPosts)}`);
         return fbPosts;
     }
     catch (err) {
@@ -76,7 +76,7 @@ const getFilteredPostByHousingType = async (housingType) => {
         // get the db
         const db = await getDB();
         const postByHousing = await db.collection('posts').find({housingType: housingType}).toArray();
-        console.log(`FB posts filtered by housing type: ${JSON.stringify(postByHousing)}`);
+        // console.log(`FB posts filtered by housing type: ${JSON.stringify(postByHousing)}`);
         return postByHousing;
     }
     catch (err) {
@@ -92,7 +92,7 @@ const getFilteredPostByCategory = async (category) => {
         // get the db
         const db = await getDB();
         const postByCategory = await db.collection('posts').find({category: category}).toArray();
-        console.log(`FB posts filtered by category: ${JSON.stringify(postByCategory)}`);
+        // console.log(`FB posts filtered by category: ${JSON.stringify(postByCategory)}`);
         return postByCategory;
     }
     catch (err) {
@@ -127,7 +127,7 @@ const updatePostLike = async (updateLikes, pid) => {
             { _id: new ObjectId(pid) },
             { $set: { likes: updateLikes } }
         );
-        console.log(`Update likes: ${JSON.stringify(response)}`);
+        // console.log(`Update likes: ${JSON.stringify(response)}`);
         return response;
     }
     catch (err) {

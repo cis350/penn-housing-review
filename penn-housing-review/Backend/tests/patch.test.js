@@ -1,0 +1,39 @@
+const request = require('supertest');
+const { closeMongoDBConnection, connect } = require('../DbOperations');
+const webapp = require('../server');
+
+// import test utilities function
+// const { isInArray, testStudent, insertTestDataToDB, deleteTestDataFromDB} = require('./testUtils');
+
+let mongo;
+
+// TEST POST ENDPOINT
+describe('GET FB posts tests', () => {
+
+  // eslint-disable-next-line no-unused-vars
+  let db;
+ 
+  beforeAll(async () => {
+    mongo = await connect();
+    db = mongo.db();
+    
+  });
+
+
+  afterAll(async () => {
+    try {
+      await mongo.close();
+      await closeMongoDBConnection(); // mongo client that started server.
+    } catch (err) {
+      return err;
+    }
+  });
+
+  test('update likes', async () => {
+    const resp = await request(webapp).patch('/posts/643dea4e9c2ad1df2f187939');
+    expect(resp.status).toEqual(404);
+  });
+
+  
+});
+
