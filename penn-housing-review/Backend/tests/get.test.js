@@ -20,8 +20,6 @@ describe('GET FB posts tests', () => {
 
   });
 
-  
-
   afterAll(async () => {
     try {
       await mongo.close();

@@ -6,51 +6,41 @@
 // import the mongodb driver
 // this app will be exeuceted on nodejs
 // we are usign commonJS modules export/require
-
-const { MongoClient } = require('mongodb');
-const { ObjectId } = require('mongodb');
-
-// URL of the mongoDB server
+const { MongoClient, ObjectId } = require('mongodb');
 const dburl = 'mongodb+srv://PHR:fjz8AQYGYZtfWLKq@cluster0.0pdxrtn.mongodb.net/PHR?retryWrites=true&w=majority'
-
-// mongodb connection variable
-let mongoConnection;
-
-/**
- * connect to mongoDB server
- */
-
+let MongoConnection;
+// connection to the db
 const connect = async () => {
+    // always use try/catch to handle any exception
     try {
-        mongoConnection = (await MongoClient.connect(
-            dburl, 
-            { useNewUrlParser: true, useUnifiedTopology: true },
-            ));
-        // console.log("Connected to MongoDB", mongoConnection.db().databaseName);
-        return mongoConnection;
+        MongoConnection = (await MongoClient.connect(
+        dburl,
+        { useNewUrlParser: true, useUnifiedTopology: true },
+        )); // we return the entire connection, not just the DB
+        // check that we are connected to the db
+        console.log(`connected to db: ${MongoConnection.db().databaseName}`);
+        return MongoConnection;
+    } catch (err) {
+        console.log(err.message);
     }
-    catch (err) {
-        console.log("Error connecting to MongoDB", err.message);
-    }
-}
+};
 
-/**
- * close the connection to the mongoDB server
- */
-const closeMongoDBConnection = async () => {
-    await mongoConnection.close();
-}
-
-/**
- * connect to the mongoDB and return the db
- */
 const getDB = async () => {
-    // test if the connection is alive
-    if (!mongoConnection) {
+// test if the connection is alive
+    if (!MongoConnection) {
         await connect();
     }
-    return mongoConnection.db();
-}
+        return MongoConnection.db();
+};
+
+/**
+ * 
+ * Close the mongodb connection
+ */
+const closeMongoDBConnection = async () => {
+    await MongoConnection.close();
+};
+
 
 /**
  * retrieves all the FB posts from the database
@@ -66,7 +56,7 @@ const getAllPosts = async () => {
     catch (err) {
         console.log("Error retrieving FB posts", err.message);
     }
-}
+};
 
 /** 
  * filter FB posts by housingType
@@ -82,7 +72,7 @@ const getFilteredPostByHousingType = async (housingType) => {
     catch (err) {
         console.log("Error retrieving FB posts by housing type", err.message);
     }
-}
+};
 
 /**
  * filter FB posts by category
@@ -114,7 +104,7 @@ const getFilteredPost = async (housingType, category) => {
     catch (err) {
         console.log("Error retrieving FB posts by housing type and category", err.message);
     }
-}
+};
 
 /**
  * update the likes of a post

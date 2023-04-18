@@ -1,20 +1,9 @@
-/**
- * Express web server / controller
- */
-
-// import express from 'express';
 const express = require('express');
-// import cors from 'cors', allows cross-origin resource sharing
-const cors = require('cors');
-// create a new express application
 const webapp = express();
-// enable cors
-webapp.use(cors());
-// configure express to parse request bodies
-webapp.use(express.urlencoded({ extended: true }));
-
-// import the database operations module
 const dbLib = require('./DbOperations');
+const cors = require('cors');
+webapp.use(cors());
+webapp.use(express.urlencoded({extended: true}));
 
 /**
  * route GET /posts to retrieve all the FBposts
@@ -41,7 +30,9 @@ webapp.get('/posts', async (req, res) => {
     }
 });
 
-
+/**
+ * route PATCH /posts/:id to update the likes of a post
+ */
 webapp.patch('/posts/:id', async (req, res) => {
     if (!req.body.likes) {
         console.log(req.body.likes);
@@ -63,7 +54,9 @@ webapp.patch('/posts/:id', async (req, res) => {
     }
 });
 
-
+/**
+ * route POST /posts to add a new post
+ */
 webapp.post('/posts', async (req, res) => {
 
     console.log('posts', req.body);
