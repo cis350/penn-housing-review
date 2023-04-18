@@ -26,7 +26,7 @@ export default function Filter() {
       setData(allData);
     }
     getAllPostsWrapper();
-  }, []);
+  }, [setData]);
 
   const handlePost = () => {
     window.location.href = '/forum/new-post';

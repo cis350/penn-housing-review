@@ -23,6 +23,12 @@ export default function FBPostPage() {
   const [category, setCategory] = useState('');
   const [checkAllInfo, setCheckAllInfo] = useState(false);
 
+  async function addNewPostWrapper() {
+    const response = await addNewPost(title, content, category, housingType);
+    console.log('response', response);
+    return response;
+  }
+
   const handleHousingTypeClickOne = (event) => {
     if (currentOnCampus === 'outlined') {
       setcCurrentOnCampus('contained');
@@ -64,12 +70,7 @@ export default function FBPostPage() {
   const handleSubmit = () => {
     // need to get user id and username
     // var user = JSON.parse(localStorage.getItem("users"));
-
-    async function addNewPostWrapper() {
-      const response = await addNewPost(title, content, category, housingType);
-      console.log('response', response);
-      return response;
-    }
+    
     if (
       title === '' ||
       content === '' ||
@@ -81,126 +82,124 @@ export default function FBPostPage() {
       setCheckAllInfo(false);
       addNewPostWrapper();
       console.log('title', title);
-      window.location.href = '/forum';
+      // window.location.href = '/forum';
     }
   };
 
   return (
     <div className="main">
-      <div>
-        <h2 className="postingTitle">Post Your Thread!</h2>
-        {checkAllInfo && (
-          <p style={{ color: 'red' }}>*Remember to fill all information*</p>
-        )}
-        <Stack direction="row" spacing={2}>
-          <Button
-            className="housingType"
-            style={{
-              borderRadius: 65,
-              padding: '12px 62.5px',
-              fontSize: '12px'
-            }}
-            // make buttton text bold
-            variant={currentOnCampus}
-            value="On Campus"
-            onClick={handleHousingTypeClickOne}
-          >
-            On Campus Housing
-          </Button>
-          <Button
-            className="housingType"
-            style={{
-              borderRadius: 65,
-              padding: '12px 62.5px',
-              fontSize: '12px'
-            }}
-            variant={currentOffCampus}
-            value="Off Campus"
-            onClick={handleHousingTypeClickTwo}
-          >
-            Off Campus Housing
-          </Button>
-        </Stack>
-        <h3 className="postEle">Title</h3>
-        <TextField
+      <h2 className="postingTitle">Post Your Thread!</h2>
+      {checkAllInfo && (
+        <p style={{ color: 'red' }}>*Remember to fill all information*</p>
+      )}
+      <Stack direction="row" spacing={2}>
+        <Button
+          className="housingType"
           style={{
             borderRadius: 65,
-            width: '100%',
-            color: 'rgba(117, 137, 122, 0.7)'
+            padding: '12px 62.5px',
+            fontSize: '12px'
           }}
-          size="small"
-          id="full-width-text-field"
-          variant="outlined"
-          color="success"
-          placeholder="Enter your title here"
-          data-testid="title"
-          multiline
-          rows={1}
-          value={title}
-          onChange={handleChangeTitle}
-        />
-        <h3 className="postEle">Category</h3>
-        <FormControl>
-          <RadioGroup
-            row
-            aria-labelledby="demo-row-radio-buttons-group-label"
-            name="row-radio-buttons-group"
-            onChange={handleChangeCategory}
-          >
-            <FormControlLabel
-              value="Discussion"
-              data-testid="dicussion"
-              control={<Radio />}
-              label="Discussion"
-            />
-            <FormControlLabel
-              value="Lease Info"
-              control={<Radio />}
-              label="Lease Info"
-            />
-            <FormControlLabel
-              value="Social"
-              control={<Radio />}
-              label="Social"
-            />
-            <FormControlLabel value="Event" control={<Radio />} label="Event" />
-          </RadioGroup>
-        </FormControl>
-        <h3 className="postEle">Content</h3>
-        <TextField
+          // make buttton text bold
+          variant={currentOnCampus}
+          value="On Campus"
+          onClick={handleHousingTypeClickOne}
+        >
+          On Campus Housing
+        </Button>
+        <Button
+          className="housingType"
           style={{
             borderRadius: 65,
-            width: '100%',
-            color: 'rgba(117, 137, 122, 0.7)'
+            padding: '12px 62.5px',
+            fontSize: '12px'
           }}
-          size="small"
-          id="full-width-text-field"
-          variant="outlined"
-          color="success"
-          data-testid="content"
-          placeholder="Enter you text here"
-          multiline
-          rows={10}
-          value={content}
-          onChange={handleChangeContent}
-        />
-        <p />
+          variant={currentOffCampus}
+          value="Off Campus"
+          onClick={handleHousingTypeClickTwo}
+        >
+          Off Campus Housing
+        </Button>
+      </Stack>
+      <h3 className="postEle">Title</h3>
+      <TextField
+        style={{
+          borderRadius: 65,
+          width: '100%',
+          color: 'rgba(117, 137, 122, 0.7)'
+        }}
+        size="small"
+        id="full-width-text-field"
+        variant="outlined"
+        color="success"
+        placeholder="Enter your title here"
+        data-testid="title"
+        multiline
+        rows={1}
+        value={title}
+        onChange={handleChangeTitle}
+      />
+      <h3 className="postEle">Category</h3>
+      <FormControl>
+        <RadioGroup
+          row
+          aria-labelledby="demo-row-radio-buttons-group-label"
+          name="row-radio-buttons-group"
+          onChange={handleChangeCategory}
+        >
+          <FormControlLabel
+            value="Discussion"
+            data-testid="dicussion"
+            control={<Radio />}
+            label="Discussion"
+          />
+          <FormControlLabel
+            value="Lease Info"
+            control={<Radio />}
+            label="Lease Info"
+          />
+          <FormControlLabel
+            value="Social"
+            control={<Radio />}
+            label="Social"
+          />
+          <FormControlLabel value="Event" control={<Radio />} label="Event" />
+        </RadioGroup>
+      </FormControl>
+      <h3 className="postEle">Content</h3>
+      <TextField
+        style={{
+          borderRadius: 65,
+          width: '100%',
+          color: 'rgba(117, 137, 122, 0.7)'
+        }}
+        size="small"
+        id="full-width-text-field"
+        variant="outlined"
+        color="success"
+        data-testid="content"
+        placeholder="Enter you text here"
+        multiline
+        rows={10}
+        value={content}
+        onChange={handleChangeContent}
+      />
+      <p />
 
-        <Stack>
-          <Button
-            style={{
-              borderRadius: 65,
-              padding: '12px 62.5px',
-              backgroundColor: 'rgba(117, 137, 122, 0.7)',
-              fontSize: '15px'
-            }}
-            variant="contained"
-            onClick={handleSubmit}
-          >
-            Post
-          </Button>
-        </Stack>
-      </div>
+      <Stack>
+        <Button
+          style={{
+            borderRadius: 65,
+            padding: '12px 62.5px',
+            backgroundColor: 'rgba(117, 137, 122, 0.7)',
+            fontSize: '15px'
+          }}
+          variant="contained"
+          onClick={handleSubmit}
+        >
+          Post
+        </Button>
+      </Stack>
     </div>
   );
 }

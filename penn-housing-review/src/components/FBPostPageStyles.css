@@ -60,9 +60,13 @@
 }
 .main {
   /* change the proportion of display */
+  /* display in the center */
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-right: 80px;
-  margin-left: 80px;
+  align-items: left;
+  /* margin-right: 80px; */
+  /* margin-left: 80px; */
 }
 
 .postingTitle {
