@@ -1,12 +1,12 @@
 const { MongoClient, ObjectId } = require('mongodb');
-const dbURL = 'mongodb+srv://CIS3500:7xAFew9opAfEWxHS@cluster0.xxgvtwj.mongodb.net/PHR?retryWrites=true&w=majority';
+const dburl = 'mongodb+srv://PHR:fjz8AQYGYZtfWLKq@cluster0.0pdxrtn.mongodb.net/PHR?retryWrites=true&w=majority'
 let MongoConnection;
 // connection to the db
 const connect = async () => {
   // always use try/catch to handle any exception
   try {
     MongoConnection = (await MongoClient.connect(
-      dbURL,
+      dburl,
       { useNewUrlParser: true, useUnifiedTopology: true },
     )); // we return the entire connection, not just the DB
     // check that we are connected to the db
@@ -39,7 +39,6 @@ const getApartment = async (id) => {
     const db = await getDB();
     const result = await db.collection('apartments').find({ _id: new ObjectId(id) }).toArray();
     // print the result
-    console.log(`Apartment: ${JSON.stringify(result)}`);
     return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
@@ -52,7 +51,6 @@ const getReviews = async (id) => {
     const db = await getDB();
     const result = await db.collection('reviews').find({ apt_id: new ObjectId(id) }).toArray();
     // print the result
-    console.log(`Reviews: ${JSON.stringify(result)}`);
     return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
@@ -63,8 +61,9 @@ const updateLikes = async (id, likes) => {
   try {
     // get the db
     const db = await getDB();
+    console.log(id);
     const result = await db.collection('reviews').updateOne(
-      { _id: ObjectId(id) },
+      { _id: new ObjectId(id) },
       { $set: { likes: likes } },
     );
     return result;

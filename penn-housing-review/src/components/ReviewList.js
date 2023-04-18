@@ -61,13 +61,13 @@ export default function ReviewList({ data }) {
     setPage(p);
     allData.jump(p);
   };
-
+  
   return (
     <Box p="5">
       <List p="10" pt="3" spacing={2}>
         {allData.currentData().map((v) => (
           <ReviewEntry
-            id={v.id}
+            id={v._id}
             username={v.User}
             ratings={v.ratings}
             desc={v.desc}
