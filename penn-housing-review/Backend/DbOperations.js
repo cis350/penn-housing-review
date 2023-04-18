@@ -1,6 +1,8 @@
 const { MongoClient, ObjectId } = require('mongodb');
 const dbURL = 'mongodb+srv://CIS3500:7xAFew9opAfEWxHS@cluster0.xxgvtwj.mongodb.net/PHR?retryWrites=true&w=majority';
 let MongoConnection;
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 // connection to the db
 const connect = async () => {
   // always use try/catch to handle any exception
@@ -46,6 +48,7 @@ const getApartment = async (id) => {
   }
 };
 
+
 const getReviews = async (id) => {
   try {
     // get the db
@@ -73,11 +76,48 @@ const updateLikes = async (id, likes) => {
   }
 };
 
+const createUser = async (username, email, password, followedPosts) => {
+  try {
+    const db = await getDB();
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const newUser = {
+      username: username,
+      email: email,
+      password: hashedPassword,
+      followedPosts: followedPosts || [],
+    };
+    const result = await db.collection('users').insertOne(newUser);
+    console.log(`User created: ${JSON.stringify(result.ops[0])}`);
+    return result.ops[0];
+  } catch (err) {
+    console.log(`error: ${err.message}`);
+    throw err;
+  }
+};
+
+const getUserPassword = async (username) => {
+  try {
+    const db = await getDB();
+    const user = await db.collection('users').findOne({ username: username });
+    if (!user) {
+      throw new Error('User not found');
+    }
+    console.log(`User password: ${user.password}`);
+    return user.password;
+  } catch (err) {
+    console.log(`error: ${err.message}`);
+    throw err;
+  }
+};
+
+
 module.exports = {
   closeMongoDBConnection,
   getDB,
   connect,
   getApartment,
   getReviews,
-  updateLikes
+  updateLikes, 
+  createUser,
+  getUserPassword
 };
