@@ -8,3 +8,5 @@ export const reviewPostURL = '/review/new-post';
 export const ReviewPageURL = '/review-page';
 export const NewHouseURL = '/new-house';
 export const RPMainURL = '/for-you';
+export const mongodbuser = 'PHR';
+export const mongodbpw = '9bQV5Qlu5atK4vCm'

@@ -14,26 +14,24 @@ export const getApartmentById = async (id) => {
 export const getReviewsById = async(aptid) => {
     try {
         const response = await axios.get(`${rootURL}/reviews/${aptid}`);
-        console.log("reviews", response.data);
+        console.log();
         return response;
     } catch (err) {
         console.error('error', err.message);
     }
+    return null;
 }
 
-export const updateLike = async(aptid, id, username, ratings, likes, desc) => {
+export const updateLike = async(id, likes) => {
     try {
-        const response = await axios.put(`${rootURL}/reviews/${id}`, {
-            User: username,
-            ratings: ratings,
-            likes: likes,
-            desc: desc
-        });
-        console.log("likes", response.data);
+        console.log(likes);
+        const response = await axios.put(`${rootURL}/reviews/${id}`, `like=${likes}`)
+        console.log("likes", response);
         return response.data;
     } catch (err) {
         console.error('error', err.message);
     }
+    return null;
 }
 
 export const submitReview = async(aptid, username, rating1, rating2, rating3, text) => {
@@ -48,4 +46,5 @@ export const submitReview = async(aptid, username, rating1, rating2, rating3, te
     } catch (err) {
         console.error('error', err.message);
     }
+    return null;
 }
