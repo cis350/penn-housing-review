@@ -3,6 +3,17 @@ const dbURL = 'mongodb+srv://CIS3500:7xAFew9opAfEWxHS@cluster0.xxgvtwj.mongodb.n
 let MongoConnection;
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+
+const createUniqueIndexForUsername = async () => {
+  try {
+    const db = await getDB();
+    await db.collection('users').createIndex({ username: 1 }, { unique: true });
+    console.log('Unique index for username created');
+  } catch (err) {
+    console.log(`error: ${err.message}`);
+  }
+};
+
 // connection to the db
 const connect = async () => {
   // always use try/catch to handle any exception
@@ -13,6 +24,7 @@ const connect = async () => {
     )); // we return the entire connection, not just the DB
     // check that we are connected to the db
     console.log(`connected to db: ${MongoConnection.db().databaseName}`);
+    await createUniqueIndexForUsername();
     return MongoConnection;
   } catch (err) {
     console.log(err.message);
