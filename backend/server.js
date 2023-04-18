@@ -17,11 +17,23 @@ webapp.use(express.urlencoded({ extended: true }));
 const dbLib = require('./DbOperations');
 
 /**
- * route GET /forum to retrieve all the FBposts
+ * route GET /posts to retrieve all the FBposts
  */
-webapp.get('/forum', async (req, res) => {
+webapp.get('/posts', async (req, res) => {
+    const category = req.query.category ?? null;
+    const housingType = req.query.housingType ?? null;
+
     try {
-        const fbPosts = await dbLib.getAllPosts();
+        let fbPosts;
+        if (category && housingType) {
+            fbPosts = await dbLib.getFilteredPost(housingType, category);
+        } else if (category) {
+            fbPosts = await dbLib.getFilteredPostByCategory(category);
+        } else if (housingType) {
+            fbPosts = await dbLib.getFilteredPostByHousingType(housingType);
+        } else {
+            fbPosts = await dbLib.getAllPosts();
+        }
         res.status(200).json({data: fbPosts});
     }
     catch (err) {
@@ -29,72 +41,30 @@ webapp.get('/forum', async (req, res) => {
     }
 });
 
-/**
- * route GET /forum/:category/:housingType to retrieve all the FBposts
- * that match the category and housingType
- *  
- */
-webapp.get('/forum/filter/:category/:housingType', async (req, res) => {
+
+webapp.patch('/posts/:id', async (req, res) => {
+    if (!req.body.likes) {
+        console.log(req.body.likes);
+        res.status(404).json({message: 'Missing required fields - likes'});
+        return;
+    }
+    console.log('updating likes');
     try {
-        const category = req.params.category;
-        const housingType = req.params.housingType;
-        const fbPosts = await dbLib.getFilteredPost(housingType, category);
-        res.status(200).json({data: fbPosts});
+        const pid = req.params.id;
+        const updateLikes = parseInt(req.body.likes);
+        console.log('pid', pid);
+        console.log('updateLikes', updateLikes);
+        console.log(typeof updateLikes);
+        const updatedPost = await dbLib.updatePostLike(updateLikes, pid);
+        res.status(200).json({data: updatedPost});
     }
     catch (err) {
-        res.status(400).json({message: 'Error retrieving filtered FB posts(1)'});
+        res.status(400).json({message: 'Error updating post likes'});
     }
 });
 
-/**
- * route GET /forum/:category to retrieve all the FBposts
- * that match the category
- */
-webapp.get('/forum/category/:category', async (req, res) => {
-    try {
-        const category = req.params.category;
-        const fbPosts = await dbLib.getFilteredPostByCategory(category);
-        res.status(200).json({data: fbPosts});
-    }
-    catch (err) {
-        res.status(400).json({message: 'Error retrieving filtered FB posts(2)'});
-    }
-});
 
-/**
- * route GET /forum/:housingType to retrieve all the FBposts
- * that match the housingType
- */
-webapp.get('/forum/housing/:housingType', async (req, res) => {
-    try {
-        const housingType = req.params.housingType;
-        const fbPosts = await dbLib.getFilteredPostByHousingType(housingType);
-        res.status(200).json({data: fbPosts});
-    }
-    catch (err) {
-        res.status(400).json({message: 'Error retrieving filtered FB posts(3)'});
-    }
-});
-
-// /**
-//  * route PATCH /forum/:pid to update the likes of a post
-//  */
-// webapp.patch('/forum/', async (req, res) => {
-//     try {
-//         const pid = req.body.pid;
-//         const updateLikes = req.body.likes;
-//         const updatedPost = await dbLib.updatePostLike(updateLikes, pid);
-//         res.status(200).json({data: updatedPost});
-//     }
-//     catch (err) {
-//         res.status(400).json({message: 'Error updating post likes'});
-//     }
-// });
-
-/**
- * route POST /forum/new-post to add a new post
- */
-webapp.post('/forum/new-post', async (req, res) => {
+webapp.post('/posts', async (req, res) => {
     if (!req.body.title || !req.body.housingType || !req.body.category || !req.body.content) {
         res.status(404).json({message: 'Missing required fields'});
         return;

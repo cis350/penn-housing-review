@@ -11,7 +11,7 @@ const { MongoClient } = require('mongodb');
 const { ObjectId } = require('mongodb');
 
 // URL of the mongoDB server
-const dburl = 'mongodb+srv://admin:JYcYy6L07CQQI1oW@cluster0.naezaxu.mongodb.net/penn-housing-review?retryWrites=true&w=majority'
+const dburl = 'mongodb+srv://PHR:fjz8AQYGYZtfWLKq@cluster0.0pdxrtn.mongodb.net/PHR?retryWrites=true&w=majority'
 
 // mongodb connection variable
 let mongoConnection;
@@ -20,7 +20,7 @@ let mongoConnection;
  * connect to mongoDB server
  */
 
-const connectToDB = async () => {
+const connect = async () => {
     try {
         mongoConnection = (await MongoClient.connect(
             dburl, 
@@ -47,7 +47,7 @@ const closeDBConnection = async () => {
 const getDB = async () => {
     // test if the connection is alive
     if (!mongoConnection) {
-        await connectToDB();
+        await connect();
     }
     return mongoConnection.db();
 }
@@ -59,7 +59,7 @@ const getAllPosts = async () => {
     try {
         // get the db
         const db = await getDB();
-        const fbPosts = await db.collection('fb-posts').find({}).toArray();
+        const fbPosts = await db.collection('posts').find({}).toArray();
         console.log(`FB posts: ${JSON.stringify(fbPosts)}`);
         return fbPosts;
     }
@@ -75,7 +75,7 @@ const getFilteredPostByHousingType = async (housingType) => {
     try {
         // get the db
         const db = await getDB();
-        const postByHousing = await db.collection('fb-posts').find({housingType: housingType}).toArray();
+        const postByHousing = await db.collection('posts').find({housingType: housingType}).toArray();
         console.log(`FB posts filtered by housing type: ${JSON.stringify(postByHousing)}`);
         return postByHousing;
     }
@@ -91,7 +91,7 @@ const getFilteredPostByCategory = async (category) => {
     try {
         // get the db
         const db = await getDB();
-        const postByCategory = await db.collection('fb-posts').find({category: category}).toArray();
+        const postByCategory = await db.collection('posts').find({category: category}).toArray();
         console.log(`FB posts filtered by category: ${JSON.stringify(postByCategory)}`);
         return postByCategory;
     }
@@ -107,7 +107,7 @@ const getFilteredPost = async (housingType, category) => {
     try {
         // get the db
         const db = await getDB();
-        const filteredPosts = await db.collection('fb-posts').find({housingType: housingType, category: category}).toArray();
+        const filteredPosts = await db.collection('posts').find({housingType: housingType, category: category}).toArray();
         console.log(`FB posts filtered by housing type and category: ${JSON.stringify(filteredPosts)}`);
         return filteredPosts;
     }
@@ -123,7 +123,7 @@ const updatePostLike = async (updateLikes, pid) => {
     try {
         // get the db
         const db = await getDB();
-        const response = await db.collection('fb-posts').updateOne(
+        const response = await db.collection('posts').updateOne(
             { _id: new ObjectId(pid) },
             { $set: { likes: updateLikes } }
         );
@@ -142,7 +142,7 @@ const addNewPost = async (post) => {
     try {
         // get the db
         const db = await getDB();
-        const response = await db.collection('fb-posts').insertOne(post);
+        const response = await db.collection('posts').insertOne(post);
         console.log(`Add new post: ${JSON.stringify(response)}`);
         return response;
     }
@@ -160,9 +160,13 @@ const addNewPost = async (post) => {
 //     "likes": 0,
 //     "comments": 0
 // });
+updatePostLike(10, '643dea4e9c2ad1df2f187939')
+
+
+getFilteredPostByCategory('Discussion');
 
 module.exports = {
-    connectToDB,
+    connect,
     closeDBConnection,
     getDB,
     getAllPosts,
