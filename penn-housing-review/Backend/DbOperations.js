@@ -135,6 +135,7 @@ const addNewPost = async (post) => {
         // get the db
         const db = await getDB();
         const response = await db.collection('posts').insertOne(post);
+        console.log(`postcscsac`, post);
         console.log(`Add new post: ${JSON.stringify(response)}`);
         return response;
     }
@@ -143,17 +144,73 @@ const addNewPost = async (post) => {
     }
 }
 
+/**
+ * get comments of a post
+ */
+const getAllCommentsByPostId = async (pid) => {
+    try {
+        // get the db
+        const db = await getDB();
+        const comments = await db.collection('comments').find({pid: pid}).toArray();
+        // console.log(`Comments: ${JSON.stringify(comments)}`);
+        return comments;
+    }
+    catch (err) {
+        console.log("Error retrieving comments", err.message);
+    }
+}
+
+/**
+ * add new comment
+ */
+const addNewComment = async (comment) => {
+    console.log("add new comment");
+    try {
+        // get the db
+        const db = await getDB();
+        const response = await db.collection('comments').insertOne(comment);
+        console.log(`Add new comment: ${JSON.stringify(response)}`);
+        return response;
+    } catch (err) {
+        console.log("Error adding new comment", err.message);
+    }
+}
+
+/**
+ * update the likes of a comment
+ */
+const updateCommentLike = async (updateLikes, cid) => {
+    try {
+        // get the db
+        const db = await getDB();
+        const response = await db.collection('comments').updateOne(
+            { _id: new ObjectId(cid) },
+            { $set: { likes: updateLikes } }
+        );
+        console.log(`Update likes: ${JSON.stringify(response)}`);
+        return response;
+    }
+    catch (err) {
+        console.log("Error updating likes", err.message);
+    }
+}
+
+// updatePostLike(10, '643dea4e9c2ad1df2f187939')
+// getFilteredPostByCategory('Discussion');
+// addNewComment({
+//     "pid": "643dea4e9c2ad1df2f187939",
+//     "content": "test",
+//     "likes": 0
+// });
 // addNewPost({
 //     "username": "test",
 //     "title": "test",
-//     "category": "Off Campus",
-//     "housingType": "Lease Info",
-//     "content": "testtttt",
+//     "content": "test",
+//     "category": "Discussion",
+//     "housingType": "On Campus",
 //     "likes": 0,
 //     "comments": 0
 // });
-// updatePostLike(10, '643dea4e9c2ad1df2f187939')
-// getFilteredPostByCategory('Discussion');
   
 
 const getApartment = async (id) => {
@@ -254,6 +311,9 @@ module.exports = {
     getFilteredPostByCategory,
     getFilteredPost,
     addNewPost,
+    getAllCommentsByPostId,
+    addNewComment,
+    updateCommentLike,
     updatePostLike,
     getApartment,
     getReviews,

@@ -34,4 +34,10 @@ describe('Post FB posts tests', () => {
     const resp = await request(webapp).put('/posts?category=Social');
     expect(resp.status).toEqual(404);
   });
+
+  test('add comment with missing fields', async () => {
+    const resp = await request(webapp).put('/comments');
+    expect(resp.status).toEqual(404);
+  });
+
 });

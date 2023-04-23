@@ -40,5 +40,5 @@ export default function LikeButton({ likes, pid }) {
 
 LikeButton.propTypes = {
   likes: PropTypes.number.isRequired,
-  pid: PropTypes.number.isRequired,
+  pid: PropTypes.string.isRequired,
 };
