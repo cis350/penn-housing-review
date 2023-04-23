@@ -22,9 +22,10 @@ export default function FBPostPage() {
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
   const [checkAllInfo, setCheckAllInfo] = useState(false);
-
+  const username = localStorage.getItem('username');
+  
   async function addNewPostWrapper() {
-    const response = await addNewPost(title, content, category, housingType);
+    const response = await addNewPost(title, content, category, housingType, username);
     console.log('response', response);
     return response;
   }
@@ -68,9 +69,6 @@ export default function FBPostPage() {
   };
 
   const handleSubmit = () => {
-    // need to get user id and username
-    // var user = JSON.parse(localStorage.getItem("users"));
-    
     if (
       title === '' ||
       content === '' ||
@@ -81,8 +79,8 @@ export default function FBPostPage() {
     } else {
       setCheckAllInfo(false);
       addNewPostWrapper();
-      console.log('title', title);
-      // window.location.href = '/forum';
+      // direct to forum page
+      window.location.href = '/forum';
     }
   };
 

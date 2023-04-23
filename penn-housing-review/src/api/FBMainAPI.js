@@ -78,21 +78,17 @@ export const updateCommentLike = async (updateLikes, cid) => {
 export const getAllCommentsByPostId = async (pid) => {
   try {
     const res = await axios.get(`${rootURL}/comments?pid=${pid}`);
-    // console.log("get all comments by post id", res.data);
-    return res.data.data.data;
+    return res.data.data;
   } catch (err) {
     console.error('error', err.message);
     return err;
   }
 };
 
-export const createComment = async (pid, content) => {
+export const addNewComment = async (pid, content) => {
   try {
-    const response = await axios.post(`${rootURL}/comments`, {
-      pid,
-      content,
-      likes: 0
-    });
+    const comment = `pid=${pid}&content=${content}&likes=0`;
+    const response = await axios.post(`${rootURL}/comments`, comment);
     // console.log("create comment", response.data);
     return response.data.data;
   } catch (err) {
@@ -106,11 +102,11 @@ export const addNewPost = async (
   content,
   category,
   housingType,
+  username
 ) => {
-  const post = `title=${title}&content=${content}&category=${category}&housingType=${housingType}&comments=0&likes=0`;
+  const post = `username=${username}&title=${title}&content=${content}&category=${category}&housingType=${housingType}&comments=0&likes=0`;
   try {
     const response = await axios.post(`${rootURL}/posts`, post);
-    // console.log("add new post", response.data);
     return response.data.data;
   } catch (err) {
     console.error('error adding new post', err.message);

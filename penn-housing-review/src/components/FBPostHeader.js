@@ -1,6 +1,7 @@
 import './FBPostPageStyles.css';
 import * as React from 'react';
 import logo from '../assets/P-2.png';
+import { profileURL } from '../utils/utils';
 
 function Logo() {
   return (
@@ -10,9 +11,10 @@ function Logo() {
   );
 }
 
-function Profile({ username }) {
+function Profile() {
+  const username = localStorage.getItem('username');
   return (
-    <a href="/user-profile" className="profile">
+    <a href={profileURL} className="profile">
       Welcome, {username}
     </a>
   );

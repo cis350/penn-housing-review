@@ -46,6 +46,12 @@ describe('GET FB posts tests', () => {
     expect(resp.status).toEqual(200);
     expect(resp.type).toBe('application/json');
   });
+
+  test('comments for post 643de9b59c2ad1df2f187938', async () => {
+    const resp = await request(webapp).get('/comments?pid=643de9b59c2ad1df2f187938');
+    expect(resp.status).toEqual(200);
+    expect(resp.type).toBe('application/json');
+  });
   
 });
 

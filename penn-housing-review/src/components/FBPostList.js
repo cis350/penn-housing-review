@@ -42,15 +42,15 @@ export default function PostList({ data }) {
     <Box p="5" data-testid="post-list-box">
       <List data-testid="postList">
         {postData.currentData().map((v) => (
-          <div key={v.id}>
+          <div key={v._id}>
             <div className="postEntry">
               <h3>{v.title}</h3>
               <p>{v.content}</p>
               <div className="postEle">
-                <LikeButtom likes={v.likes} pid={v.id} />
+                <LikeButtom likes={v.likes} pid={v._id} />
                 <div>
                   <span className="postButtom">
-                    <a href="#" onClick={() => handleComment(v.id)}>
+                    <a href="#" onClick={() => handleComment(v._id)}>
                       <CommentIcon
                         fontSize="medium"
                         data-testid="comment-icon-1"
@@ -61,8 +61,8 @@ export default function PostList({ data }) {
                 <NotifyButtom />
               </div>
             </div>
-            {selectedPost === v.id && (
-              <CommentSection comments={v.comments} pid={v.id} />
+            {selectedPost === v._id && (
+              <CommentSection comments={v.comments} pid={v._id} />
             )}
             <Divider className="postDiv" />
           </div>
@@ -83,7 +83,7 @@ export default function PostList({ data }) {
 PostList.propTypes = {
   data: propTypes.arrayOf(
     propTypes.shape({
-      id: propTypes.number,
+      _id: propTypes.string,
       title: propTypes.string,
       content: propTypes.string,
       likes: propTypes.number,

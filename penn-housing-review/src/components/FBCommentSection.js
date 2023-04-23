@@ -1,10 +1,9 @@
 import { React, useEffect, useState } from 'react';
 import { TextField, Button } from '@mui/material';
-import { getAllCommentsByPostId, createComment } from '../api/FBMainAPI';
+import { getAllCommentsByPostId, addNewComment } from '../api/FBMainAPI';
 import LikeButton from './FBCommentLikeButtom';
 
 export default function CommentSection({ pid }) {
-  console.log('comments', pid);
   const [commentsData, setCommentsData] = useState([]);
   const [newComment, setNewComment] = useState('');
 
@@ -14,6 +13,7 @@ export default function CommentSection({ pid }) {
       setCommentsData(allData);
     }
     getAllCommentsByPostIdWrapper();
+    console.log('commentsData in comment section', commentsData);
   }, [newComment]);
 
   const handleChangeContent = (event) => {
@@ -21,7 +21,7 @@ export default function CommentSection({ pid }) {
   };
 
   const handleCreateComment = () => {
-    createComment(pid, newComment);
+    addNewComment(pid, newComment);
     setNewComment('');
   };
 
@@ -58,9 +58,9 @@ export default function CommentSection({ pid }) {
 
       <div className="commentSection">
         {commentsData.map((comment) => (
-          <div key={comment.id} className="oneComment">
+          <div key={comment._id} className="oneComment">
             <p>{comment.content}</p>
-            <LikeButton likes={comment.likes} cid={comment.id} />
+            <LikeButton likes={comment.likes} cid={comment._id} />
           </div>
         ))}
       </div>
