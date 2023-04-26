@@ -240,7 +240,7 @@ webapp.post('/reviews', async (req, res) => {
           ratings: req.body.ratings, 
           likes: 0, 
           desc: req.body.desc, 
-          aptid: new ObjectId(req.body.aptid)
+          apt_id: new ObjectId(req.body.aptid)
         };
         const result = dbLib.addReview(newReview);
         res.status(201).json({data: {id: result}});
