@@ -231,6 +231,7 @@ const getReviews = async (id) => {
     const db = await getDB();
     const result = await db.collection('reviews').find({ apt_id: new ObjectId(id) }).toArray();
     // print the result
+    console.log(result)
     return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
@@ -300,6 +301,18 @@ const searchHouses = async (query) => {
   }
 };
 
+const addReview = async (review) => {
+  console.log("Add review");
+  try {
+      const db = await getDB();
+      console.log(review);
+      const response = await db.collection('reviews').insertOne(review);
+      return response;
+  } catch (err) {
+      console.log("Error adding new review", err.message);
+  }
+}
+
 
 
 module.exports = {
@@ -320,5 +333,6 @@ module.exports = {
     updateLikes, 
     createUser,
     getUserPassword, 
-    searchHouses
+    searchHouses,
+    addReview
 };

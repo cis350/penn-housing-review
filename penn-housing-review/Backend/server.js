@@ -1,4 +1,5 @@
 const express = require('express');
+const { ObjectId } = require('mongodb');
 const webapp = express();
 const dbLib = require('./DbOperations');
 const cors = require('cors');
@@ -231,5 +232,21 @@ webapp.patch('/comments/:id', async (req, res) => {
         res.status(400).json({message: 'Error updating comment likes'});
     }
 });
+
+webapp.post('/reviews', async (req, res) => {
+    try {
+        const newReview = {
+          User: req.body.username, 
+          ratings: req.body.ratings, 
+          likes: 0, 
+          desc: req.body.desc, 
+          aptid: new ObjectId(req.body.aptid)
+        };
+        const result = dbLib.addReview(newReview);
+        res.status(201).json({data: {id: result}});
+    } catch (err) {
+        rep.status(400).json({message: 'There was an error'});
+    }
+})
 
 module.exports = webapp;

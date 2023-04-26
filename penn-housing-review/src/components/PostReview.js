@@ -1,4 +1,5 @@
 import './PostReviewPage.css';
+import {useLocation} from 'react-router-dom';
 import * as React from 'react';
 import * as Mui from '@mui/material';
 import ReviewRatings from './ReviewRatings';
@@ -6,11 +7,12 @@ import ReviewInput from './ReviewInput';
 import { ReviewPageURL } from '../utils/utils';
 import { submitReview } from '../api/reviewapi';
 
-export default function PostReview({ aptid, username }) {
+export default function PostReview() {
   const [overallValue, setOverallValue] = React.useState(0);
   const [priceValue, setPriceValue] = React.useState(0);
   const [securityValue, setSecurityValue] = React.useState(0);
   const [text, setText] = React.useState('');
+  const location = useLocation();
 
   const handleOverallChange = (e, newValue) => {
     setOverallValue(newValue);
@@ -26,9 +28,11 @@ export default function PostReview({ aptid, username }) {
   };
 
   const handleSubmitReview = () => {
+    if (text === '') alert('Cannot submit empty comment!');
+    if (overallValue === 0 || priceValue === 0 || securityValue === 0) alert('Please leave a rating!')
     submitReview(
-      aptid,
-      username,
+      location.state.aptid,
+      location.state.username,
       overallValue,
       priceValue,
       securityValue,
@@ -36,7 +40,6 @@ export default function PostReview({ aptid, username }) {
     );
     window.location.href = ReviewPageURL;
   };
-
   return (
     <div>
       <div className="post-review-page">

@@ -18,7 +18,7 @@ function ReviewPage() {
         <DescriptionView aptname={reviews.name} aptimg={reviews.image} 
         aptratings={[3,3,3]} aptdesc={reviews.description} />
         <span className='vl' />
-        <ReviewView aptid='643dc668c494c0ddeef7e717' />
+        <ReviewView aptid='643dc668c494c0ddeef7e717' username='Olivia' />
       </div>
     </div>
   );
