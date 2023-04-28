@@ -4,7 +4,9 @@ import { TextField,Button } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import Banner from './Banner';
+// import Banner from './Banner';
+// import MainHeader from './MainHeader';
+import UserProfileHeader from './userProfileHeader';
 import { getUserPosts, updateUserPassword } from '../api/userAPI';
 
 function UserProfile() {
@@ -49,7 +51,7 @@ function UserProfile() {
 
   return (
     <div className="user-profile">
-      <Banner />
+      <UserProfileHeader />
 
       <div className="user-profile-content" >
       <div className="user-info-header">

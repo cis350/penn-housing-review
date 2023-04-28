@@ -58,7 +58,7 @@ export default function PostList({ data }) {
                     </a>
                   </span>
                 </div>
-                <NotifyButtom />
+                <NotifyButtom postId={v._id}/>
               </div>
             </div>
             {selectedPost === v._id && (

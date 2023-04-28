@@ -23,9 +23,12 @@ export async function getUserPosts(username) {
   let posts = [];
   try {
     const user = await axios.get(apiUrl);
-    if (user.data.length > 0) {
-      const userExtract = user.data[0];
+    
+    if (user.data) {
+      const userExtract = user.data;
       const postIds = userExtract.followedPosts;
+
+      console.log('postIds:', postIds);
 
       // Fetch all posts concurrently using Promise.all and Array.map
        posts = await Promise.all(
@@ -45,7 +48,18 @@ export async function getUserPosts(username) {
 }
 
 export async function updateUserPassword(username, password, newPassword) {
-  try {
+  
+  try{
+    const response = await axios.post(`${rootURL}/user/updatePassword`, null, {params: {username, password, newPassword}});
+    console.log(response.data);
+    return true;
+  } catch (err){
+    console.error('Error updating password:', err);
+    return false;
+  }
+  
+  
+  /* try {
     const response = await axios.get(`${rootURL}/login`, {
       params: {
         username,
@@ -73,6 +87,6 @@ export async function updateUserPassword(username, password, newPassword) {
   } catch (error) {
     console.error('Error updating password:', error.message);
     return false;
-  }
+  } */
 }
   
