@@ -347,8 +347,8 @@ const updatePassword = async (username, newPassword) => {
   try{
     const db = await getDB();
     const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+    console.log("username:",username);
     
-
     const results = await db.collection('users').updateOne({ username: username }, { $set: { password: hashedPassword } });
     return results;
   } catch(err){
