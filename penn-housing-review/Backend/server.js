@@ -232,4 +232,16 @@ webapp.patch('/comments/:id', async (req, res) => {
     }
 });
 
+webapp.post('/newHouse', async (req, res) => {
+  console.log("adding new house");
+  try {
+    const house = req.body;
+    const result = await dbLib.addHouse(house);
+    res.status(200).json({ message: 'House added successfully', house: result });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: 'Adding house failed' });
+  }
+});
+
 module.exports = webapp;
