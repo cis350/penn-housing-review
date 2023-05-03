@@ -6,7 +6,7 @@ const styles = {
   border: '1px gray solid',
   width: '25%',
   marginBottom: '30px',
-  borderRadius: '10px'
+  borderRadius: '10px',
 };
 
 const imgStyles = {
@@ -15,17 +15,17 @@ const imgStyles = {
   justifyContent: 'center',
   display: 'block',
   margin: '0 auto',
-  marginTop: '10px'
+  marginTop: '10px',
 };
 
 function RPHouse({ house }) {
   return (
     <div className="house" style={styles}>
-      <img src={house.image} style={imgStyles} alt = "house"/>
-      <h3>{house.houseName}</h3>
+      <img src={house.image} style={imgStyles} alt="house" />
+      <h3>{house.name}</h3>
       <p>
         Price range:
-        {house.price}
+        {house.filters.price}
       </p>
     </div>
   );
