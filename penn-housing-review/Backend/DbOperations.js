@@ -316,40 +316,6 @@ const searchHouses = async (query) => {
   }
 };
 
-const addHouse = async (house) => {
-  try {
-    const db = await getDB();
-    const houseToAdd = {
-      name: house.name,
-      description: house.description,
-      image: "https://via.placeholder.com/200",
-      ratings: {
-        security: 5,
-        amenities: 5,
-        overall: 5
-      },
-      filters: {
-        roomTypes: {
-          studio: house.studio,
-          '1b': house.single,
-          '2b': house.double,
-          '3b': house.triple,
-          '4b': house.quad
-        },
-        freshman: house.freshman,
-        onCampus: house.onCampus,
-        price: parseInt(house.price)
-      }
-    };
-
-    const result = await db.collection('houses').insertOne(houseToAdd);
-    return result;
-  } catch (err) {
-    console.log(`error: ${err.message}`);
-    throw err;
-  }
-};
-
 const getFilteredHouses = async (
   price = 5000,
   freshman = false,
@@ -394,24 +360,23 @@ const getFilteredHouses = async (
 };
 
 module.exports = {
-    connect,
-    closeMongoDBConnection,
-    getDB,
-    getAllPosts,
-    getFilteredPostByHousingType,
-    getFilteredPostByCategory,
-    getFilteredPost,
-    addNewPost,
-    getAllCommentsByPostId,
-    addNewComment,
-    updateCommentLike,
-    updatePostLike,
-    getApartment,
-    getReviews,
-    updateLikes, 
-    createUser,
-    getUserPassword, 
-    searchHouses, 
-    addHouse,
-    getFilteredHouses
+  connect,
+  closeMongoDBConnection,
+  getDB,
+  getAllPosts,
+  getFilteredPostByHousingType,
+  getFilteredPostByCategory,
+  getFilteredPost,
+  addNewPost,
+  getAllCommentsByPostId,
+  addNewComment,
+  updateCommentLike,
+  updatePostLike,
+  getApartment,
+  getReviews,
+  updateLikes,
+  createUser,
+  getUserPassword,
+  searchHouses,
+  getFilteredHouses,
 };
