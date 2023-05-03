@@ -6,7 +6,7 @@ import addHouse from '../api/NewHouseAPI';
 
 export default function NewHousePage() {
   const [name, setName] = useState(''); // name of the house
-  const [address, setAddress] = useState(''); // address of the house
+  const [price, setPrice] = useState(''); // price of the house
   const [description, setDescription] = useState(''); // description of the house
   const [onCampus, setOnCampus] = useState(false); // whether the house is on campus
   const [freshmanOnly, setFreshmanOnly] = useState(false); // whether the house is freshman only
@@ -19,8 +19,8 @@ export default function NewHousePage() {
     setName(event.target.value);
   };
 
-  const handleAddressChange = (event) => {
-    setAddress(event.target.value);
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
   };
 
   const handleDescriptionChange = (event) => {
@@ -50,13 +50,13 @@ export default function NewHousePage() {
       const house = {
         id: 1,
         houseid: 1,
-        houseName: name,
-        houseAddress: address,
+        name: name,
         description,
         onCampus,
+        price,
         freshman: freshmanOnly,
-        '1 bedroom': roomTypes.includes('1 bedroom'),
-        '2 bedroom': roomTypes.includes('2 bedroom'),
+        single: roomTypes.includes('1 bedroom'),
+        double: roomTypes.includes('2 bedroom'),
         studio: roomTypes.includes('studio'),
         triple: roomTypes.includes('triple'),
         quad: roomTypes.includes('quad')
@@ -183,10 +183,10 @@ export default function NewHousePage() {
             handleVal={handleNameChange}
           />
           <InputBox
-            id="address"
-            val={address}
-            text="Address"
-            handleVal={handleAddressChange}
+            id="price"
+            val={price}
+            text="Price"
+            handleVal={handlePriceChange}
           />
           <InputBox
             id="description"
