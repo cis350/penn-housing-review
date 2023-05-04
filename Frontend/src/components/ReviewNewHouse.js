@@ -52,7 +52,7 @@ export default function NewHousePage() {
         houseid: 1,
         name,
         description,
-        onCampus,
+        onCampus, 
         price,
         freshman: freshmanOnly,
         single: roomTypes.includes('1 bedroom'),
