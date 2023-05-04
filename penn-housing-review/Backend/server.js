@@ -14,7 +14,7 @@ webapp.use(bodyParser.json());
 
 webapp.get('/', (req, resp) =>{
     resp.json({messge: 'hello CIS3500 friends!!! You have dreamy eyes'});
-
+});
 
 webapp.get('/apartments/:id', async (req, res) => {
   try {
