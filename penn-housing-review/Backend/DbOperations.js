@@ -300,6 +300,36 @@ const getUserPassword = async (username) => {
   }
 };
 
+const getUserData = async (username) => {
+  try{
+    const db = await getDB();
+    const user = await db.collection('users').findOne({ username: username });
+    if (!user) {
+      throw new Error('User not found');
+    }
+    //console.log(`User data: ${JSON.stringify(user)}`);
+    return user;
+  } catch (err) {
+    console.log(`error: ${err.message}`);
+    throw err;
+  }
+
+};
+
+const updateFollowedPosts = async (username, followedPosts) => {
+
+  try{
+    const db = await getDB();
+    const result = await db.collection('users').updateOne({ username: username }, { $set: { followedPosts: followedPosts } });
+    
+    return result;
+  } catch (err){
+    console.log(`error: ${err.message}`);
+    throw err;
+  }
+
+};
+
 const searchHouses = async (query) => {
   try {
     const db = await getDB();
@@ -315,6 +345,34 @@ const searchHouses = async (query) => {
     throw err;
   }
 };
+
+const getPost = async (id) => {
+
+  try{
+    const db = await getDB();
+    const results = await db.collection('posts').findOne({ _id: new ObjectId(id) });
+    return results;
+  } catch(err){
+    console.log(`error: ${err.message}`);
+    throw err;
+  }
+
+};
+
+const updatePassword = async (username, newPassword) => {
+  try{
+    const db = await getDB();
+    const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+    console.log("username:",username);
+    
+    const results = await db.collection('users').updateOne({ username: username }, { $set: { password: hashedPassword } });
+    return results;
+  } catch(err){
+    console.log(`error: ${err.message}`);
+    throw err;
+  }
+}
+
 
 const addHouse = async (house) => {
   try {
@@ -341,6 +399,7 @@ const addHouse = async (house) => {
         price: parseInt(house.price)
       }
     };
+
 
     const result = await db.collection('houses').insertOne(houseToAdd);
     return result;
@@ -412,6 +471,10 @@ module.exports = {
     createUser,
     getUserPassword, 
     searchHouses, 
+    getUserData,
+    updateFollowedPosts,
+    getPost, 
+    updatePassword
     addHouse,
     getFilteredHouses
 };

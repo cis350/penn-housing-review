@@ -4,24 +4,47 @@ import { rootURL } from '../utils/utils';
 export async function followPost(houseid, username) {
   // Replace this with the actual API endpoint for fetching user posts
 
+  try{
+      const userUrl = `${rootURL}/users/updateFollowedPosts`;
+    // const apiUrl = `${rootURL}/users?username=${username}`;
+    // const testUrl = `${rootURL}/users/updateFollowedPosts`;
+
+    const postId = houseid;
+    
+    const response = await axios.post(userUrl, null, {params: {username, postId}});
+    console.log(response.data);
+    if (response.status === 200) {
+      return true;
+    } 
+    
+    throw new Error(`An error occurred in the backend: ${response.statusText}`);
+    
+  } catch(err){
+    console.error('Error updating follow list:', err);
+    return false;
+  }
+  
+  
+ /*
   const apiUrl = `${rootURL}/users?username=${username}`;
+  console.log(apiUrl);
   try {
     const data = await axios.get(apiUrl);
     const users = data.data;
-    if (users.length > 0) {
+    if (users) {
 
-      if (!users[0].followedPosts.includes(houseid)) {
-        users[0].followedPosts.push(houseid);
+      if (!users.followedPosts.includes(houseid)) {
+        users.followedPosts.push(houseid);
       } else{
-        users[0].followedPosts = users[0].followedPosts.filter((id) => id !== houseid);
+        users.followedPosts = users.followedPosts.filter((id) => id !== houseid);
       }
     } else {
       throw new Error('User does not exist');
     }
 
-    const userUrl = `${rootURL}/users/${users[0].id}`;
+    const userUrl = `${rootURL}/users/updateFollowedPosts?username=${users.username}`;
 
-    const response = await axios.put(userUrl, users[0]);
+    
 
     if (response.status === 200) {
       return true;
@@ -30,7 +53,8 @@ export async function followPost(houseid, username) {
   } catch (error) {
     console.error('Error adding to user follow list:', error);
     return false;
-  }
+  } */
+
 }
 
 export async function unfollowPost(houseid, username) {

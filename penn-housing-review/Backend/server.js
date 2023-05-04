@@ -7,9 +7,14 @@ webapp.use(express.json());
 const bcrypt = require('bcrypt');
 webapp.use(express.urlencoded({ extended: true }));
 
-webapp.get('/', (req, resp) => {
-  resp.json({ messge: 'hello CIS3500 friends!!! You have dreamy eyes' });
-});
+
+const bodyParser = require('body-parser');
+webapp.use(bodyParser.json());
+
+
+webapp.get('/', (req, resp) =>{
+    resp.json({messge: 'hello CIS3500 friends!!! You have dreamy eyes'});
+
 
 webapp.get('/apartments/:id', async (req, res) => {
   try {
@@ -93,6 +98,112 @@ webapp.post('/users', async (req, res) => {
     }
   }
 });
+
+webapp.get('/users', async (req, res) => {
+    //for now, just return what posts you follow
+
+    const username = req.query.username; 
+    try{
+
+      const userData= await dbLib.getUserData(username);
+      res.json(userData);
+
+    } catch (err){
+      res.status(404).json({ message:"there was an error:"+ err });
+      res.json([]);
+    }
+
+
+});
+
+webapp.post('/users/updateFollowedPosts', async (req, res) => {
+
+  const username = req.query.username;
+  const postId = req.query.postId;
+  //console.log(username,postId)
+  if (!username || !postId) {
+    res.status(400).json({message: 'Missing required fields'});
+    return;
+  }
+
+  try{
+    
+    const userData= await dbLib.getUserData(username);
+    if (!userData){
+      
+      res.status(404).json({message: 'User not found'});
+      return;
+    }
+
+    if(!userData.followedPosts.includes(postId)){
+      userData.followedPosts.push(postId);
+    } else{
+      userData.followedPosts = userData.followedPosts.filter(id => id !== postId);
+    }
+
+    const result = await dbLib.updateFollowedPosts(username, userData.followedPosts);
+    console.log("successfully updated followed posts", result);
+    res.status(200).json({message: 'success'});
+  } catch (err){
+    console.log(err);
+    res.status(404).json({ message:"there was an error:"+ err });
+  }
+
+  
+  
+
+});
+
+webapp.get('/posts/:id', async (req, res) => {
+    const id = req.params.id;
+
+    if (!id) {
+      res.status(400).json({message: 'Missing required fields'});
+      return;
+    }
+
+    try{
+      const post = await dbLib.getPost(id);
+      if (!post){
+        res.status(404).json({message: 'Post not found'});
+        return;
+      }
+      res.json(post);
+    } catch(err){
+      res.status(404).json({ message:"there was an error:"+ err });
+    }
+
+});
+
+webapp.post('/user/updatePassword', async (req, res) => {
+
+    const username = req.query.username;
+    const password = req.query.password;
+    const newPassword = req.query.newPassword;
+
+    if (!username || !password || !newPassword) {
+      res.status(400).json({message: 'Missing required fields'});
+      return;
+    }
+   
+    try{
+      const hashedPassword = await dbLib.getUserPassword(username);
+      const isPasswordCorrect = await bcrypt.compare(password, hashedPassword);
+      if(!isPasswordCorrect){
+        res.status(401).json({message: 'Invalid credentials'});
+        return;
+      }
+      const result = await dbLib.updatePassword(username, newPassword);
+
+      console.log(result);
+      res.status(200).json({message: 'success'});
+    } catch(err){
+      res.status(404).json({ message:"there was an error:"+ err });
+    }
+
+});
+
+
 
 webapp.get('/search/:query', async (req, res) => {
   console.log('READ all houses matching a query');

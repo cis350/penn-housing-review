@@ -52,6 +52,14 @@ describe('GET FB posts tests', () => {
     expect(resp.status).toEqual(200);
     expect(resp.type).toBe('application/json');
   });
+
+  test('getting user information for userid 643df27fd95164f88856d813', async () => {
+
+    const resp = await request(webapp).get('/users?username=FirstUser04170918');
+    expect(resp.status).toEqual(200);
+    expect(resp.type).toBe('application/json');
+
+  });
   
 });
 

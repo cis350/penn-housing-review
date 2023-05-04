@@ -40,4 +40,11 @@ describe('Post FB posts tests', () => {
     expect(resp.status).toEqual(404);
   });
 
+  test('change password with missing fields', async () => {
+
+      const resp = await request(webapp).post('/users/updatePassword');
+      expect(resp.status).toEqual(404);
+
+  });
+
 });
