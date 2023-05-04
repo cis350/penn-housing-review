@@ -474,7 +474,7 @@ module.exports = {
     getUserData,
     updateFollowedPosts,
     getPost, 
-    updatePassword
+    updatePassword,
     addHouse,
     getFilteredHouses
 };

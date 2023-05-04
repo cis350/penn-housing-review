@@ -50,7 +50,7 @@ export default function NewHousePage() {
       const house = {
         id: 1,
         houseid: 1,
-        name: name,
+        name,
         description,
         onCampus,
         price,
