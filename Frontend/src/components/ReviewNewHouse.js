@@ -50,9 +50,9 @@ export default function NewHousePage() {
       const house = {
         id: 1,
         houseid: 1,
-        name: name,
+        name,
         description,
-        onCampus,
+        onCampus, 
         price,
         freshman: freshmanOnly,
         single: roomTypes.includes('1 bedroom'),
