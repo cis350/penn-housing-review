@@ -6,17 +6,19 @@ import ReviewView from "./ReviewView";
 import { getApartmentById } from '../api/reviewapi';
 
 function ReviewPage() {
-  const [reviews, setReviews] = React.useState([]);
-    React.useEffect(()=>{
-      getApartmentById('643dc668c494c0ddeef7e717').then(response => setReviews(response.data.data[0]));
-    });
-    
+  const [reviews, setReviews] = React.useState({});
+  React.useEffect(async()=>{
+    const res = await getApartmentById('643dc668c494c0ddeef7e717');
+    setReviews(res.data.data[0]);
+  });
+  console.log(reviews)
+  
   return (
     <div className="container">
       <Header />
       <div className="main">
         <DescriptionView aptname={reviews.name} aptimg={reviews.image} 
-        aptratings={[3,3,3]} aptdesc={reviews.description} />
+        aptratings={reviews.ratings} aptdesc={reviews.description} />
         <span className='vl' />
         <ReviewView aptid='643dc668c494c0ddeef7e717' username='Olivia' />
       </div>
