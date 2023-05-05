@@ -1,4 +1,5 @@
 const express = require('express');
+const { ObjectId } = require('mongodb');
 const webapp = express();
 const dbLib = require('./DbOperations');
 const cors = require('cors');
@@ -16,7 +17,7 @@ webapp.get('/', (req, resp) =>{
     resp.json({messge: 'hello CIS3500 friends!!! You have dreamy eyes'});
 });
 
-webapp.get('/apartments/:id', async (req, res) => {
+webapp.get('/houses/:id', async (req, res) => {
   try {
     // get the data from the db
     const results = await dbLib.getApartment(req.params.id);
@@ -395,6 +396,22 @@ webapp.post('/newHouse', async (req, res) => {
     res.status(500).json({ message: 'Adding house failed' });
   }
 });
+
+webapp.post('/reviews', async (req, res) => {
+  try {
+      const newReview = {
+        User: req.body.username, 
+        ratings: req.body.ratings, 
+        likes: 0, 
+        desc: req.body.desc, 
+        apt_id: new ObjectId(req.body.aptid)
+      };
+      const result = dbLib.addReview(newReview);
+      res.status(201).json({data: {id: result}});
+  } catch (err) {
+      rep.status(400).json({message: 'There was an error'});
+  }
+})
 
 module.exports = webapp;
 

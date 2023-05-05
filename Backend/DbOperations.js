@@ -346,6 +346,18 @@ const searchHouses = async (query) => {
   }
 };
 
+const addReview = async (review) => {
+  console.log("Add review");
+  try {
+      const db = await getDB();
+      console.log(review);
+      const response = await db.collection('reviews').insertOne(review);
+      return response;
+  } catch (err) {
+      console.log("Error adding new review", err.message);
+  }
+}
+
 const getPost = async (id) => {
 
   try{
@@ -470,7 +482,8 @@ module.exports = {
     updateLikes, 
     createUser,
     getUserPassword, 
-    searchHouses, 
+    searchHouses,
+    addReview,
     getUserData,
     updateFollowedPosts,
     getPost, 
