@@ -6,16 +6,20 @@ webapp.use(cors());
 webapp.use(express.json());
 const bcrypt = require('bcrypt');
 webapp.use(express.urlencoded({ extended: true }));
-
+const path = require('path');
+webapp.use(express.static(path.join(__dirname, './Frontend/build')));
 
 const bodyParser = require('body-parser');
 webapp.use(bodyParser.json());
 
 
+
+
+/*
 webapp.get('/', (req, resp) =>{
     resp.json({messge: 'hello CIS3500 friends!!! You have dreamy eyes'});
-});
-
+});*/
+//potentially update urls to start with /api/...
 webapp.get('/apartments/:id', async (req, res) => {
   try {
     // get the data from the db
@@ -205,7 +209,7 @@ webapp.post('/user/updatePassword', async (req, res) => {
 
 
 
-webapp.get('/search/:query', async (req, res) => {
+webapp.get('/api/search/:query', async (req, res) => {
   console.log('READ all houses matching a query');
   try {
     // get the data from the db
@@ -394,6 +398,11 @@ webapp.post('/newHouse', async (req, res) => {
     console.log(err);
     res.status(500).json({ message: 'Adding house failed' });
   }
+});
+
+//wildcard endpoint - serve react files
+webapp.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './Frontend/build/index.html'));
 });
 
 module.exports = webapp;

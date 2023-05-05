@@ -1,3 +1,4 @@
+// .eslintrc.js
 module.exports = {
     "env": {
         "browser": true,
@@ -6,8 +7,7 @@ module.exports = {
         "jest": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
+        "eslint:recommended"
     ],
     "overrides": [
     ],
@@ -15,9 +15,6 @@ module.exports = {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": [
-        "react"
-    ],
     "rules": {
     }
 }

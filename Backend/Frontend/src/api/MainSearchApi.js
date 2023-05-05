@@ -5,7 +5,7 @@ export const searchHouse = async (keyword) =>
   // Create an object with keyword and limit properties
   // Return a promise that resolves with the response data or rejects with an error
   axios
-    .get(`${rootURL}/search/${keyword}`)
+    .get(`${rootURL}/api/search/${keyword}`)
     .then((response) => {
       // Filter the response data by houseName property
 
