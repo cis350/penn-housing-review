@@ -11,7 +11,8 @@
     "build-frontend": "react-scripts build",
     "test-frontend": "react-scripts test --coverage --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject-frontend": "react-scripts eject",
-    "format-frontend": "prettier-eslint --write \"{,!(node_modules)/**/}*.{js,jsx}\""
+    "format-frontend": "prettier-eslint --write \"{,!(node_modules)/**/}*.{js,jsx}\"",
+    "heroku-postbuild": "DISABLE_ESLINT_PLUGIN=true react-scripts build"
   },
   "repository": {
     "type": "git",
