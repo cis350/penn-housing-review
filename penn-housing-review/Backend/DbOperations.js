@@ -214,11 +214,11 @@ const updateCommentLike = async (updateLikes, cid) => {
   
 
 const getApartment = async (id) => {
+  console.log("get apartment");
   try {
     // get the db
     const db = await getDB();
     const result = await db.collection('apartments').find({ _id: new ObjectId(id) }).toArray();
-    // print the result
     return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
