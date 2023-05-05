@@ -5,7 +5,7 @@
     },
     "extends": [
         //"airbnb", 
-        "prettier"
+        //"prettier"
     ],
     "overrides": [
     ],
