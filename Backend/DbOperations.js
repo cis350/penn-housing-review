@@ -241,11 +241,10 @@ const getReviews = async (id) => {
     // get the db
     const db = await getDB();
     const result = await db
-    .collection('reviews')
-    .find({ apt_id: new ObjectId(id) })
-    .toArray();
+      .collection('reviews')
+      .find({ apt_id: new ObjectId(id) })
+      .toArray();
     // print the result
-    console.log(result)
     return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
@@ -256,11 +255,10 @@ const updateLikes = async (id, likes) => {
   try {
     // get the db
     const db = await getDB();
-    console.log(id); 
-    const result = await db.collection('reviews').updateOne(
-      { _id: new ObjectId(id) },
-      { $set: { likes: likes } },
-    );
+    console.log(id);
+    const result = await db
+      .collection('reviews')
+      .updateOne({ _id: new ObjectId(id) }, { $set: { likes: likes } });
     return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
