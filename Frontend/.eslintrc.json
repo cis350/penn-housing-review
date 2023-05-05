@@ -17,7 +17,7 @@
         }
     },
     "plugins": [
-        "prettier",
+      //  "prettier",
         "react"
     ],
     "rules": {
