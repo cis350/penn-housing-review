@@ -6,13 +6,12 @@
   "scripts": {
     "start": "node index.js",
     "test": "jest --coverage --runInBand",
-    "build": "npm install && cd Frontend && npm install && npm run build",
+    "build": "DISABLE_ESLINT_PLUGIN=true && npm install && cd Frontend && npm install && npm run build",
     "start-frontend": "react-scripts start",
     "build-frontend": "react-scripts build",
     "test-frontend": "react-scripts test --coverage --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject-frontend": "react-scripts eject",
-    "format-frontend": "prettier-eslint --write \"{,!(node_modules)/**/}*.{js,jsx}\"",
-    "heroku-postbuild": "DISABLE_ESLINT_PLUGIN=true react-scripts build"
+    "format-frontend": "prettier-eslint --write \"{,!(node_modules)/**/}*.{js,jsx}\""
   },
   "repository": {
     "type": "git",
