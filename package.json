@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "jest --coverage --runInBand",
-    "build": "npm install && cd Frontend && DISABLE_ESLINT_PLUGIN=true npm install && npm run build",
+    "build": "npm install && cd Frontend && npm install && npm run build",
     "start-frontend": "react-scripts start",
     "build-frontend": "react-scripts build",
     "test-frontend": "react-scripts test --coverage --transformIgnorePatterns \"node_modules/(?!axios)/\"",
