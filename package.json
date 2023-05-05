@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "jest --coverage --runInBand",
-    "build": "npm install && cd FrontEnd && npm install && npm run build"
+    "build": "npm install && cd Frontend && npm install && npm run build"
   },
   "repository": {
     "type": "git",
