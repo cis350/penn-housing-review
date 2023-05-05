@@ -1,3 +1,6 @@
 node_modules
 .DS_Store
 coverage
+penn-housing-review/Backend/coverage/clover.xml
+penn-housing-review/Backend/coverage/clover.xml
+penn-housing-review/Backend/coverage/coverage-final.json

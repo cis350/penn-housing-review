@@ -3,7 +3,7 @@ import { rootURL } from '../utils/utils';
 
 async function addHouse(house) {
   try {
-    const response = await axios.post(`${rootURL}/houses`, house);
+    const response = await axios.post(`${rootURL}/newHouse`, house);
     return response;
   } catch (err) {
     console.log(err);

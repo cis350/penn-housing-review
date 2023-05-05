@@ -7,10 +7,11 @@ import fetchHouses from '../api/RecommendApi';
 import HouseList from './RPHousingList';
 
 function RPMain() {
+  const showPreference = false;
   const [preferences, setPreferences] = useState([
     { name: 'security', label: 'Security', value: 0 },
     { name: 'distance', label: 'Distance to Campus', value: 0 },
-    { name: 'amenity', label: 'Amenity', value: 0 }
+    { name: 'amenity', label: 'Amenity', value: 0 },
   ]);
 
   const handlePreferenceChange = (name, value) => {
@@ -19,14 +20,13 @@ function RPMain() {
         pref.name === name ? { ...pref, value } : pref
       )
     );
-    console.log(preferences);
   };
 
   const [filters, setFilters] = useState({
     onCampus: false,
     freshman: false,
     priceRange: [0, 5000],
-    roomTypes: []
+    roomTypes: [],
   });
 
   const [houseList, setHouseList] = useState([]);
@@ -38,6 +38,8 @@ function RPMain() {
 
   const handleSubmit = async () => {
     try {
+      console.log(preferences);
+      filters.price = parseInt(filters.price, 10);
       const houses = await fetchHouses(filters);
       console.log(houses);
       setHouseList(houses);
@@ -52,11 +54,16 @@ function RPMain() {
       <div className="RPBodyWrapper">
         <div className="RPLeft">
           <Filter filters={filters} onFilterChange={handleFilterChange} />
-          <Preference
-            preferences={preferences}
-            onPreferenceChange={handlePreferenceChange}
-          />
-          <button type = "submit" onClick={handleSubmit}>Submit</button>
+          {showPreference ? (
+            <Preference
+              style={{ display: 'none' }}
+              preferences={preferences}
+              onPreferenceChange={handlePreferenceChange}
+            />
+          ) : null}
+          <button type="submit" onClick={handleSubmit}>
+            Submit
+          </button>
         </div>
         <div className="RPRight">
           <HouseList houses={houseList} />

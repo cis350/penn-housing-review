@@ -5,13 +5,13 @@ class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      price: 0
+      price: 0,
     };
   }
 
   handleFilterChange = (e) => {
     const { name, value, type, checked } = e.target;
-    const {onFilterChange} = this.props;
+    const { onFilterChange } = this.props;
     onFilterChange(name, type === 'checkbox' ? checked : value);
     if (name === 'price') {
       this.setState({ price: value });
@@ -24,7 +24,7 @@ class Filter extends Component {
       <div className="filterContainer">
         <h3>Filters</h3>
         <div className="singleFilter">
-          <label htmlFor='onCampus'>
+          <label htmlFor="onCampus">
             <input
               type="checkbox"
               name="onCampus"
@@ -34,7 +34,7 @@ class Filter extends Component {
           </label>
         </div>
         <div className="singleFilter">
-          <label htmlFor='freshman'>
+          <label htmlFor="freshman">
             <input
               type="checkbox"
               name="freshman"
@@ -44,7 +44,7 @@ class Filter extends Component {
           </label>
         </div>
         <div className="singleFilter">
-          <label htmlFor='price'>
+          <label htmlFor="price">
             Price Range:{' '}
             <input
               type="range"
@@ -58,18 +58,16 @@ class Filter extends Component {
         </div>
         <div className="checkboxGroup">
           <h4>Room Types</h4>
-          {['studio', '1 bedroom', '2 bedroom', 'triple', 'quad'].map(
-            (type) => (
-              <label key={type} className="roomType" htmlFor={type}>
-                <input
-                  type="checkbox"
-                  name={type}
-                  onChange={this.handleFilterChange}
-                />
-                {type}
-              </label>
-            )
-          )}
+          {['studio', 'single', 'double', 'triple', 'quad'].map((type) => (
+            <label key={type} className="roomType" htmlFor={type}>
+              <input
+                type="checkbox"
+                name={type}
+                onChange={this.handleFilterChange}
+              />
+              {type}
+            </label>
+          ))}
         </div>
       </div>
     );

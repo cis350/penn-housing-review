@@ -1,11 +1,11 @@
 import './ReviewNewHouseHeader.css';
 import React from 'react';
 import logo from '../assets/logowhite.png';
-import { ReviewPageURL, profileURL } from '../utils/utils';
+import { profileURL } from '../utils/utils';
 
 function Logo() {
   return (
-    <a href={ReviewPageURL} className="logo">
+    <a href='/search' className="logo">
       <img src={logo} alt="logo" width="50" height="50" />
     </a>
   );
