@@ -12,7 +12,7 @@ webapp.get('/', (req, resp) =>{
     resp.json({messge: 'hello CIS3500 friends!!! You have dreamy eyes'})
 });
 
-webapp.get('/apartments/:id', async (req, res) => {
+webapp.get('/houses/:id', async (req, res) => {
     try {
       // get the data from the db
       const results = await dbLib.getApartment(req.params.id);

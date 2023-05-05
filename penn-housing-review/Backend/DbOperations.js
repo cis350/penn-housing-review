@@ -218,7 +218,7 @@ const getApartment = async (id) => {
   try {
     // get the db
     const db = await getDB();
-    const result = await db.collection('apartments').find({ _id: new ObjectId(id) }).toArray();
+    const result = await db.collection('houses').find({ _id: new ObjectId(id) }).toArray();
     return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
