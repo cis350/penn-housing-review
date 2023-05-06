@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 const express = require('express');
 const { ObjectId } = require('mongodb');
+
 const webapp = express();
 const cors = require('cors');
 
@@ -17,13 +19,11 @@ const dbLib = require('./DbOperations');
 
 webapp.use(bodyParser.json());
 
-
-
 /*
 webapp.get('/', (req, resp) =>{
     resp.json({messge: 'hello CIS3500 friends!!! You have dreamy eyes'});
-});*/
-//potentially update urls to start with /api/...
+}); */
+// potentially update urls to start with /api/...
 webapp.get('/houses/:id', async (req, res) => {
   try {
     // get the data from the db
@@ -274,7 +274,7 @@ webapp.patch('/posts/:id', async (req, res) => {
   console.log('updating likes');
   try {
     const pid = req.params.id;
-    const updateLikes = parseInt(req.body.likes);
+    const updateLikes = parseInt(req.body.likes, 10);
     const updatedPost = await dbLib.updatePostLike(updateLikes, pid);
     res.status(200).json({ data: updatedPost });
   } catch (err) {
@@ -308,7 +308,7 @@ webapp.post('/comments', async (req, res) => {
     const newComment = {
       pid: req.body.pid,
       content: req.body.content,
-      likes: parseInt(req.body.likes),
+      likes: parseInt(req.body.likes, 10),
     };
     const result = await dbLib.addNewComment(newComment);
     res.status(201).json({ data: { id: result } });
@@ -328,7 +328,7 @@ webapp.patch('/comments/:id', async (req, res) => {
   console.log('updating likes');
   try {
     const cid = req.params.id;
-    const updateLikes = parseInt(req.body.likes);
+    const updateLikes = parseInt(req.body.likes, 10);
     const updatedComment = await dbLib.updateCommentLike(updateLikes, cid);
     res.status(200).json({ data: updatedComment });
   } catch (err) {
@@ -388,21 +388,20 @@ webapp.get('*', (req, res) => {
 
 webapp.post('/reviews', async (req, res) => {
   try {
-      const newReview = {
-        User: req.body.username, 
-        ratings: req.body.ratings, 
-        likes: 0, 
-        desc: req.body.desc, 
-        apt_id: new ObjectId(req.body.aptid)
-      };
-      console.log(newReview);
-      const result = dbLib.addReview(newReview);
-      res.status(201).json({data: {id: result}});
+    const newReview = {
+      User: req.body.username,
+      ratings: req.body.ratings,
+      likes: 0,
+      desc: req.body.desc,
+      apt_id: new ObjectId(req.body.aptid),
+    };
+    console.log(newReview);
+    const result = dbLib.addReview(newReview);
+    res.status(201).json({ data: { id: result } });
   } catch (err) {
-      console.log(err)
-      res.status(400).json({message: err});
+    console.log(err);
+    res.status(400).json({ message: err });
   }
-})
-
+});
 
 module.exports = webapp;

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const { MongoClient, ObjectId } = require('mongodb');
 
 const dburl = 'mongodb+srv://PHR:fjz8AQYGYZtfWLKq@cluster0.0pdxrtn.mongodb.net/PHR?retryWrites=true&w=majority';
@@ -5,6 +6,26 @@ let MongoConnection;
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
+
+// connection to the db
+
+const connect = async () => {
+  // always use try/catch to handle any exception
+  try {
+    MongoConnection = await MongoClient.connect(dburl, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }); // we return the entire connection, not just the DB
+    // check that we are connected to the db
+    console.log(`connected to db: ${MongoConnection.db().databaseName}`);
+    // eslint-disable-next-line no-use-before-define
+    await createUniqueIndexForUsername();
+    return MongoConnection;
+  } catch (err) {
+    console.log(err.message);
+    return null;
+  }
+};
 
 const getDB = async () => {
   // test if there is an active connection
@@ -19,25 +40,10 @@ const createUniqueIndexForUsername = async () => {
     const db = await getDB();
     await db.collection('users').createIndex({ username: 1 }, { unique: true });
     console.log('Unique index for username created');
+    return null;
   } catch (err) {
     console.log(`error: ${err.message}`);
-  }
-};
-
-// connection to the db
-const connect = async () => {
-  // always use try/catch to handle any exception
-  try {
-    MongoConnection = await MongoClient.connect(dburl, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }); // we return the entire connection, not just the DB
-    // check that we are connected to the db
-    console.log(`connected to db: ${MongoConnection.db().databaseName}`);
-    await createUniqueIndexForUsername();
-    return MongoConnection;
-  } catch (err) {
-    console.log(err.message);
+    return null;
   }
 };
 
@@ -57,6 +63,7 @@ const getAllPosts = async () => {
     return fbPosts;
   } catch (err) {
     console.log('Error retrieving FB posts', err.message);
+    return null;
   }
 };
 
@@ -75,6 +82,7 @@ const getFilteredPostByHousingType = async (housingType) => {
     return postByHousing;
   } catch (err) {
     console.log('Error retrieving FB posts by housing type', err.message);
+    return null;
   }
 };
 
@@ -93,6 +101,7 @@ const getFilteredPostByCategory = async (category) => {
     return postByCategory;
   } catch (err) {
     console.log('Error retrieving FB posts by category', err.message);
+    return null;
   }
 };
 
@@ -118,6 +127,7 @@ const getFilteredPost = async (housingType, category) => {
       'Error retrieving FB posts by housing type and category',
       err.message,
     );
+    return null;
   }
 };
 
@@ -135,6 +145,7 @@ const updatePostLike = async (updateLikes, pid) => {
     return response;
   } catch (err) {
     console.log('Error updating likes', err.message);
+    return null;
   }
 };
 
@@ -151,6 +162,7 @@ const addNewPost = async (post) => {
     return response;
   } catch (err) {
     console.log('Error adding new post', err.message);
+    return null;
   }
 };
 
@@ -169,6 +181,7 @@ const getAllCommentsByPostId = async (pid) => {
     return comments;
   } catch (err) {
     console.log('Error retrieving comments', err.message);
+    return null;
   }
 };
 
@@ -185,6 +198,7 @@ const addNewComment = async (comment) => {
     return response;
   } catch (err) {
     console.log('Error adding new comment', err.message);
+    return null;
   }
 };
 
@@ -202,6 +216,7 @@ const updateCommentLike = async (updateLikes, cid) => {
     return response;
   } catch (err) {
     console.log('Error updating likes', err.message);
+    return null;
   }
 };
 
@@ -217,6 +232,7 @@ const getApartment = async (id) => {
     return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
+    return null;
   }
 };
 
@@ -232,6 +248,7 @@ const getReviews = async (id) => {
     return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
+    return null;
   }
 };
 
@@ -245,6 +262,7 @@ const updateLikes = async (id, likes) => {
     return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
+    return null;
   }
 };
 
@@ -327,16 +345,17 @@ const searchHouses = async (query) => {
 };
 
 const addReview = async (review) => {
-  console.log("Add review");
+  console.log('Add review');
   try {
-      const db = await getDB();
-      console.log(review);
-      const response = await db.collection('reviews').insertOne(review);
-      return response;
+    const db = await getDB();
+    console.log(review);
+    const response = await db.collection('reviews').insertOne(review);
+    return response;
   } catch (err) {
-      console.log("Error adding new review", err.message);
+    console.log('Error adding new review', err.message);
+    return null;
   }
-}
+};
 
 const getPost = async (id) => {
   try {
@@ -385,7 +404,7 @@ const addHouse = async (house) => {
         },
         freshman: house.freshman,
         onCampus: house.onCampus,
-        price: parseInt(house.price),
+        price: parseInt(house.price, 10),
       },
     };
 
@@ -398,14 +417,14 @@ const addHouse = async (house) => {
 };
 
 const getFilteredHouses = async (
-  price = 5000,
-  freshman = false,
-  onCampus = false,
   studio,
   single,
   double,
   triple,
   quad,
+  price = 5000,
+  freshman = false,
+  onCampus = false,
 ) => {
   try {
     const db = await getDB();
@@ -465,5 +484,5 @@ module.exports = {
   updatePassword,
   addHouse,
   getFilteredHouses,
-  addReview
+  addReview,
 };
