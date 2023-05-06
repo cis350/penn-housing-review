@@ -63,6 +63,8 @@
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
-    "@testing-library/jest-dom": "^5.16"
+    "@testing-library/jest-dom": "^5.16",
+    "eslint": "^8.40.0",
+    "eslint-plugin-react": "^7.32.2"
   }
 }

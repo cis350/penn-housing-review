@@ -29,9 +29,14 @@ describe('GET FB posts tests', () => {
     }
   });
 
-  test('update post likes', async () => {
+  test('update post likes failed', async () => {
     const resp = await request(webapp).patch('/posts/643dea4e9c2ad1df2f187939');
     expect(resp.status).toEqual(404);
+  });
+
+  test('update post likes sucess', async () => {
+    const resp = await request(webapp).patch('/posts/643dea4e9c2ad1df2f187939').send({likes: 17});
+    expect(resp.status).toEqual(200);
   });
 
   test('update comment likes without required param', async () => {

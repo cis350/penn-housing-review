@@ -30,9 +30,14 @@ describe('Post FB posts tests', () => {
     }
   });
 
-  test('add post with missing fields', async () => {
-    const resp = await request(webapp).put('/posts?category=Social');
+  test('create new user', async () => {
+    const resp = await request(webapp).put('/users?username=test');
     expect(resp.status).toEqual(404);
+  });
+
+  test('add post with missing fields', async () => {
+    const resp = await request(webapp).post('/posts?category=Social');
+    expect(resp.status).toEqual(400);
   });
 
   test('add comment with missing fields', async () => {
@@ -45,6 +50,49 @@ describe('Post FB posts tests', () => {
       const resp = await request(webapp).post('/users/updatePassword');
       expect(resp.status).toEqual(404);
 
+  });
+
+  test('update user password failed', async () => {
+
+    const resp = await request(webapp).post('/user/updatePassword').send({
+      username: 'test',
+      password: 'test',
+      newPassword: 'test',
+    }
+    );
+    expect(resp.status).toEqual(400);
+  
+  });
+
+  test('update followed posts failed', async () => {
+
+    const resp = await request(webapp).post('/user/updateFollowedPosts');
+    expect(resp.status).toEqual(404);
+  
+  });
+
+  test('add post sucess', async () => {
+    const resp = await request(webapp).post('/posts').send(
+      {
+        username: 'Lilian',
+        title: 'testing',
+        housingType: 'On Campus',
+        category: 'Social',
+        content: 'hiiii'
+      }
+    );
+    expect(resp.status).toEqual(201);
+  });
+
+  test('add review sucess', async () => {
+    const resp = await request(webapp).post('/reviews').send(
+      {
+        User: 'Lilian',
+        ratings: [{"$numberInt":"3"},{"$numberInt":"3"},{"$numberInt":"3"}],
+        desc: 'testing',
+      }
+    );
+    expect(resp.status).toEqual(201);
   });
 
 });

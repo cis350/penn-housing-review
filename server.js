@@ -1,4 +1,5 @@
 const express = require('express');
+const { ObjectId } = require('mongodb');
 const webapp = express();
 const dbLib = require('./DbOperations');
 const cors = require('cors');
@@ -14,13 +15,12 @@ webapp.use(bodyParser.json());
 
 
 
-
 /*
 webapp.get('/', (req, resp) =>{
     resp.json({messge: 'hello CIS3500 friends!!! You have dreamy eyes'});
 });*/
 //potentially update urls to start with /api/...
-webapp.get('/apartments/:id', async (req, res) => {
+webapp.get('/houses/:id', async (req, res) => {
   try {
     // get the data from the db
     const results = await dbLib.getApartment(req.params.id);
@@ -67,8 +67,6 @@ webapp.put('/reviews/:id', async (req, res) => {
 });
 
 webapp.post('/users', async (req, res) => {
-  console.log('user api');
-  console.log('body: ' + req.body.username);
   if (req.body.register === true || req.body.register === 'true') {
     console.log('CREATE a user');
     try {
@@ -207,18 +205,10 @@ webapp.post('/user/updatePassword', async (req, res) => {
 
 });
 
-
-
 webapp.get('/api/search/:query', async (req, res) => {
   console.log('READ all houses matching a query');
   try {
-    // get the data from the db
     const results = await dbLib.searchHouses(req.params.query);
-    if (results === undefined) {
-      res.status(404).json({ error: 'unknown house' });
-      return;
-    }
-    // send the response with the appropriate status code
     res.status(200).json({ data: results });
   } catch (err) {
     res.status(404).json({ message: 'there was error' });
@@ -264,7 +254,6 @@ webapp.post('/posts', async (req, res) => {
     res.status(400).json({ message: 'Missing required fields' });
     return;
   }
-
   try {
     const newPost = {
       username: req.body.username,
@@ -404,6 +393,25 @@ webapp.post('/newHouse', async (req, res) => {
 webapp.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './Frontend/build/index.html'));
 });
+
+webapp.post('/reviews', async (req, res) => {
+  try {
+      const newReview = {
+        User: req.body.username, 
+        ratings: req.body.ratings, 
+        likes: 0, 
+        desc: req.body.desc, 
+        apt_id: new ObjectId(req.body.aptid)
+      };
+      console.log(newReview);
+      const result = dbLib.addReview(newReview);
+      res.status(201).json({data: {id: result}});
+  } catch (err) {
+      console.log(err)
+      res.status(400).json({message: 'There was an error'});
+  }
+})
+
 
 module.exports = webapp;
 

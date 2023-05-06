@@ -15,21 +15,21 @@ function OverallReview({ ratings }) {
       <div className="ratings">
         <Mui.Rating
           className="ratings"
-          defaultValue={ratings[0]}
+          defaultValue={ratings.overall}
           precision={0.1}
           readOnly
         />
         <br />
         <Mui.Rating
           className="ratings"
-          defaultValue={ratings[1]}
+          defaultValue={ratings.amenities}
           precision={0.1}
           readOnly
         />
         <br />
         <Mui.Rating
           className="ratings"
-          defaultValue={ratings[2]}
+          defaultValue={ratings.security}
           precision={0.1}
           readOnly
         />
@@ -44,12 +44,13 @@ export default function DescriptionView({
   aptratings,
   aptdesc
 }) {
+  console.log(aptratings);
   return (
     <div className="description-view">
       <img className="aptimg" src={aptimg} alt="Apartment" />
       <h2 className="aptname">{aptname}</h2>
       <span className="hl1" />
-      <OverallReview ratings={aptratings} />
+      <OverallReview ratings={[aptratings]} />
       <span className="hl2" />
       <p className="aptdesc">{aptdesc}</p>
     </div>

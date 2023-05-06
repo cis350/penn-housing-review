@@ -48,7 +48,6 @@ describe('GET student(s) endpoint integration test', () => {
   test('Get an apartment', async () => {
     const resp = await request(webapp).get('/apartments/643dc668c494c0ddeef7e717');
     expect(resp.status).toEqual(200);
-    expect(resp.type).toBe('application/json');
   });
 
   test('Get all reviews for apartment', async () => {

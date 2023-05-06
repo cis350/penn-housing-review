@@ -204,23 +204,6 @@ const updateCommentLike = async (updateLikes, cid) => {
   }
 };
 
-// updatePostLike(10, '643dea4e9c2ad1df2f187939')
-// getFilteredPostByCategory('Discussion');
-// addNewComment({
-//     "pid": "643dea4e9c2ad1df2f187939",
-//     "content": "test",
-//     "likes": 0
-// });
-// addNewPost({
-//     "username": "test",
-//     "title": "test",
-//     "content": "test",
-//     "category": "Discussion",
-//     "housingType": "On Campus",
-//     "likes": 0,
-//     "comments": 0
-// });
-
 const getApartment = async (id) => {
   try {
     // get the db
@@ -253,7 +236,6 @@ const getReviews = async (id) => {
 
 const updateLikes = async (id, likes) => {
   try {
-    // get the db
     const db = await getDB();
     console.log(id);
     const result = await db
@@ -345,6 +327,18 @@ const searchHouses = async (query) => {
     throw err;
   }
 };
+
+const addReview = async (review) => {
+  console.log("Add review");
+  try {
+      const db = await getDB();
+      console.log(review);
+      const response = await db.collection('reviews').insertOne(review);
+      return response;
+  } catch (err) {
+      console.log("Error adding new review", err.message);
+  }
+}
 
 const getPost = async (id) => {
 
@@ -470,11 +464,12 @@ module.exports = {
     updateLikes, 
     createUser,
     getUserPassword, 
-    searchHouses, 
+    searchHouses,
+    addReview,
     getUserData,
     updateFollowedPosts,
     getPost, 
     updatePassword,
-    addHouse,
-    getFilteredHouses
+    getFilteredHouses,
+    addHouse
 };
