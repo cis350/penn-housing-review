@@ -65,7 +65,7 @@ function App() {
             path={reviewPostURL}
             element={(
               <div>
-                <PostReviewPage aptid={1} username={localStorage.getItem('username')} />
+                <PostReviewPage username={localStorage.getItem('username')} />
               </div>
             )}
           />

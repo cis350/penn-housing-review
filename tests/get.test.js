@@ -60,6 +60,17 @@ describe('GET FB posts tests', () => {
     expect(resp.type).toBe('application/json');
 
   });
-  
+
+  test('search houses success', async () => {
+    const resp = await request(webapp).get('/api/search/Ch0e');
+    expect(resp.status).toEqual(200);
+  }) 
+
+  test('get user data', async () => {
+    const resp = await request(webapp).get('/users?username=lilian');
+    expect(resp.status).toEqual(200);
+  }) 
+
+
 });
 

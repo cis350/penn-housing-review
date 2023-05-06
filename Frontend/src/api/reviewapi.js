@@ -3,7 +3,7 @@ import { rootURL } from '../utils/utils';
 
 export const getApartmentById = async (id) => {
   try {
-    const response = await axios.get(`${rootURL}/apartments/${id}`);
+    const response = await axios.get(`${rootURL}/houses/${id}`);
     return response;
   } catch (err) {
     // do something
@@ -36,11 +36,11 @@ export const updateLike = async(id, likes) => {
 
 export const submitReview = async(aptid, username, rating1, rating2, rating3, text) => {
     try {
-        const response = await axios.post(`/reviews${aptid}`, {
-            User: username,
+        const response = await axios.post(`${rootURL}/reviews`, {
+            username,
             ratings: [rating1, rating2, rating3],
-            likes: 0,
-            desc: text
+            desc: text,
+            aptid
         });
         return response.data;
     } catch (err) {
