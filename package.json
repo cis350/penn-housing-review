@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "jest --coverage --runInBand",
-    "build": "npm install && cd Frontend && npm install && npm run build",
+    "build": "npm install && cd Frontend && DISABLE_ESLINT_PLUGIN=true npm install && npm run build",
     "start-frontend": "react-scripts start",
     "build-frontend": "react-scripts build",
     "test-frontend": "react-scripts test --coverage --transformIgnorePatterns \"node_modules/(?!axios)/\"",
@@ -63,6 +63,9 @@
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
-    "@testing-library/jest-dom": "^5.16"
+    "@testing-library/jest-dom": "^5.16",
+    "eslint": "^8.40.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
   }
 }

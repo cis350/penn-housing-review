@@ -1,25 +1,27 @@
 const express = require('express');
+
 const webapp = express();
-const dbLib = require('./DbOperations');
 const cors = require('cors');
+
 webapp.use(cors());
 webapp.use(express.json());
 const bcrypt = require('bcrypt');
+
 webapp.use(express.urlencoded({ extended: true }));
 const path = require('path');
+
 webapp.use(express.static(path.join(__dirname, './Frontend/build')));
 
 const bodyParser = require('body-parser');
+const dbLib = require('./DbOperations');
+
 webapp.use(bodyParser.json());
-
-
-
 
 /*
 webapp.get('/', (req, resp) =>{
     resp.json({messge: 'hello CIS3500 friends!!! You have dreamy eyes'});
-});*/
-//potentially update urls to start with /api/...
+}); */
+// potentially update urls to start with /api/...
 webapp.get('/apartments/:id', async (req, res) => {
   try {
     // get the data from the db
@@ -56,7 +58,7 @@ webapp.put('/reviews/:id', async (req, res) => {
   try {
     const result = await dbLib.updateLikes(
       req.params.id,
-      Number(req.body.like)
+      Number(req.body.like),
     );
     console.log(typeof req.body.like);
     // send the response with the appropriate status code
@@ -68,7 +70,7 @@ webapp.put('/reviews/:id', async (req, res) => {
 
 webapp.post('/users', async (req, res) => {
   console.log('user api');
-  console.log('body: ' + req.body.username);
+  console.log(`body: ${req.body.username}`);
   if (req.body.register === true || req.body.register === 'true') {
     console.log('CREATE a user');
     try {
@@ -76,7 +78,7 @@ webapp.post('/users', async (req, res) => {
         req.body.username,
         req.body.email,
         req.body.password,
-        req.body.followedPosts
+        req.body.followedPosts,
       );
       // send the response with the appropriate status code
       console.log('create user succeeded');
@@ -85,12 +87,12 @@ webapp.post('/users', async (req, res) => {
       res.status(404).json({ message: 'there was error' });
     }
   } else {
-    console.log('READ a user: ' + req.body);
+    console.log(`READ a user: ${req.body}`);
     try {
       const hashedPassword = await dbLib.getUserPassword(req.body.username);
       const isPasswordCorrect = await bcrypt.compare(
         req.body.password,
-        hashedPassword
+        hashedPassword,
       );
       if (isPasswordCorrect) {
         res.status(200).json({ message: 'success' });
@@ -104,110 +106,94 @@ webapp.post('/users', async (req, res) => {
 });
 
 webapp.get('/users', async (req, res) => {
-    //for now, just return what posts you follow
+  // for now, just return what posts you follow
 
-    const username = req.query.username; 
-    try{
-
-      const userData= await dbLib.getUserData(username);
-      res.json(userData);
-
-    } catch (err){
-      res.status(404).json({ message:"there was an error:"+ err });
-      res.json([]);
-    }
-
-
+  const { username } = req.query;
+  try {
+    const userData = await dbLib.getUserData(username);
+    res.json(userData);
+  } catch (err) {
+    res.status(404).json({ message: `there was an error:${err}` });
+    res.json([]);
+  }
 });
 
 webapp.post('/users/updateFollowedPosts', async (req, res) => {
-
-  const username = req.query.username;
-  const postId = req.query.postId;
-  //console.log(username,postId)
+  const { username } = req.query;
+  const { postId } = req.query;
+  // console.log(username,postId)
   if (!username || !postId) {
-    res.status(400).json({message: 'Missing required fields'});
+    res.status(400).json({ message: 'Missing required fields' });
     return;
   }
 
-  try{
-    
-    const userData= await dbLib.getUserData(username);
-    if (!userData){
-      
-      res.status(404).json({message: 'User not found'});
+  try {
+    const userData = await dbLib.getUserData(username);
+    if (!userData) {
+      res.status(404).json({ message: 'User not found' });
       return;
     }
 
-    if(!userData.followedPosts.includes(postId)){
+    if (!userData.followedPosts.includes(postId)) {
       userData.followedPosts.push(postId);
-    } else{
-      userData.followedPosts = userData.followedPosts.filter(id => id !== postId);
+    } else {
+      userData.followedPosts = userData.followedPosts.filter((id) => id !== postId);
     }
 
     const result = await dbLib.updateFollowedPosts(username, userData.followedPosts);
-    console.log("successfully updated followed posts", result);
-    res.status(200).json({message: 'success'});
-  } catch (err){
+    console.log('successfully updated followed posts', result);
+    res.status(200).json({ message: 'success' });
+  } catch (err) {
     console.log(err);
-    res.status(404).json({ message:"there was an error:"+ err });
+    res.status(404).json({ message: `there was an error:${err}` });
   }
-
-  
-  
-
 });
 
 webapp.get('/posts/:id', async (req, res) => {
-    const id = req.params.id;
+  const { id } = req.params;
 
-    if (!id) {
-      res.status(400).json({message: 'Missing required fields'});
+  if (!id) {
+    res.status(400).json({ message: 'Missing required fields' });
+    return;
+  }
+
+  try {
+    const post = await dbLib.getPost(id);
+    if (!post) {
+      res.status(404).json({ message: 'Post not found' });
       return;
     }
-
-    try{
-      const post = await dbLib.getPost(id);
-      if (!post){
-        res.status(404).json({message: 'Post not found'});
-        return;
-      }
-      res.json(post);
-    } catch(err){
-      res.status(404).json({ message:"there was an error:"+ err });
-    }
-
+    res.json(post);
+  } catch (err) {
+    res.status(404).json({ message: `there was an error:${err}` });
+  }
 });
 
 webapp.post('/user/updatePassword', async (req, res) => {
+  const { username } = req.query;
+  const { password } = req.query;
+  const { newPassword } = req.query;
 
-    const username = req.query.username;
-    const password = req.query.password;
-    const newPassword = req.query.newPassword;
+  if (!username || !password || !newPassword) {
+    res.status(400).json({ message: 'Missing required fields' });
+    return;
+  }
 
-    if (!username || !password || !newPassword) {
-      res.status(400).json({message: 'Missing required fields'});
+  try {
+    const hashedPassword = await dbLib.getUserPassword(username);
+    const isPasswordCorrect = await bcrypt.compare(password, hashedPassword);
+    if (!isPasswordCorrect) {
+      res.status(401).json({ message: 'Invalid credentials' });
       return;
     }
-   
-    try{
-      const hashedPassword = await dbLib.getUserPassword(username);
-      const isPasswordCorrect = await bcrypt.compare(password, hashedPassword);
-      if(!isPasswordCorrect){
-        res.status(401).json({message: 'Invalid credentials'});
-        return;
-      }
-      const result = await dbLib.updatePassword(username, newPassword);
+    const result = await dbLib.updatePassword(username, newPassword);
 
-      console.log(result);
-      res.status(200).json({message: 'success'});
-    } catch(err){
-      res.status(404).json({ message:"there was an error:"+ err });
-    }
-
+    console.log(result);
+    res.status(200).json({ message: 'success' });
+  } catch (err) {
+    res.status(404).json({ message: `there was an error:${err}` });
+  }
 });
-
-
 
 webapp.get('/api/search/:query', async (req, res) => {
   console.log('READ all houses matching a query');
@@ -255,11 +241,11 @@ webapp.get('/posts', async (req, res) => {
 webapp.post('/posts', async (req, res) => {
   console.log('posts', req.body);
   if (
-    !req.body.username ||
-    !req.body.title ||
-    !req.body.housingType ||
-    !req.body.category ||
-    !req.body.content
+    !req.body.username
+    || !req.body.title
+    || !req.body.housingType
+    || !req.body.category
+    || !req.body.content
   ) {
     res.status(400).json({ message: 'Missing required fields' });
     return;
@@ -360,7 +346,7 @@ webapp.patch('/comments/:id', async (req, res) => {
 
 webapp.post('/houses', async (req, res) => {
   console.log('reading houses for recommend');
-  const price = req.body.price;
+  const { price } = req.body;
   const freshman = req.body.freshman ?? false;
   const onCampus = req.body.onCampus ?? false;
   const studio = req.body.studio ?? false;
@@ -380,7 +366,7 @@ webapp.post('/houses', async (req, res) => {
       single,
       double,
       triple,
-      quad
+      quad,
     );
     res.status(200).json({ data: filteredHouses });
   } catch (err) {
@@ -389,7 +375,7 @@ webapp.post('/houses', async (req, res) => {
 });
 
 webapp.post('/newHouse', async (req, res) => {
-  console.log("adding new house");
+  console.log('adding new house');
   try {
     const house = req.body;
     const result = await dbLib.addHouse(house);
@@ -400,10 +386,9 @@ webapp.post('/newHouse', async (req, res) => {
   }
 });
 
-//wildcard endpoint - serve react files
+// wildcard endpoint - serve react files
 webapp.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './Frontend/build/index.html'));
 });
 
 module.exports = webapp;
-

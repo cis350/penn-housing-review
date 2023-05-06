@@ -1,9 +1,18 @@
 const { MongoClient, ObjectId } = require('mongodb');
-const dburl =
-  'mongodb+srv://PHR:fjz8AQYGYZtfWLKq@cluster0.0pdxrtn.mongodb.net/PHR?retryWrites=true&w=majority';
+
+const dburl = 'mongodb+srv://PHR:fjz8AQYGYZtfWLKq@cluster0.0pdxrtn.mongodb.net/PHR?retryWrites=true&w=majority';
 let MongoConnection;
 const bcrypt = require('bcrypt');
+
 const saltRounds = 10;
+
+const getDB = async () => {
+  // test if there is an active connection
+  if (!MongoConnection) {
+    await connect();
+  }
+  return MongoConnection.db();
+};
 
 const createUniqueIndexForUsername = async () => {
   try {
@@ -30,14 +39,6 @@ const connect = async () => {
   } catch (err) {
     console.log(err.message);
   }
-};
-
-const getDB = async () => {
-  // test if there is an active connection
-  if (!MongoConnection) {
-    await connect();
-  }
-  return MongoConnection.db();
 };
 
 const closeMongoDBConnection = async () => {
@@ -68,7 +69,7 @@ const getFilteredPostByHousingType = async (housingType) => {
     const db = await getDB();
     const postByHousing = await db
       .collection('posts')
-      .find({ housingType: housingType })
+      .find({ housingType })
       .toArray();
     // console.log(`FB posts filtered by housing type: ${JSON.stringify(postByHousing)}`);
     return postByHousing;
@@ -86,7 +87,7 @@ const getFilteredPostByCategory = async (category) => {
     const db = await getDB();
     const postByCategory = await db
       .collection('posts')
-      .find({ category: category })
+      .find({ category })
       .toArray();
     // console.log(`FB posts filtered by category: ${JSON.stringify(postByCategory)}`);
     return postByCategory;
@@ -104,18 +105,18 @@ const getFilteredPost = async (housingType, category) => {
     const db = await getDB();
     const filteredPosts = await db
       .collection('posts')
-      .find({ housingType: housingType, category: category })
+      .find({ housingType, category })
       .toArray();
     console.log(
       `FB posts filtered by housing type and category: ${JSON.stringify(
-        filteredPosts
-      )}`
+        filteredPosts,
+      )}`,
     );
     return filteredPosts;
   } catch (err) {
     console.log(
       'Error retrieving FB posts by housing type and category',
-      err.message
+      err.message,
     );
   }
 };
@@ -145,7 +146,7 @@ const addNewPost = async (post) => {
     // get the db
     const db = await getDB();
     const response = await db.collection('posts').insertOne(post);
-    console.log(`postcscsac`, post);
+    console.log('postcscsac', post);
     console.log(`Add new post: ${JSON.stringify(response)}`);
     return response;
   } catch (err) {
@@ -162,7 +163,7 @@ const getAllCommentsByPostId = async (pid) => {
     const db = await getDB();
     const comments = await db
       .collection('comments')
-      .find({ pid: pid })
+      .find({ pid })
       .toArray();
     // console.log(`Comments: ${JSON.stringify(comments)}`);
     return comments;
@@ -258,7 +259,7 @@ const updateLikes = async (id, likes) => {
     console.log(id);
     const result = await db
       .collection('reviews')
-      .updateOne({ _id: new ObjectId(id) }, { $set: { likes: likes } });
+      .updateOne({ _id: new ObjectId(id) }, { $set: { likes } });
     return result;
   } catch (err) {
     console.log(`error: ${err.message}`);
@@ -271,8 +272,8 @@ const createUser = async (username, email, password, followedPosts) => {
     const db = await getDB();
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     const newUser = {
-      username: username,
-      email: email,
+      username,
+      email,
       password: hashedPassword,
       followedPosts: followedPosts || [],
     };
@@ -288,7 +289,7 @@ const createUser = async (username, email, password, followedPosts) => {
 const getUserPassword = async (username) => {
   try {
     const db = await getDB();
-    const user = await db.collection('users').findOne({ username: username });
+    const user = await db.collection('users').findOne({ username });
     if (!user) {
       throw new Error('User not found');
     }
@@ -301,33 +302,30 @@ const getUserPassword = async (username) => {
 };
 
 const getUserData = async (username) => {
-  try{
+  try {
     const db = await getDB();
-    const user = await db.collection('users').findOne({ username: username });
+    const user = await db.collection('users').findOne({ username });
     if (!user) {
       throw new Error('User not found');
     }
-    //console.log(`User data: ${JSON.stringify(user)}`);
+    // console.log(`User data: ${JSON.stringify(user)}`);
     return user;
   } catch (err) {
     console.log(`error: ${err.message}`);
     throw err;
   }
-
 };
 
 const updateFollowedPosts = async (username, followedPosts) => {
-
-  try{
+  try {
     const db = await getDB();
-    const result = await db.collection('users').updateOne({ username: username }, { $set: { followedPosts: followedPosts } });
-    
+    const result = await db.collection('users').updateOne({ username }, { $set: { followedPosts } });
+
     return result;
-  } catch (err){
+  } catch (err) {
     console.log(`error: ${err.message}`);
     throw err;
   }
-
 };
 
 const searchHouses = async (query) => {
@@ -347,32 +345,29 @@ const searchHouses = async (query) => {
 };
 
 const getPost = async (id) => {
-
-  try{
+  try {
     const db = await getDB();
     const results = await db.collection('posts').findOne({ _id: new ObjectId(id) });
     return results;
-  } catch(err){
+  } catch (err) {
     console.log(`error: ${err.message}`);
     throw err;
   }
-
 };
 
 const updatePassword = async (username, newPassword) => {
-  try{
+  try {
     const db = await getDB();
     const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
-    console.log("username:",username);
-    
-    const results = await db.collection('users').updateOne({ username: username }, { $set: { password: hashedPassword } });
+    console.log('username:', username);
+
+    const results = await db.collection('users').updateOne({ username }, { $set: { password: hashedPassword } });
     return results;
-  } catch(err){
+  } catch (err) {
     console.log(`error: ${err.message}`);
     throw err;
   }
-}
-
+};
 
 const addHouse = async (house) => {
   try {
@@ -380,11 +375,11 @@ const addHouse = async (house) => {
     const houseToAdd = {
       name: house.name,
       description: house.description,
-      image: "https://via.placeholder.com/200",
+      image: 'https://via.placeholder.com/200',
       ratings: {
         security: 5,
         amenities: 5,
-        overall: 5
+        overall: 5,
       },
       filters: {
         roomTypes: {
@@ -392,14 +387,13 @@ const addHouse = async (house) => {
           '1b': house.single,
           '2b': house.double,
           '3b': house.triple,
-          '4b': house.quad
+          '4b': house.quad,
         },
         freshman: house.freshman,
         onCampus: house.onCampus,
-        price: parseInt(house.price)
-      }
+        price: parseInt(house.price),
+      },
     };
-
 
     const result = await db.collection('houses').insertOne(houseToAdd);
     return result;
@@ -417,7 +411,7 @@ const getFilteredHouses = async (
   single,
   double,
   triple,
-  quad
+  quad,
 ) => {
   try {
     const db = await getDB();
@@ -453,28 +447,28 @@ const getFilteredHouses = async (
 };
 
 module.exports = {
-    connect,
-    closeMongoDBConnection,
-    getDB,
-    getAllPosts,
-    getFilteredPostByHousingType,
-    getFilteredPostByCategory,
-    getFilteredPost,
-    addNewPost,
-    getAllCommentsByPostId,
-    addNewComment,
-    updateCommentLike,
-    updatePostLike,
-    getApartment,
-    getReviews,
-    updateLikes, 
-    createUser,
-    getUserPassword, 
-    searchHouses, 
-    getUserData,
-    updateFollowedPosts,
-    getPost, 
-    updatePassword,
-    addHouse,
-    getFilteredHouses
+  connect,
+  closeMongoDBConnection,
+  getDB,
+  getAllPosts,
+  getFilteredPostByHousingType,
+  getFilteredPostByCategory,
+  getFilteredPost,
+  addNewPost,
+  getAllCommentsByPostId,
+  addNewComment,
+  updateCommentLike,
+  updatePostLike,
+  getApartment,
+  getReviews,
+  updateLikes,
+  createUser,
+  getUserPassword,
+  searchHouses,
+  getUserData,
+  updateFollowedPosts,
+  getPost,
+  updatePassword,
+  addHouse,
+  getFilteredHouses,
 };
