@@ -465,4 +465,5 @@ module.exports = {
   updatePassword,
   addHouse,
   getFilteredHouses,
+  addReview
 };

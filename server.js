@@ -400,7 +400,7 @@ webapp.post('/reviews', async (req, res) => {
       res.status(201).json({data: {id: result}});
   } catch (err) {
       console.log(err)
-      res.status(400).json({message: 'There was an error'});
+      res.status(400).json({message: err});
   }
 })
 
