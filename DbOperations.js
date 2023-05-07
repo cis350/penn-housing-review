@@ -308,7 +308,6 @@ const getUserData = async (username) => {
     if (!user) {
       throw new Error('User not found');
     }
-    // console.log(`User data: ${JSON.stringify(user)}`);
     return user;
   } catch (err) {
     console.log(`error: ${err.message}`);

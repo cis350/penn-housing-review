@@ -108,8 +108,6 @@ webapp.post('/users', async (req, res) => {
 });
 
 webapp.get('/users', async (req, res) => {
-  // for now, just return what posts you follow
-
   const { username } = req.query;
   try {
     const userData = await dbLib.getUserData(username);
@@ -198,7 +196,6 @@ webapp.post('/user/updatePassword', async (req, res) => {
 });
 
 webapp.get('/api/search/:query', async (req, res) => {
-  console.log('READ all houses matching a query');
   try {
     const results = await dbLib.searchHouses(req.params.query);
     res.status(200).json({ data: results });
@@ -335,9 +332,6 @@ webapp.patch('/comments/:id', async (req, res) => {
     res.status(400).json({ message: 'Error updating comment likes' });
   }
 });
-/**
- *
- */
 
 webapp.post('/houses', async (req, res) => {
   console.log('reading houses for recommend');

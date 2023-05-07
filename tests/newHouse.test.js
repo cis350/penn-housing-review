@@ -24,10 +24,6 @@ describe('GET student(s) endpoint integration test', () => {
   beforeAll(async () => {
     mongo = await connect();
     db = mongo.db();
-    
-    // add test user to mongodb
-    // testStudentID = await insertTestDataToDB(db, testStudent);
-    // console.log('testStudentID', testStudentID);
   });
 
   
@@ -36,7 +32,6 @@ describe('GET student(s) endpoint integration test', () => {
  * Close all open connections
  */
   afterAll(async () => {
-    // await deleteTestDataFromDB(db, 'teststudent');
     try {
       await mongo.close();
       await closeMongoDBConnection(); // mongo client that started server.
@@ -47,6 +42,7 @@ describe('GET student(s) endpoint integration test', () => {
 
   test('New House', async () => {
    const resp = (await request(webapp).post('/newHouse'));
+    expect(resp.status).toEqual(200);
   });
   
 });

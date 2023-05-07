@@ -31,7 +31,7 @@ describe('Post FB posts tests', () => {
   });
 
   test('create new user', async () => {
-    const resp = await request(webapp).put('/users?username=test');
+    const resp = await request(webapp).post('/users?username=test');
     expect(resp.status).toEqual(404);
   });
 
@@ -41,15 +41,24 @@ describe('Post FB posts tests', () => {
   });
 
   test('add comment with missing fields', async () => {
-    const resp = await request(webapp).put('/comments');
-    expect(resp.status).toEqual(404);
+    const resp = await request(webapp).post('/comments');
+    expect(resp.status).toEqual(400);
+  });
+
+  test('add comment sucess', async () => {
+    const resp = await request(webapp).post('/comments').send(
+      {
+        pid: '64442ce96cebadb4c6de65e3',
+        content: 'testing',
+        likes: 0,
+      }
+    );
+    expect(resp.status).toEqual(201);
   });
 
   test('change password with missing fields', async () => {
-
       const resp = await request(webapp).post('/users/updatePassword');
       expect(resp.status).toEqual(404);
-
   });
 
   test('update user password failed', async () => {

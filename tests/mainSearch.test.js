@@ -45,8 +45,14 @@ describe('GET student(s) endpoint integration test', () => {
     }
   });
 
-  test('Search', async () => {
+  test('Search chestnut', async () => {
     const resp = await request(webapp).get('/search/chestnut');
+    expect(resp.status).toEqual(200); 
+  });
+
+  test('Search chestnut', async () => {
+    const resp = await request(webapp).get('/search/har');
+    expect(resp.status).toEqual(200); 
   });
   
 });
