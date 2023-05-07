@@ -29,7 +29,7 @@ export default function Header() {
       <Logo />
       <h1 className="title">Housing Review</h1>
       <SearchBar />
-      <Profile username="Ken" />
+      <Profile username={localStorage.getItem('username')} />
     </header>
   );
 }
